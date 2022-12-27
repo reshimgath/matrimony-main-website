@@ -1,0 +1,36 @@
+/* @media(min-width:640px) {
+    .collapse {
+        width: 30% !important;
+        transition: none;
+    }
+} */
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url(./images/more.png);
+}
+
+.links_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.links_div li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.nav_menus {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nav_menus li {
+    display: flex;
+    gap: 13px;
+}

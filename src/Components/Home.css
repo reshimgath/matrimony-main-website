@@ -1,0 +1,52 @@
+.homeDiv {
+    background-image: url('../images//reshimgath_hero.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.homeTitle {
+    font-family: titleFont;
+    font-size: 12vW;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+    color: #E12E56;
+    opacity: 0.9;
+    text-shadow: 2px 2px #000;
+}
+
+.search_icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 6vw;
+}
+
+.search_icons div img {
+    width: 2.5vw;
+}
+
+.search_Sub_icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    column-gap: 1vw;
+}
+
+.search_Sub_icons span {
+    font-size: 1.6vw;
+}
+
+.search_area_background {
+    background-color: #000;
+    opacity: 0.6;
+    width: 90%;
+    margin: 12vh auto 5vh;
+    height: 130px;
+}
+
+.blank_div {
+    height: 20px;
+}
