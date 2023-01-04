@@ -11,14 +11,14 @@ const Nav = () => {
         <>
             <nav className="navbar navbar-light bg-transperent p-4">
                 <div className="container-fluid">
-                    <h1 style={{ fontFamily: "titleFont", color: "White", fontSize: "3vw" }}>Reshimgath</h1>
+                    <h1 className="main_nav_title">Reshimgath</h1>
                     <button className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                 </div>
             </nav>
             <div className="collapse" id="navbarToggleExternalContent">
-                <div className="bg-light p-4 links_div">
+                <div className="bg-transperent p-4 links_div">
                     {
                         loggedIn ?
                             (
@@ -30,8 +30,8 @@ const Nav = () => {
                             :
                             (
                                 <ul className="nav_menus" >
-                                    <li><img src={loginIcon} alt="Image" />&nbsp;<span>LogIn</span></li>
-                                    <li><img src={registerIcon} alt="Image" />&nbsp;<span>Register</span></li>
+                                    <li><img src={loginIcon} alt="Image" />&nbsp;<span style={{ color: "white" }}>LogIn</span></li>
+                                    <li><img src={registerIcon} alt="Image" />&nbsp;<span style={{ color: "white" }}>Register</span></li>
                                 </ul>
                             )
                     }

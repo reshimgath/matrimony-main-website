@@ -1,0 +1,65 @@
+@font-face {
+    font-family: achievementDescFont;
+    src: url('../Fonts/Roboto-Regular.ttf');
+
+    font-family: achievementCountFont;
+    src: url('../Fonts/BerkshireSwash-Regular.ttf');
+}
+
+.count_container {
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+.count_title {
+    text-align: center;
+    font-family: titleFont;
+    font-size: 4vw;
+    color: #E12E56;
+}
+
+@media(max-width:575px) {
+    .count_title {
+        font-size: 6vw;
+    }
+}
+
+@media(max-width:320px) {
+    .count_title {
+        font-size: 8vw;
+    }
+
+    .count_data_row {
+        margin-top: 20px !important;
+    }
+}
+
+.count_data_row {
+    margin-top: 50px;
+}
+
+.achievement_count h2 {
+    font-family: achievementCountFont;
+    color: #E12E56;
+    font-size: 4vw;
+}
+
+@media(max-width:320px) {
+    .achievement_count h2 {
+        font-size: 12vw;
+    }
+}
+
+@media(max-width:575px) {
+    .achievement_count h2 {
+        font-size: 8vw;
+    }
+
+    .count_data_row {
+        margin-top: 20px !important;
+    }
+}
+
+.achievement_desc h3 {
+    font-family: achievementDescFont;
+}

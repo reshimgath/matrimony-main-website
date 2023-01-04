@@ -1,0 +1,86 @@
+@font-face {
+    font-family: successFont;
+    src: url(../Fonts/Roboto-Regular.ttf);
+}
+
+.successs_main_container {
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #e12e56;
+    margin-top: 90px;
+}
+
+.success_title {
+    font-family: titleFont;
+    margin-top: 15vh;
+    color: #fff;
+    text-align: center;
+    font-size: 3.9vw;
+}
+
+@media(max-width:575px) {
+    .success_title {
+        font-size: 5vw;
+    }
+}
+
+@media(max-width:340px) {
+    .success_title {
+        font-size: 7.4vw;
+    }
+}
+
+.success_cards_container {
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.success_card_div {
+    background-color: #fff;
+}
+
+.success_card_div img {
+    padding-top: 8px;
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
+}
+
+.success_card_div p {
+    font-family: successFont;
+    text-align: center;
+    font-size: 1.6vw;
+}
+
+@media(max-width:575px) {
+    .success_card_div p {
+        font-size: 4vw;
+    }
+}
+
+.getStartedText {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.getstartedBtn {
+    width: 120px;
+    margin-left: 15px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #e12e56;
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+.getstartedBtn:hover {
+    color: #fff;
+    background-color: #ff3b65;
+}
+
+.mainContainer {
+    border-bottom: 5px solid #e12e56;
+}
