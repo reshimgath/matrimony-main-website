@@ -46,6 +46,7 @@ const Success = () => {
                     </center>
                 </div>
             </div>
+
         </div>
     )
 }

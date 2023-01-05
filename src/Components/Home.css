@@ -43,12 +43,47 @@
 
 .search_area_background {
     background-color: #000;
-    opacity: 0.6;
-    width: 90%;
+    opacity: 0.75;
+    width: 95%;
     margin: 12vh auto 5vh;
     height: 130px;
 }
 
+.search_area_background {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+
 .blank_div {
     height: 20px;
+}
+
+.dropdown-menu {
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+.search_btn {
+    background-color: #00ccff;
+    color: #fff !important;
+    opacity: 1;
+    padding: 7px 25px 7px;
+
+}
+
+label {
+    color: #fff;
+    margin-left: 4px;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dropdown-menu.show {
+    width: 100%;
 }
