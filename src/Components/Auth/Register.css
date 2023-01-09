@@ -1,13 +1,51 @@
+body {
+    box-sizing: border-box;
+}
+
 @font-face {
     font-family: registerTitle;
     src: url('../../Fonts/BerkshireSwash-Regular.ttf');
+}
+
+.register_container {
+    margin-bottom: 20vh;
 }
 
 .register_title {
     font-family: registerTitle;
     color: #E12E56;
     text-align: center;
-    margin-top: 20vh;
-    margin-bottom: 10vh;
+    margin-top: 12vh;
+    margin-bottom: 3vh;
     font-size: 3vw;
+}
+
+@media(max-width:650px) {
+    .register_title {
+        font-size: 4.5vw;
+    }
+}
+
+@media(max-width:420px) {
+    .register_title {
+        font-size: 5.5vw;
+    }
+}
+
+.outer_form_div {
+    padding: 30px;
+    border: 1px solid #ced4da;
+    border-radius: 25px;
+}
+
+.registerBtn {
+    width: 100%;
+    background-color: #E12E56;
+    color: #fff;
+    border: none;
+    padding: 10px;
+}
+
+.registerBtn:hover {
+    background-color: #e21e49;
 }

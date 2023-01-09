@@ -1,0 +1,65 @@
+@font-face {
+    font-family: loginTitle;
+    src: url('../../Fonts/BerkshireSwash-Regular.ttf');
+}
+
+.login_container {
+    margin-bottom: 20vh;
+}
+
+.login_title {
+    font-family: loginTitle;
+    color: #E12E56;
+    text-align: center;
+    margin-top: 12vh;
+    margin-bottom: 3vh;
+    font-size: 3vw;
+}
+
+
+@media(max-width:650px) {
+    .login_title {
+        font-size: 4.5vw;
+    }
+}
+
+@media(max-width:420px) {
+    .login_title {
+        font-size: 5.5vw;
+    }
+}
+
+.outer_form_div {
+    padding: 30px;
+    border: 1px solid #ced4da;
+    border-radius: 25px;
+}
+
+.loginBtn {
+    width: 100%;
+    background-color: #E12E56;
+    color: #fff;
+    border: none;
+    padding: 10px;
+}
+
+.loginBtn:hover {
+    background-color: #e21e49;
+}
+
+#forgetBtn {
+    text-decoration: none;
+    margin-top: 5px;
+    margin-left: 5px;
+    color: #5a5e61;
+}
+
+#registerBtn {
+    margin-left: 5px;
+    color: #5a5e61;
+}
+
+#registerBtn a {
+    text-decoration: none;
+    color: #000;
+}
