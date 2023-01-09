@@ -1,0 +1,13 @@
+@font-face {
+    font-family: registerTitle;
+    src: url('../../Fonts/BerkshireSwash-Regular.ttf');
+}
+
+.register_title {
+    font-family: registerTitle;
+    color: #E12E56;
+    text-align: center;
+    margin-top: 20vh;
+    margin-bottom: 10vh;
+    font-size: 3vw;
+}
