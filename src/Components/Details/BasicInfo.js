@@ -3,9 +3,11 @@ import '../Details/BasicInfo.css'
 import heightData from '../height.json'
 import educationData from '../education.json'
 import religionData from '../religion.json'
+import RedNav from '../../RedNav'
 const BasicInfo = () => {
     return (
         <>
+            <RedNav />
             <div className="container Basic_info_container">
                 <div className="row">
                     <h1 className="basic_info_title">Basic Information</h1>

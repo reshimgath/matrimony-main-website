@@ -1,8 +1,10 @@
 import React from 'react'
 import '../Details/FamilyInfo.css'
+import RedNav from '../../RedNav'
 const FamilyInfo = () => {
     return (
         <>
+            <RedNav />
             <div className="container family_info_container">
                 <div className="row">
                     <h1 className="family_info_title">Family Details</h1>
