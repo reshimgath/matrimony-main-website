@@ -1,0 +1,22 @@
+@font-face {
+    font-family: horoscope_Main_title;
+    src: url('../../Fonts/BerkshireSwash-Regular.ttf');
+}
+
+.horoscope_info_title {
+    font-family: horoscope_Main_title;
+    color: #E12E56;
+    text-align: center;
+    margin-top: 12vh;
+    margin-bottom: 8vh;
+    font-size: 3vw;
+}
+
+#horoscop_info_btn {
+    width: 100%;
+    border: none;
+    background-color: #E12E56;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}

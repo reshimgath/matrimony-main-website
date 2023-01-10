@@ -5,6 +5,7 @@ import Footer from './Footer';
 import Login from './Components/Auth/Login';
 import BasicInfo from './Components/Details/BasicInfo';
 import FamilyInfo from './Components/Details/FamilyInfo';
+import HoroscopInfo from './Components/Details/HoroscopInfo';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Login />
       <BasicInfo />
       <FamilyInfo />
+      <HoroscopInfo />
       <Footer />
     </>
   );
