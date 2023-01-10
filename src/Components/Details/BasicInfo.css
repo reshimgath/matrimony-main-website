@@ -1,0 +1,26 @@
+body {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: basicInfoTitle;
+    src: url('../../Fonts/BerkshireSwash-Regular.ttf');
+}
+
+.basic_info_title {
+    font-family: basicInfoTitle;
+    color: #E12E56;
+    text-align: center;
+    margin-top: 12vh;
+    margin-bottom: 8vh;
+    font-size: 3vw;
+}
+
+#basic_info_btn {
+    width: 100%;
+    border: none;
+    background-color: #E12E56;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,23 @@
+@font-face {
+    font-family: familyInfoTitle;
+    src: url('../../Fonts/BerkshireSwash-Regular.ttf');
+}
+
+@font-face {
+
+    font-family: familyFont;
+    src: url('../../Fonts/Roboto-Regular.ttf');
+}
+
+.family_info_title {
+    font-family: familyInfoTitle;
+    color: #E12E56;
+    text-align: center;
+    margin-top: 12vh;
+    margin-bottom: 8vh;
+    font-size: 3vw;
+}
+
+.fathers_occupation_group span {
+    font-family: familyFont;
+}
