@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Nav from '../Nav';
 import '../Components/Home.css';
 import signupIcon from '../images/Hero Icons/exit.png'
@@ -10,9 +10,13 @@ import Count from './Count'
 import MatchHome from './MatchHome'
 import Recent from './Recent'
 import Success from './Success'
+import SearchResult from './SearchResult';
 
 
 const Home = () => {
+    const sampleArr = [1, 2, 3, 4, 5];
+    console.log(sampleArr.length)
+
     return (
         <>
             <div className='homeDiv'>
@@ -190,6 +194,9 @@ const Home = () => {
                 <div className="blank_div"></div>
             </div>
 
+            {
+                sampleArr.length === 0 ? "" : (<SearchResult arrProp={sampleArr} />)
+            }
             <Aim />
             <MatchHome />
             <Recent />

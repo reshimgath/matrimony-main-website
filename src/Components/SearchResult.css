@@ -1,0 +1,19 @@
+.result_title {
+    text-align: center;
+    margin-top: 8px;
+}
+
+.advance_search_div {
+    background-color: #ebebeb;
+    padding: 7px;
+}
+
+.advance_search_option {
+    text-align: center;
+    color: #68687d;
+}
+
+#advance_search_btn {
+    text-decoration: none;
+    color: #e12e56;
+}

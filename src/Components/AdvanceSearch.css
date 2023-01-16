@@ -1,0 +1,14 @@
+@font-face {
+    font-family: advSearch_Title_Font;
+    src: url('../Fonts/BerkshireSwash-Regular.ttf');
+}
+
+.adv_search_title {
+    font-family: advSearch_Title_Font;
+    color: #e1114c;
+    text-align: center;
+    margin-top: 11vh;
+    margin-bottom: 9vh;
+    font-size: 3.2vw;
+    /* font-size: clamp(15px, 10vw, 43px); */
+}
