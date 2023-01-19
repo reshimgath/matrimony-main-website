@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Nav from '../Nav';
 import '../Components/Home.css';
 import signupIcon from '../images/Hero Icons/exit.png'
@@ -11,16 +11,22 @@ import MatchHome from './MatchHome'
 import Recent from './Recent'
 import Success from './Success'
 import SearchResult from './SearchResult';
+import AuthContext from '../ContextCreation/AuthContext/AuthContext';
 
 
 const Home = () => {
     const sampleArr = [1, 2, 3, 4, 5];
-    console.log(sampleArr.length)
+    // console.log(sampleArr.length)
+
+    const authContext = useContext(AuthContext)
+    // console.log(authContext.dataState)
 
     return (
         <>
             <div className='homeDiv'>
                 <Nav />
+
+                {/* <button onClick={() => { authContext.dataDispatch({ type: 'changeState' }) }}>Change State Now</button> */}
 
                 <h1 className='homeTitle'>Reshimgath</h1>
 

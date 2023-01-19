@@ -4,8 +4,59 @@ import heightData from '../height.json'
 import educationData from '../education.json'
 import religionData from '../religion.json'
 import RedNav from '../../RedNav'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
+
+
 const BasicInfo = () => {
+    const [countriesName, setCountriesName] = useState('')
+
+    // Fetching All countries
+    const [country, setCountry] = useState([])
+    useEffect(() => {
+        axios.get('https://api.countrystatecity.in/v1/countries', {
+            headers: {
+                'X-CSCAPI-KEY': 'MGZMRlZLbkZ0SmNiOGkxQzBlREFLYjBKdlZZU1BnRmlRbGI3N2lvVg=='
+            }
+        }).then((res) => {
+            setCountry(res.data)
+        }).catch((err) => { console.log(err) })
+    }, [])
+
+    // Fetching States By Country
+    const [stateData, setStateData] = useState([])
+
+    const handleCountry = (e) => {
+
+        setCountriesName(e.target.value)
+
+        axios.get(`https://api.countrystatecity.in/v1/countries/${e.target.value}/states`, {
+            headers: {
+                'X-CSCAPI-KEY': 'MGZMRlZLbkZ0SmNiOGkxQzBlREFLYjBKdlZZU1BnRmlRbGI3N2lvVg=='
+            }
+        }).then((res) => {
+            setStateData(res.data)
+
+        }).catch((err) => { })
+    }
+
+    // Fetching Cities by state
+    const [cityData, setCityData] = useState([])
+
+    const handleState = (event) => {
+
+        axios.get(`https://api.countrystatecity.in/v1/countries/${countriesName}/states/${event.target.value}/cities`, {
+            headers: {
+                'X-CSCAPI-KEY': 'MGZMRlZLbkZ0SmNiOGkxQzBlREFLYjBKdlZZU1BnRmlRbGI3N2lvVg=='
+            }
+        }).then((res) => {
+            setCityData(res.data)
+        }).catch((err) => { })
+
+    }
+
     return (
+
         <>
             <RedNav />
             <div className="container Basic_info_container">
@@ -192,23 +243,50 @@ const BasicInfo = () => {
 
                             <div className="row">
                                 <div className="col-lg-4 mb-4">
-                                    <input type="text" name="" id="" className='form-control' placeholder='Village' />
+                                    <select class="form-select form-select" aria-label=".form-select-sm example" onChange={handleCountry}>
+                                        <option selected>-- Country --</option>
+                                        {
+                                            country?.map((val, id) => {
+                                                return (
+                                                    <option value={val.iso2}>{val.name}</option>
+                                                )
+                                            })
+                                        }
+                                    </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <input type="text" name="" id="" className='form-control' placeholder='City' />
+                                    <select class="form-select form-select" aria-label=".form-select-sm example" onChange={handleState}>
+                                        <option selected>-- State --</option>
+                                        {
+                                            stateData?.map((value, index) => {
+                                                return (
+                                                    <option value={value.iso2}>{value.name}</option>
+                                                )
+                                            })
+                                        }
+                                    </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
+                                    <select class="form-select form-select" aria-label=".form-select-sm example">
+                                        <option selected>-- City --</option>
+                                        {
+                                            cityData?.map((val, index) => {
+                                                return (
+                                                    <option value={val.name}>{val.name}</option>
+                                                )
+                                            })
+                                        }
+                                    </select>
+                                </div>
+
+                                <div className="col-lg-6 mb-4">
                                     <input type="text" name="" id="" className='form-control' placeholder='Taluka' />
                                 </div>
 
-                                <div className="col-lg-4 mb-4">
+                                <div className="col-lg-6 mb-4">
                                     <input type="text" name="" id="" className='form-control' placeholder='District' />
-                                </div>
-
-                                <div className="col-lg-4 mb-4">
-                                    <input type="text" name="" id="" className='form-control' placeholder='State' />
                                 </div>
 
                                 <div className="col-lg-12">

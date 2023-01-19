@@ -3,6 +3,7 @@ import "./RedNav.css";
 import loginIcon from './images/login_black.png';
 import logoutIcon from './images/logout_black.png';
 import registerIcon from './images/register_black.png'
+import { Link } from 'react-router-dom'
 
 const RedNav = () => {
     const [loggedIn, setLoggeIn] = useState(false)
@@ -11,7 +12,7 @@ const RedNav = () => {
         <>
             <nav className="navbar redNav navbar-light bg-transperent p-4">
                 <div className="container-fluid">
-                    <h1 className="main_nav_title">Reshimgath</h1>
+                    <h1 className="main_nav_title"><Link to="/">Reshimgath</Link></h1>
                     <button className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -23,15 +24,15 @@ const RedNav = () => {
                         loggedIn ?
                             (
                                 <ul className="nav_menus" >
-                                    <li>LogOut <img src={logoutIcon} alt="Image" /> </li>
+                                    <li><Link to="/logout">LogOut <img src={logoutIcon} alt="Image" /></Link> </li>
                                     <li>Edit Profile</li>
                                     <li>Buy / Update Plan</li>
                                 </ul>)
                             :
                             (
                                 <ul className="nav_menus" >
-                                    <li><img src={loginIcon} alt="Image" />&nbsp;<span>LogIn</span></li>
-                                    <li><img src={registerIcon} alt="Image" />&nbsp;<span>Register</span></li>
+                                    <li><Link to="/login"><img src={loginIcon} alt="Image" />&nbsp;<span>LogIn</span></Link></li>
+                                    <li><Link to="/register"><img src={registerIcon} alt="Image" />&nbsp;<span>Register</span></Link></li>
                                 </ul>
                             )
                     }
