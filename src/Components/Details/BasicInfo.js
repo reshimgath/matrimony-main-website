@@ -28,6 +28,7 @@ const BasicInfo = () => {
 
     const handleCountry = (e) => {
 
+
         setCountriesName(e.target.value)
 
         axios.get(`https://api.countrystatecity.in/v1/countries/${e.target.value}/states`, {
