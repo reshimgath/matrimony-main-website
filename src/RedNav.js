@@ -23,14 +23,14 @@ const RedNav = () => {
                     {
                         loggedIn ?
                             (
-                                <ul className="nav_menus" >
+                                <ul className="redNav_menus" >
                                     <li><Link to="/logout">LogOut <img src={logoutIcon} alt="Image" /></Link> </li>
                                     <li>Edit Profile</li>
                                     <li>Buy / Update Plan</li>
                                 </ul>)
                             :
                             (
-                                <ul className="nav_menus" >
+                                <ul className="redNav_menus" >
                                     <li><Link to="/login"><img src={loginIcon} alt="Image" />&nbsp;<span>LogIn</span></Link></li>
                                     <li><Link to="/register"><img src={registerIcon} alt="Image" />&nbsp;<span>Register</span></Link></li>
                                 </ul>

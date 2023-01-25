@@ -9,6 +9,11 @@
     src: url('../../Fonts/Roboto-Regular.ttf');
 }
 
+.family_details_row {
+    border: 1px solid #ced4da;
+    border-radius: 30px;
+}
+
 .family_info_title {
     font-family: familyInfoTitle;
     color: #E12E56;

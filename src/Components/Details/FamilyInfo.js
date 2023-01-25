@@ -10,7 +10,7 @@ const FamilyInfo = () => {
                     <h1 className="family_info_title">Family Details</h1>
                 </div>
 
-                <div className="row d-flex justify-content-center">
+                <div className="row d-flex justify-content-center family_details_row mb-5 pt-4 pb-4">
                     <div className="col-lg-10">
                         <form>
                             <div className="row">
@@ -18,6 +18,7 @@ const FamilyInfo = () => {
                                     <label htmlFor="fathers_name" style={{ color: "black", width: "40%", fontFamily: "familyFont" }}>Father's Name</label>
                                     <input type="text" className='form-control' id="fathers_name" name="fathers_name" />
                                 </div>
+
                                 <div className="col-lg-6 d-flex mb-3">
                                     <label htmlFor="fathers_occupation" style={{ color: "black", width: "30%", fontFamily: "familyFont", paddingTop: "1.7%" }}>Occupation</label>
                                     <div class="btn-group me-2 fathers_occupation_group" role="group" aria-label="Second group">
@@ -46,7 +47,7 @@ const FamilyInfo = () => {
                             <div className="row">
                                 <div className="col-lg-3 d-flex mb-4">
                                     <label htmlFor="bother_select" style={{ color: "black" }}>Brothers&emsp;</label>
-                                    <select class="form-select form-select" id="bother_select" aria-label=".form-select-sm example">
+                                    <select class="form-select form-select" name="bother_select" id="bother_select" aria-label=".form-select-sm example">
                                         <option value="null"></option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -56,7 +57,7 @@ const FamilyInfo = () => {
 
                                 <div className="col-lg-3 d-flex mb-4">
                                     <label htmlFor="bother_status" style={{ color: "black" }}>Married&emsp;</label>
-                                    <select class="form-select form-select" id="bother_status" aria-label=".form-select-sm example">
+                                    <select class="form-select form-select" name="bother_status" id="bother_status" aria-label=".form-select-sm example">
                                         <option value="null"></option>
                                         <option value="yes">Yes</option>
                                         <option value="no">No</option>
@@ -65,7 +66,7 @@ const FamilyInfo = () => {
 
                                 <div className="col-lg-3 d-flex mb-4">
                                     <label htmlFor="sister_select" style={{ color: "black" }}>Sisters&emsp;</label>
-                                    <select class="form-select form-select" id="sister_select" aria-label=".form-select-sm example">
+                                    <select class="form-select form-select" name="sister_select" aria-label=".form-select-sm example">
                                         <option value="null"></option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -75,7 +76,7 @@ const FamilyInfo = () => {
 
                                 <div className="col-lg-3 d-flex mb-4">
                                     <label htmlFor="sister_status" style={{ color: "black" }}>Married&emsp;</label>
-                                    <select class="form-select form-select" id="sister_status" aria-label=".form-select-sm example">
+                                    <select class="form-select form-select" name="sister_status" aria-label=".form-select-sm example">
                                         <option value="null"></option>
                                         <option value="yes">Yes</option>
                                         <option value="no">No</option>
@@ -91,6 +92,10 @@ const FamilyInfo = () => {
                                     &nbsp;<input type="checkbox" name="vehicle" value="Car" />&nbsp;Own a Plot&nbsp;
                                     &nbsp;<input type="checkbox" name="vehicle" value="Car" />&nbsp;Extra Additional Property&nbsp;
                                 </div>
+                            </div>
+
+                            <div className="col-lg-12">
+                                <input type="button" value="Save Details" id="basic_info_btn" />
                             </div>
                         </form>
                     </div>

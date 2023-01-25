@@ -1,11 +1,12 @@
-.main_nav_title {
+.main_nav_title a {
     font-family: titleFont;
     color: White;
-    font-size: 3vw
+    font-size: 3vw;
+    text-decoration: none;
 }
 
 @media(max-width:575px) {
-    .main_nav_title {
+    .main_nav_title a {
         font-size: 4.4vw;
     }
 
@@ -15,7 +16,7 @@
 }
 
 @media(max-width:420px) {
-    .main_nav_title {
+    .main_nav_title a {
         font-size: 5vw;
     }
 }
@@ -46,7 +47,9 @@
     gap: 15px;
 }
 
-.nav_menus li {
+.nav_menus li a {
     display: flex;
     gap: 13px;
+    text-decoration: none;
+    color: white;
 }

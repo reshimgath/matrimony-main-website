@@ -16,21 +16,21 @@ const PartnerPref = () => {
                         <form>
                             <div className="row">
                                 <div className="col-lg-4 mb-4">
-                                    <select class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="education_pref" class="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Education --</option>
 
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="occupation_pref" class="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Occupation --</option>
 
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="salary_pref" class="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Salary / Annual Package --</option>
                                     </select>
                                 </div>
@@ -38,20 +38,20 @@ const PartnerPref = () => {
 
                             <div className="row">
                                 <div className="col-lg-4 mb-4">
-                                    <select class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="complexion_pref" class="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Complexion --</option>
 
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="height_pref" class="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Height --</option>
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="religion_pref" class="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Religion --</option>
                                     </select>
                                 </div>
@@ -59,20 +59,20 @@ const PartnerPref = () => {
 
                             <div className="row">
                                 <div className="col-lg-4 mb-4">
-                                    <select class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="caste_pref" class="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Caste --</option>
 
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="state_pref" class="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- State --</option>
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="location_pref" class="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Location --</option>
                                     </select>
                                 </div>

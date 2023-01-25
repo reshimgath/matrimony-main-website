@@ -6,7 +6,7 @@ import registerIcon from './images/register.png';
 import { Link } from 'react-router-dom'
 
 const Nav = () => {
-    const [loggedIn, setLoggeIn] = useState(false)
+    const [loggedIn, setLoggeIn] = useState(true)
 
     return (
         <>
@@ -31,8 +31,8 @@ const Nav = () => {
                                             LogOut <img src={logoutIcon} alt="Image" />
                                         </Link>
                                     </li>
-                                    <li>Edit Profile</li>
-                                    <li>Buy / Update Plan</li>
+                                    <li><Link to="#">Edit Profile</Link></li>
+                                    <li><Link to="#">Buy / Update Plan</Link></li>
                                 </ul>)
                             :
                             (

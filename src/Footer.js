@@ -9,17 +9,17 @@ const Footer = () => {
         <>
             <div className="container-fluid footer_main_container">
                 <div className="row">
-                    <h2 className="footer_title"><Link to='/'>Reshimgath</Link></h2>
+                    <h2 className="footer_title text-center mt-2"><Link to='/'>Reshimgath</Link></h2>
                 </div>
 
                 <div className="row footer_links_row mt-3">
                     <div className="container w-50">
-                        <div className="row d-flex justify-content-center">
+                        <div className="row d-flex justify-content-center footer_links_div">
                             <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="/">Home</Link> </h5> </div>
-                            <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> About </h5> </div>
-                            <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> Profiles </h5> </div>
-                            <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> Plans </h5> </div>
-                            <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> Contact </h5> </div>
+                            <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="#">About</Link> </h5> </div>
+                            <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="#">Profiles</Link> </h5> </div>
+                            <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="#">Plans</Link> </h5> </div>
+                            <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="#">Contact</Link> </h5> </div>
                         </div>
                     </div>
                 </div>
@@ -30,21 +30,21 @@ const Footer = () => {
                     <div className="container" style={{ width: "11%" }}>
                         <div className="row">
                             <div className="col-lg-4 text-center socia_link mt-3">
-                                <a href="#">
+                                <Link to="#">
                                     <img src={facebookIcon} alt="con" />
-                                </a>
+                                </Link>
                             </div>
 
                             <div className="col-lg-4 text-center socia_link mt-3">
-                                <a href="#">
+                                <Link to="#">
                                     <img src={instaIcon} alt="con" />
-                                </a>
+                                </Link>
                             </div>
 
                             <div className="col-lg-4 text-center socia_link mt-3">
-                                <a href="#">
+                                <Link to="#">
                                     <img src={twitterIcon} alt="con" />
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

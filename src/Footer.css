@@ -7,22 +7,22 @@
     background-color: #e12e56;
 }
 
-.footer_title {
-    text-align: center;
+.footer_title a {
     font-family: footerTite;
     margin-top: 50px;
     color: #fff;
     font-size: 3.5vw;
+    text-decoration: none;
 }
 
 @media(max-width:575px) {
-    .footer_title {
+    .footer_title a {
         font-size: 5.5vw;
     }
 }
 
 @media(max-width:400px) {
-    .footer_title {
+    .footer_title a {
         font-size: 7vw;
     }
 }
@@ -31,6 +31,7 @@
     column-gap: 5px;
 }
 
-.footer_links_row h5 {
+.footer_links_row h5 a {
     color: #fff;
+    text-decoration: none;
 }
