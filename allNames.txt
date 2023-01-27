@@ -20,38 +20,37 @@ user_gender
 tc_check
 
 ************** Basic Info Component ***********
-height
-weight
-bloodGroup
-education
-occupation
-salaryPA
-dob
-birth_time
-birth_place
-caste
-subCaste
-complexion
-disablity
-maritalStatus
-childrens_count
-addressLine1
-addressLine2
-country_name
-state_name
-city_name
-taluka
+height,
+weight,
+bloodGroup,
+education,
+occupation,
+salaryPA,
+dob,
+birth_time,
+birth_place,
+caste,
+subCaste,
+complexion,
+disablity,
+maritalStatus,
+childrens_count,
+addressLine2,
+country_name,
+state_name,
+city_name,
+taluka,
 district
 
 *********** Family Info Component ****************
-fathers_name
-fathers_occupation
-mothers_name
-mothers_occupation
-bother_select
-bother_status
-sister_select
-sister_status
+fathers_name,
+fathers_occupation,
+mothers_name,
+mothers_occupation,
+bother_select,
+bother_status,
+sister_select,
+sister_status,
 vehicle
 
 

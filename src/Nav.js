@@ -6,7 +6,7 @@ import registerIcon from './images/register.png';
 import { Link } from 'react-router-dom'
 
 const Nav = () => {
-    const [loggedIn, setLoggeIn] = useState(true)
+    const [loggedIn, setLoggeIn] = useState(false)
 
     return (
         <>
