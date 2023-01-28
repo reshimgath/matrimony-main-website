@@ -9,24 +9,103 @@ import axios from 'axios';
 const Register = () => {
     const [pass, setPass] = useState(false);
 
-    const [flag, setFlag] = useState(false);
+    const [registered, setRegistered] = useState(false)
 
+    // State to check if OTP is expired
+    const [checkotp, setCheckotp] = useState(false)
+
+    // This function Takes forrm Values
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        setButtonDisable(true);
-        setTmeData(10);
-        setAddOtp(true);
+        if (registered) {
+            setButtonDisable(true);
+            setTmeData(180);
+            fetch('http://localhost:3031/auth/resendotp', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    "Authorization": localStorage.getItem('accesstoken')
+                },
+            })
+                .then(response => response.text())
+                .then(response => console.log(response))
+                .catch(err => console.error(err));
+            // const config = {
+            //     headers: {
+            //         "Content-Type": "multipart/form-data",
+            //         "Authorization": 'akshaysutar'
+            //     }
+            // }
 
-        const formdata = new FormData(event.target);
+            // axios.post('http://localhost:3031/auth/resendotp', config)
+            //     .then(response => {
+            //         console.log(response);
+            //     })
+            //     .catch(error => {
+            //         console.log(error);
+            //     });
+
+            // axios.post('http://localhost:3031/auth/resendotp', {
+            //     headers: {
+            //         //"Content-Type": "multipart/formdata",
+            //         'Authorization': "localStorage.getItem('accesstoken')"
+            //     },
+            // }).then((res) => {
+            //     console.log(res.data)
+            // }).catch((err) => {
+            //     console.log(err)
+            // })
+        } else {
+            setRegistered(true)
+            setButtonDisable(true);
+            setTmeData(180);
+            setAddOtp(true);
+
+            const formdata = new FormData(event.target);
+            const data = Object.fromEntries(formdata.entries());
+            // console.log(data)
+
+            axios.post('http://localhost:3031/auth/register', data).then((res) => {
+                console.log(res.data)
+                localStorage.setItem('accesstoken', res.data.accesstoken)
+                localStorage.setItem('datatoken', res.data.datatoken)
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
+    }
+
+    // THis function takes entered OTP
+    const handleOtpSubmit = (e) => {
+        e.preventDefault();
+
+        const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
-        axios.post('').then((res) => { }).catch((err) => { })
+        fetch('http://localhost:3031/auth/verifyotp', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem('accesstoken')
+            },
+            body: JSON.stringify({
+                otp: data.allOTP
+            })
+        }).then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => setCheckotp(true));
     }
 
     // States for Sending OTP 
+
+    // State to add time in OTP counter
     const [timeData, setTmeData] = useState(0);
+
+    // State to enable and disable GET otp button
     const [buttonDisable, setButtonDisable] = useState(false);
+
+    // State to enable Enter OTP Form
     const [addOtp, setAddOtp] = useState(false);
 
     // Starting OTP Counter
@@ -58,33 +137,33 @@ const Register = () => {
                         <form onSubmit={handleSubmit} autoComplete='off'>
                             <div className="row">
                                 <div className="col-lg-6  mb-3">
-                                    <input type="text" className="form-control" name='first_name' id='first_name' placeholder='First Name' required />
+                                    <input type="text" className="form-control" name='firstname' id='firstname' placeholder='First Name' />
                                 </div>
                                 <div className="col-lg-6  mb-3">
-                                    <input type="text" className="form-control" name='last_name' id='last_name' placeholder='Last Name' required />
+                                    <input type="text" className="form-control" name='lastname' id='lastname' placeholder='Last Name' />
                                 </div>
                             </div>
 
                             <div className="col-lg-12 mb-3">
-                                <input type="email" className="form-control" id="email_id" name="email_id" placeholder='Email Id' required />
+                                <input type="email" className="form-control" id="email" name="email" placeholder='Email Id' />
                             </div>
 
                             <div class="col-lg-12 input-group mb-3">
-                                <input type={pass ? "text" : "password"} className="form-control" id="create_password" name="create_password" placeholder='Create New Password' required />
-                                <span class="input-group-text" id="create_password" onClick={() => { setPass(!pass) }}> {pass ? <img src={HiddenEyeIcon} alt="Image" /> : <img src={eyeIcon} alt="Image" />}</span>
+                                <input type={pass ? "text" : "password"} className="form-control" id="password" name="password" placeholder='Create New Password' />
+                                <span class="input-group-text" id="password" onClick={() => { setPass(!pass) }}> {pass ? <img src={HiddenEyeIcon} alt="Image" /> : <img src={eyeIcon} alt="Image" />}</span>
                             </div>
 
                             <div className="col-lg-12 mb-3">
-                                <input type="password" className="form-control" id="confirm_passwd" name="confirm_passwd" placeholder='Confirm Password' required />
+                                <input type="password" className="form-control" id="confirm_passwd" name="confirm_passwd" placeholder='Confirm Password' />
                             </div>
 
                             <div className="row">
                                 <div className="col-lg-6 mb-4">
-                                    <input type="number" className="form-control" name='contact_no' id='contact_no' placeholder='Mobile Number' required />
+                                    <input type="number" className="form-control" name='mobile' id='mobile' placeholder='Mobile Number' />
                                 </div>
 
                                 <div className="col-lg-6 mb-4">
-                                    <select name="user_gender" className="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="gender" className="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>Gender</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
@@ -94,7 +173,7 @@ const Register = () => {
                             </div>
 
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" name="tc_check" id="tc_check" required />
+                                <input type="checkbox" class="form-check-input" name="tc_check" id="tc_check" />
                                 <label class="form-check-label" for="tc_check" style={{ color: 'black' }}>I have read and agree to the <a href="#" style={{ color: '#E12E56', textDecoration: 'none' }}>terms & conditions</a> and privacy policy.</label>
                             </div>
 
@@ -107,20 +186,18 @@ const Register = () => {
                             </div>
                         </form>
 
-                        <form action="">
+                        <form onSubmit={handleOtpSubmit}>
                             {addOtp ? (<>
                                 <div className="row mt-5">
                                     <span className='text-center fs-5'> <b>Time Left</b> : {timeData} Seconds </span>
+                                    {
+                                        checkotp ? (<p style={{ color: 'red' }} className='mt-3 text-center'>Oops..OTP Expired or Invalid!</p>) : ('')
+                                    }
                                 </div>
 
                                 <div className="row">
                                     <p className='text-center mt-4 fs-5'>Enter OTP</p>
-                                    <input type="password" name="" className='opt_field' id="digit1" />
-                                    <input type="password" name="" className='opt_field' id="digit2" />
-                                    <input type="password" name="" className='opt_field' id="digit3" />
-                                    <input type="password" name="" className='opt_field' id="digit4" />
-                                    <input type="password" name="" className='opt_field' id="digit5" />
-                                    <input type="password" name="" className='opt_field' id="digit6" />
+                                    <input type="password" name="allOTP" className='opt_field' id="digit1" maxlength="6" required />
                                 </div>
 
                                 <div className="row">

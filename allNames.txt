@@ -10,13 +10,13 @@ user_email
 create_password
 
 *********** Register Component **************
-first_name
-last_name
-email_id
-create_password
+firstname
+lastname
+email
+password
 confirm_passwd
-contact_no
-user_gender
+mobile
+gender
 tc_check
 
 ************** Basic Info Component ***********
