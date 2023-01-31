@@ -13,6 +13,7 @@ import ContactUs from './Components/ContactUs'
 import Plans from './Components/Plans'
 import { Routes, Route } from 'react-router-dom'
 import AuthState from './ContextCreation/AuthContext/AuthState';
+import MyProfile from './Components/Details/MyProfile';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/logout" element={<Logout />} />
           <Route path="/contact" element={< ContactUs />} />
           <Route path="/plans" element={< Plans />} />
+          <Route path="/myprofile" element={< MyProfile />} />
         </Routes>
       </AuthState>
 

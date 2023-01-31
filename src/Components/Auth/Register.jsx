@@ -7,8 +7,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useContext } from 'react';
 import AuthContext from '../../ContextCreation/AuthContext/AuthContext';
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, Link } from 'react-router-dom';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -82,7 +81,7 @@ const Register = () => {
                 otp: data.allOTP
             })
         }).then(response => response.json())
-            .then((response) => { localStorage.setItem('datatoken', response.datatoken); authContext.dataDispatch({ type: 'changeState' }); navigate('/'); setTmeData(0) })
+            .then((response) => { localStorage.setItem('datatoken', response.datatoken); authContext.dataDispatch({ type: 'changeState' }); setTmeData(0); navigate('/') })
             .catch(err => setCheckotp(true));
     }
 
@@ -160,7 +159,6 @@ const Register = () => {
                                     </select>
                                 </div>
                             </div>
-
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" name="tc_check" id="tc_check" />
                                 <label class="form-check-label" for="tc_check" style={{ color: 'black' }}>I have read and agree to the <a href="#" style={{ color: '#E12E56', textDecoration: 'none' }}>terms & conditions</a> and privacy policy.</label>
@@ -177,6 +175,9 @@ const Register = () => {
                                 ) : (
                                     <input type="submit" value="Get OTP" className='otpBtn' />
                                 )}
+                            </div>
+                            <div className="mb-3 mt-2">
+                                <span id="registerBtn">Already A Member?&ensp;<Link to="/login">Login Now</Link></span>
                             </div>
                         </form>
 

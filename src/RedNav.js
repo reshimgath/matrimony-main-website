@@ -33,8 +33,8 @@ const RedNav = () => {
                         localStorage.getItem('datatoken') ?
                             (
                                 <ul className="redNav_menus" >
-                                    <li className='text-white'><img src={coinIcon} alt="Img" /> <span className='fs-5'>{authContext.dataState.coins}</span></li>
-                                    <li>My Profile</li>
+                                    <li><img src={coinIcon} alt="Img" /> <span className='fs-5'>{authContext.dataState.coins}</span></li>
+                                    <li><Link to="/myprofile">My Profile ( Completed : {authContext.dataState.profile_completed}% )</Link></li>
                                     <li>Buy / Update Plan</li>
                                     <li><Link to="/logout">Logout </Link> </li>
                                 </ul>)
