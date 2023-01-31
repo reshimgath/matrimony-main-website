@@ -5,17 +5,24 @@ import eyeIcon from '../../images/eye.png'
 import HiddenEyeIcon from '../../images/hidden_eye.png'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useContext } from 'react';
+import AuthContext from '../../ContextCreation/AuthContext/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
 
 const Register = () => {
+    const navigate = useNavigate();
+    const authContext = useContext(AuthContext)
     const [pass, setPass] = useState(false);
 
     const [registered, setRegistered] = useState(false)
-
+    const [error, setError] = useState(false)
     // State to check if OTP is expired
     const [checkotp, setCheckotp] = useState(false)
 
     // This function Takes forrm Values
     const handleSubmit = (event) => {
+        setError(false)
         event.preventDefault();
 
         if (registered) {
@@ -31,31 +38,7 @@ const Register = () => {
                 .then(response => response.text())
                 .then(response => console.log(response))
                 .catch(err => console.error(err));
-            // const config = {
-            //     headers: {
-            //         "Content-Type": "multipart/form-data",
-            //         "Authorization": 'akshaysutar'
-            //     }
-            // }
 
-            // axios.post('http://localhost:3031/auth/resendotp', config)
-            //     .then(response => {
-            //         console.log(response);
-            //     })
-            //     .catch(error => {
-            //         console.log(error);
-            //     });
-
-            // axios.post('http://localhost:3031/auth/resendotp', {
-            //     headers: {
-            //         //"Content-Type": "multipart/formdata",
-            //         'Authorization': "localStorage.getItem('accesstoken')"
-            //     },
-            // }).then((res) => {
-            //     console.log(res.data)
-            // }).catch((err) => {
-            //     console.log(err)
-            // })
         } else {
             setRegistered(true)
             setButtonDisable(true);
@@ -64,14 +47,20 @@ const Register = () => {
 
             const formdata = new FormData(event.target);
             const data = Object.fromEntries(formdata.entries());
-            // console.log(data)
 
             axios.post('http://localhost:3031/auth/register', data).then((res) => {
-                console.log(res.data)
+
                 localStorage.setItem('accesstoken', res.data.accesstoken)
                 localStorage.setItem('datatoken', res.data.datatoken)
+                authContext.dataDispatch({ type: 'changeState' })
+
             }).catch((err) => {
-                console.log(err)
+                setError(true)
+                setRegistered(false)
+                setButtonDisable(false);
+                setTmeData(0);
+                setAddOtp(false);
+
             })
         }
     }
@@ -93,7 +82,7 @@ const Register = () => {
                 otp: data.allOTP
             })
         }).then(response => response.json())
-            .then(response => console.log(response))
+            .then((response) => { localStorage.setItem('datatoken', response.datatoken); authContext.dataDispatch({ type: 'changeState' }); navigate('/'); setTmeData(0) })
             .catch(err => setCheckotp(true));
     }
 
@@ -176,7 +165,12 @@ const Register = () => {
                                 <input type="checkbox" class="form-check-input" name="tc_check" id="tc_check" />
                                 <label class="form-check-label" for="tc_check" style={{ color: 'black' }}>I have read and agree to the <a href="#" style={{ color: '#E12E56', textDecoration: 'none' }}>terms & conditions</a> and privacy policy.</label>
                             </div>
-
+                            {
+                                error ? (
+                                    <div className="col-lg-12">
+                                        <p className="text-center mt-3" style={{ color: 'red' }}>User Already Exist...!</p>
+                                    </div>) : ('')
+                            }
                             <div className="col-lg-12">
                                 {buttonDisable ? (
                                     <button disabled className='otpBtnDisabled'>OTP Sent!</button>

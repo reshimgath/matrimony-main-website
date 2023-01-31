@@ -11,7 +11,6 @@ import MatchHome from './MatchHome'
 import Recent from './Recent'
 import Success from './Success'
 import SearchResult from './SearchResult';
-import AuthContext from '../ContextCreation/AuthContext/AuthContext';
 import axios from 'axios';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { ToastContainer, toast } from 'react-toastify';
@@ -42,9 +41,6 @@ const Home = () => {
 
     const sampleArr = [1, 2, 3, 4, 5];
     // console.log(sampleArr.length)
-
-    const authContext = useContext(AuthContext)
-    // console.log(authContext.dataState)
 
     return (
         <>

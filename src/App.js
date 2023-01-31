@@ -20,7 +20,7 @@ function App() {
       <AuthState>
         <Routes>
           <Route path="/" index element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={localStorage.getItem('datatoken') ? (<Home />) : (<Login />)} />
           <Route path="/register" element={<Register />} />
           <Route path="/basicinfo" element={<BasicInfo />} />
           <Route path="/familyinfo" element={<FamilyInfo />} />
