@@ -52,7 +52,9 @@ const MyProfile = () => {
                 {
                     authContext.dataState.verified ? ('') : (<div>
                         <h4>Click Below to get OTP on your registered email...</h4>
-                        <button onClick={handleOTP}>Get OTP</button>
+                        {
+                            sendOtp ? (<button disabled>OTP Sent!</button>) : (<button onClick={handleOTP}>Get OTP</button>)
+                        }
                     </div>)
                 }
 

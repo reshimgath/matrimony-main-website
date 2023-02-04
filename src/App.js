@@ -9,29 +9,32 @@ import FamilyInfo from './Components/Details/FamilyInfo';
 import HoroscopInfo from './Components/Details/HoroscopInfo';
 import PartnerPref from './Components/Details/PartnerPref';
 import AdvanceSearch from './Components/AdvanceSearch';
-import ContactUs from './Components/ContactUs'
 import Plans from './Components/Plans'
 import { Routes, Route } from 'react-router-dom'
 import AuthState from './ContextCreation/AuthContext/AuthState';
 import MyProfile from './Components/Details/MyProfile';
+import Contact from './Contact';
+
+
 
 function App() {
+
   return (
     <>
       <AuthState>
         <Routes>
           <Route path="/" index element={<Home />} />
           <Route path="/login" element={localStorage.getItem('datatoken') ? (<Home />) : (<Login />)} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={localStorage.getItem('datatoken') ? (<Home />) : (<Register />)} />
           <Route path="/basicinfo" element={<BasicInfo />} />
           <Route path="/familyinfo" element={<FamilyInfo />} />
           <Route path="/horoscopeinfo" element={<HoroscopInfo />} />
           <Route path="/partnerpref" element={<PartnerPref />} />
           <Route path="/advancesearch" element={<AdvanceSearch />} />
           <Route path="/logout" element={<Logout />} />
-          <Route path="/contact" element={< ContactUs />} />
           <Route path="/plans" element={< Plans />} />
           <Route path="/myprofile" element={< MyProfile />} />
+          <Route path="/contact" element={< Contact />} />
         </Routes>
       </AuthState>
 

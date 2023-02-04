@@ -7,7 +7,7 @@ import AuthContext from './ContextCreation/AuthContext/AuthContext';
 import coinIcon from './images/Hero Icons/star.png'
 const Nav = () => {
     const authContext = useContext(AuthContext)
-    console.log(authContext.dataState)
+    // console.log(authContext.dataState)
     return (
         <>
             <nav className="navbar navbar-light bg-transperent p-4">
@@ -28,11 +28,12 @@ const Nav = () => {
                     </button>
 
                 </div>
-                {
-                    authContext.dataState.verified ? ('') : (<div className="container-fluid">
+
+                {/* {
+                    Object.keys(authContext.dataState).length !== 0 && authContext.dataState.verified ? ('') : (<div className="container-fluid">
                         <marquee behavior="scroll" direction="left" className='text-white fs-4'>Please Verify Your Email..!</marquee>
                     </div>)
-                }
+                } */}
 
             </nav>
 

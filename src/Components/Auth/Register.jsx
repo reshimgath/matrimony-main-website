@@ -9,7 +9,9 @@ import { useContext } from 'react';
 import AuthContext from '../../ContextCreation/AuthContext/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 
+
 const Register = () => {
+
     const navigate = useNavigate();
     const authContext = useContext(AuthContext)
     const [pass, setPass] = useState(false);
@@ -136,9 +138,9 @@ const Register = () => {
                                 <input type="email" className="form-control" id="email" name="email" placeholder='Email Id' />
                             </div>
 
-                            <div class="col-lg-12 input-group mb-3">
+                            <div className="col-lg-12 input-group mb-3">
                                 <input type={pass ? "text" : "password"} className="form-control" id="password" name="password" placeholder='Create New Password' />
-                                <span class="input-group-text" id="password" onClick={() => { setPass(!pass) }}> {pass ? <img src={HiddenEyeIcon} alt="Image" /> : <img src={eyeIcon} alt="Image" />}</span>
+                                <span className="input-group-text" id="password" onClick={() => { setPass(!pass) }}> {pass ? <img src={HiddenEyeIcon} alt="Image" /> : <img src={eyeIcon} alt="Image" />}</span>
                             </div>
 
                             <div className="col-lg-12 mb-3">
@@ -161,7 +163,7 @@ const Register = () => {
                             </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" name="tc_check" id="tc_check" />
-                                <label class="form-check-label" for="tc_check" style={{ color: 'black' }}>I have read and agree to the <a href="#" style={{ color: '#E12E56', textDecoration: 'none' }}>terms & conditions</a> and privacy policy.</label>
+                                <label class="form-check-label" htmlFor="tc_check" style={{ color: 'black' }}>I have read and agree to the <a href="#" style={{ color: '#E12E56', textDecoration: 'none' }}>terms & conditions</a> and privacy policy.</label>
                             </div>
                             {
                                 error ? (

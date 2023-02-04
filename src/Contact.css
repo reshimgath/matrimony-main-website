@@ -1,0 +1,57 @@
+@font-face {
+    font-family: bannerFont;
+    src: url('./Fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: contact_form_tagline_font;
+    src: url('./Fonts/CenturyGothic.ttf');
+}
+
+.banner_container {
+    background-color: #E12E56;
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+    height: 20vh;
+}
+
+.banner_title {
+    font-family: bannerFont;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5.2vh;
+    font-size: 2.9vw;
+    font-weight: bold;
+}
+
+@media(max-width:520px) {
+    .banner_title {
+        font-size: 4.5vw;
+        padding-top: 7.8vh;
+    }
+}
+
+.contact_form_container {
+    margin-top: 50px;
+}
+
+.contact_form_title {
+    text-align: center;
+    color: #E12E56;
+    font-weight: bold;
+}
+
+.contact_form_tagline {
+    font-family: contact_form_tagline_font;
+    text-align: center;
+}
+
+#submitMsgBtn {
+    width: 100%;
+    background-color: #E12E56;
+    color: #fff;
+    border: none;
+    padding: 10px;
+}

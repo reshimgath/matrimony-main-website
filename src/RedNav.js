@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import "./RedNav.css";
 import loginIcon from './images/login_black.png';
-import logoutIcon from './images/logout_black.png';
+// import logoutIcon from './images/logout_black.png';
 import registerIcon from './images/register_black.png'
 import { Link } from 'react-router-dom'
 import AuthContext from './ContextCreation/AuthContext/AuthContext';
