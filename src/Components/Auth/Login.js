@@ -1,13 +1,12 @@
 import React from 'react';
+import axios from 'axios';
 import '../Auth/Login.css'
 import RedNav from '../../RedNav'
 import eyeIcon from '../../images/eye.png'
-import HiddenEyeIcon from '../../images/hidden_eye.png'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import HiddenEyeIcon from '../../images/hidden_eye.png'
 import AuthContext from '../../ContextCreation/AuthContext/AuthContext';
-import { useContext } from 'react';
 
 const Login = () => {
 

@@ -1,7 +1,23 @@
 import React from 'react'
 import RedNav from './RedNav'
 import './Contact.css'
+import callIcon from './images/Contact Icons/phone.png';
+import mailIcon from './images/Contact Icons/email.png';
+import addressIcon from './images/Contact Icons/address.png'
+import axios from 'axios'
 const Contact = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const formdata = new FormData(e.target);
+        const data = Object.fromEntries(formdata.entries());
+
+        axios.post('http://localhost:3031/admincrud/getqueries', data).then((res) => {
+            console.log(res.data)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
     return (
         <>
             <RedNav />
@@ -18,22 +34,22 @@ const Contact = () => {
                     <h2 className='contact_form_title'>Contact Form</h2>
                     <p className='contact_form_tagline'>Looking forward to listening to you!</p>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="row mt-3">
                         <div className="col-lg-6 mb-3">
-                            <input type="text" name="" placeholder='Your Name' className='form-control' />
+                            <input type="text" name="name" placeholder='Your Name' className='form-control' />
                         </div>
 
                         <div className="col-lg-6 mb-3">
-                            <input type="email" name="" placeholder='Your Email' className='form-control' />
+                            <input type="email" name="email" placeholder='Your Email' className='form-control' />
                         </div>
 
                         <div className="col-lg-12 mb-3">
-                            <input type="number" name="" placeholder='Your Contact Number' className='form-control' />
+                            <input type="number" name="contact" placeholder='Your Contact Number' className='form-control' />
                         </div>
 
                         <div className="col-lg-12 mb-3">
-                            <textarea name="" className='form-control' rows="5" placeholder='Your Query?'></textarea>
+                            <textarea name="message" className='form-control' rows="5" placeholder='Your Query?'></textarea>
                         </div>
 
                         <div className="col-lg-12 mb-5">
@@ -43,10 +59,18 @@ const Contact = () => {
                 </form>
             </div>
 
-            <div className="container contact_details_container">
-                <div className="col-lg-4">1</div>
-                <div className="col-lg-4">2</div>
-                <div className="col-lg-4">3</div>
+            <div className="container contact_details_container mb-5">
+                <div className="row">
+                    <div className="col-lg-4 col-md-6 col-sm-6 col-xs-6 mt-2 d-flex justify-content-center">
+                        <img src={mailIcon} alt="" className='img-fluid' />&emsp;mail@gmail.com
+                    </div>
+                    <div className="col-lg-4 col-md-6 col-sm-6 col-xs-6 mt-2 d-flex justify-content-center">
+                        <img src={callIcon} alt="" className='img-fluid' />&emsp;+91 1234567890
+                    </div>
+                    <div className="col-lg-4 col-md-6 col-sm-6 col-xs-6 mt-2 d-flex justify-content-center">
+                        <img src={addressIcon} alt="" className='img-fluid' />&emsp;Station Road, Kolhapur. 416001
+                    </div>
+                </div>
             </div>
         </>
     )
