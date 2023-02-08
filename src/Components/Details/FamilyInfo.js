@@ -1,7 +1,35 @@
 import React from 'react'
 import '../Details/FamilyInfo.css'
 import RedNav from '../../RedNav'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
 const FamilyInfo = () => {
+
+    const navigate = useNavigate();
+
+    const handleFamilyInfo = (e) => {
+        e.preventDefault();
+        const formdata = new FormData(e.target);
+        const data = Object.fromEntries(formdata.entries());
+        // console.log(data)
+
+        axios.post("http://localhost:3031/auth/getfamilydetails", data, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem('accesstoken')
+            }
+        })
+            .then((res) => {
+                localStorage.setItem('datatoken', res.data.datatoken)
+                navigate('/partnerpref')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+    }
+
     return (
         <>
             <RedNav />
@@ -12,7 +40,7 @@ const FamilyInfo = () => {
 
                 <div className="row d-flex justify-content-center family_details_row mb-5 pt-4 pb-4">
                     <div className="col-lg-10">
-                        <form>
+                        <form onSubmit={handleFamilyInfo}>
                             <div className="row">
                                 <div className="col-lg-6 d-flex mb-3">
                                     <label htmlFor="fathers_name" style={{ color: "black", width: "40%", fontFamily: "familyFont" }}>Father's Name</label>
@@ -21,7 +49,7 @@ const FamilyInfo = () => {
 
                                 <div className="col-lg-6 d-flex mb-3">
                                     <label htmlFor="fathers_occupation" style={{ color: "black", width: "30%", fontFamily: "familyFont", paddingTop: "1.7%" }}>Occupation</label>
-                                    <div class="btn-group me-2 fathers_occupation_group" role="group" aria-label="Second group">
+                                    <div className="btn-group me-2 fathers_occupation_group" role="group" aria-label="Second group">
                                         &nbsp;<input type="radio" id="fathers_occupation" name="fathers_occupation" value="Job" />&nbsp;<span style={{ marginTop: '2%', marginLeft: "1%" }}>Job&emsp;</span>
                                         &nbsp;<input type="radio" id="fathers_occupation" name="fathers_occupation" value="Business" />&nbsp;<span style={{ marginTop: '2%', marginLeft: "1%" }}>Business&emsp;</span>
                                         &nbsp;<input type="radio" id="fathers_occupation" name="fathers_occupation" value="Retired" />&nbsp;<span style={{ marginTop: '2%', marginLeft: "1%" }}>Retired&emsp;</span>
@@ -36,7 +64,7 @@ const FamilyInfo = () => {
                                 </div>
                                 <div className="col-lg-6 col-sm-12 d-flex mb-3">
                                     <label htmlFor="mothers_occupation" style={{ color: "black", width: "30%", fontFamily: "familyFont", paddingTop: "1.7%" }}>Occupation</label>
-                                    <div class="btn-group me-2 mothers_occupation_group" role="group" aria-label="Second group">
+                                    <div className="btn-group me-2 mothers_occupation_group" role="group" aria-label="Second group">
                                         &nbsp;<input type="radio" id="mothers_occupation" name="mothers_occupation" value="Job" />&nbsp;<span style={{ marginTop: '2%', marginLeft: "1%" }}>Job&emsp;</span>
                                         &nbsp;<input type="radio" id="mothers_occupation" name="mothers_occupation" value="Business" />&nbsp;<span style={{ marginTop: '2%', marginLeft: "1%" }}>Business&emsp;</span>
                                         &nbsp;<input type="radio" id="mothers_occupation" name="mothers_occupation" value="Retired" />&nbsp;<span style={{ marginTop: '2%', marginLeft: "1%" }}>Housewife&emsp;</span>
@@ -47,7 +75,7 @@ const FamilyInfo = () => {
                             <div className="row">
                                 <div className="col-lg-3 d-flex mb-4">
                                     <label htmlFor="bother_select" style={{ color: "black" }}>Brothers&emsp;</label>
-                                    <select class="form-select form-select" name="bother_select" id="bother_select" aria-label=".form-select-sm example">
+                                    <select className="form-select form-select" name="bother_select" id="bother_select" aria-label=".form-select-sm example">
                                         <option value="null"></option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -57,7 +85,7 @@ const FamilyInfo = () => {
 
                                 <div className="col-lg-3 d-flex mb-4">
                                     <label htmlFor="bother_status" style={{ color: "black" }}>Married&emsp;</label>
-                                    <select class="form-select form-select" name="bother_status" id="bother_status" aria-label=".form-select-sm example">
+                                    <select className="form-select form-select" name="bother_status" id="bother_status" aria-label=".form-select-sm example">
                                         <option value="null"></option>
                                         <option value="yes">Yes</option>
                                         <option value="no">No</option>
@@ -66,7 +94,7 @@ const FamilyInfo = () => {
 
                                 <div className="col-lg-3 d-flex mb-4">
                                     <label htmlFor="sister_select" style={{ color: "black" }}>Sisters&emsp;</label>
-                                    <select class="form-select form-select" name="sister_select" aria-label=".form-select-sm example">
+                                    <select className="form-select form-select" name="sister_select" aria-label=".form-select-sm example">
                                         <option value="null"></option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -76,7 +104,7 @@ const FamilyInfo = () => {
 
                                 <div className="col-lg-3 d-flex mb-4">
                                     <label htmlFor="sister_status" style={{ color: "black" }}>Married&emsp;</label>
-                                    <select class="form-select form-select" name="sister_status" aria-label=".form-select-sm example">
+                                    <select className="form-select form-select" name="sister_status" aria-label=".form-select-sm example">
                                         <option value="null"></option>
                                         <option value="yes">Yes</option>
                                         <option value="no">No</option>
@@ -95,7 +123,7 @@ const FamilyInfo = () => {
                             </div>
 
                             <div className="col-lg-12">
-                                <input type="button" value="Save Details" id="basic_info_btn" />
+                                <input type="submit" value="Save Details" id="basic_info_btn" />
                             </div>
                         </form>
                     </div>

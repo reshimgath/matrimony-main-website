@@ -5,7 +5,7 @@ import educationData from '../education.json'
 import religionData from '../religion.json'
 import RedNav from '../../RedNav'
 import axios from 'axios'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useNavigate } from 'react'
 
 
 const BasicInfo = () => {
@@ -56,32 +56,26 @@ const BasicInfo = () => {
     }
 
     //Geeting Basic Form Data
-    const [basicinfo, setBasicinfo] = useState('')
+    const navigate = useNavigate();
+
     const handleBasicInfo = (e) => {
         e.preventDefault()
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
-        console.log(data)
-        // axios.post('http://localhost:3031/auth/getbasicinfo', data, {
-        //     headers: {
-        //         "Content-Type": "multipart/form-data",
-        //         "Authorization": localStorage.getItem('accesstoken')
-        //     }
-        // }).then((res) => {
-        //     localStorage.setItem('datatoken', res.data.datatoken)
-        //     setBasicinfo(res.data.datatoken)
-        // }).catch((err) => {
-        //     console.log(err)
-        // })
 
-        fetch('http://localhost:3031/auth/getbasicinfo?name=akshay', {
-            method: "POST",
+        axios.post('http://localhost:3031/auth/getbasicinfo', data, {
             headers: {
-                "Content-Type": "multipart/form-data",
+                "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')
-            },
-            body: JSON.stringify(data)
-        }).then(response => response.text()).then(response => console.log(response)).catch(err => console.error(err))
+            }
+        }).then((res) => {
+            localStorage.setItem('datatoken', res.data.datatoken)
+            navigate('/familyinfo')
+        }).catch((err) => {
+            console.log(err)
+        })
+
+
     }
 
     return (

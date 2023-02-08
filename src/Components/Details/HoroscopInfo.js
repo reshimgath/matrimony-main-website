@@ -1,8 +1,28 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import RedNav from '../../RedNav'
 import "../Details/HoroscopInfo.css"
 
 const HoroscopInfo = () => {
+    const navigate = useNavigate()
+
+    const handleHororscope = (e) => {
+        e.preventDefault();
+        const formdata = new FormData(e.target);
+        const data = Object.fromEntries(formdata.entries());
+
+        axios.post('', data, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem('accesstoken')
+            }
+        }).then((res) => {
+            localStorage.setItem('datatoken', res.data.datatoken)
+            navigate('/horoscopeinfo')
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
     return (
         <>
             <RedNav />
@@ -13,24 +33,24 @@ const HoroscopInfo = () => {
 
                 <div className="row d-flex justify-content-center">
                     <div className="col-lg-10">
-                        <form>
+                        <form onSubmit={handleHororscope}>
                             <div className="row">
                                 <div className="col-lg-4 mb-4">
-                                    <select name="rashi" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="rashi" className="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Rashi --</option>
 
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select name="nakshatra" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="nakshatra" className="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Nakshatra --</option>
 
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select name="mangal" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="mangal" className="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Mangal --</option>
                                     </select>
                                 </div>
@@ -38,7 +58,7 @@ const HoroscopInfo = () => {
 
                             <div className="row">
                                 <div className="col-lg-4 mb-4">
-                                    <select name="charan" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="charan" className="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Charan --</option>
                                     </select>
                                 </div>
@@ -54,19 +74,19 @@ const HoroscopInfo = () => {
 
                             <div className="row">
                                 <div className="col-lg-4 mb-4">
-                                    <select name="nadi" class="form-select form-select" aria-label="form-select-sm example">
+                                    <select name="nadi" className="form-select form-select" aria-label="form-select-sm example">
                                         <option selected>-- Nadi --</option>
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select name="devak" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="devak" className="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Devak --</option>
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select name="gan" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="gan" className="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Gan --</option>
                                     </select>
                                 </div>
@@ -74,7 +94,7 @@ const HoroscopInfo = () => {
 
                             <div className="row">
                                 <div className="col-lg-12">
-                                    <input type="button" value="Save Details" id="horoscop_info_btn" />
+                                    <input type="submit" value="Save Details" id="horoscop_info_btn" />
                                 </div>
                             </div>
                         </form>
