@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../Details/FamilyInfo.css'
 import RedNav from '../../RedNav'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import AuthContext from '../../ContextCreation/AuthContext/AuthContext'
 
 const FamilyInfo = () => {
-
+    const authContext = useContext(AuthContext)
     const navigate = useNavigate();
 
     const handleFamilyInfo = (e) => {
@@ -21,8 +22,11 @@ const FamilyInfo = () => {
             }
         })
             .then((res) => {
-                localStorage.setItem('datatoken', res.data.datatoken)
-                navigate('/partnerpref')
+                if (res.status === 200) {
+                    localStorage.setItem('datatoken', res.data.datatoken)
+                    authContext.dataDispatch({ type: 'changeState' })
+                    navigate('/partnerpref')
+                }
             })
             .catch((err) => {
                 console.log(err)
@@ -76,7 +80,7 @@ const FamilyInfo = () => {
                                 <div className="col-lg-3 d-flex mb-4">
                                     <label htmlFor="bother_select" style={{ color: "black" }}>Brothers&emsp;</label>
                                     <select className="form-select form-select" name="bother_select" id="bother_select" aria-label=".form-select-sm example">
-                                        <option value="null"></option>
+                                        <option value="null">-- Please Select --</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="More than 2">More than 2</option>

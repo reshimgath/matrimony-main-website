@@ -7,7 +7,7 @@ import AuthContext from './ContextCreation/AuthContext/AuthContext';
 import coinIcon from './images/Hero Icons/star.png'
 const Nav = () => {
     const authContext = useContext(AuthContext)
-    // console.log(authContext.dataState)
+    console.log(authContext.dataState)
     return (
         <>
             <nav className="navbar navbar-light bg-transperent p-4">

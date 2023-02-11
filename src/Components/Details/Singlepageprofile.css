@@ -1,0 +1,87 @@
+@font-face {
+    font-family: personal_details_title_font;
+    src: url('../../Fonts/CenturyGothic.ttf');
+}
+
+@font-face {
+    font-family: main_page_title_font;
+    src: url('../../Fonts/BerkshireSwash-Regular.ttf');
+}
+
+.main_page_title {
+    font-family: main_page_title_font;
+    color: #E12E56;
+    text-align: center;
+    margin-top: 12vh;
+    margin-bottom: 8vh;
+    font-size: 3vw;
+}
+
+.profileImg_div {
+    margin-bottom: 12vh;
+}
+
+.profileImg_div img {
+    border: 8px solid #E12E56;
+    border-radius: 32px;
+}
+
+.personal_details_div_title {
+    font-family: personal_details_title_font;
+    color: #fff;
+    background-color: #E12E56;
+    text-align: center;
+    font-size: 2.2vw;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    width: 90%;
+}
+
+.details_colm {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+}
+
+.user_details_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_details_section img {
+    width: 40%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff
+}
+
+.user_details_section h4 {
+    color: #fff;
+    text-align: center;
+    padding-left: 10%;
+}
+
+.main_profile_title {
+    text-align: center;
+}
+
+.action_section {
+    background-color: #f94d72;
+}
+
+.action_section button {
+    float: right !important;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    background-color: #f94d72;
+    display: flex;
+    column-gap: 10px;
+}
+
+.main_profile_row {
+    background-color: #E12E56;
+    margin-bottom: 40px;
+}

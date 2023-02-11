@@ -5,10 +5,14 @@ import educationData from '../education.json'
 import religionData from '../religion.json'
 import RedNav from '../../RedNav'
 import axios from 'axios'
-import { useState, useEffect, useNavigate } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import AuthContext from '../../ContextCreation/AuthContext/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 
 const BasicInfo = () => {
+    const authContext = useContext(AuthContext)
+
     const [countriesName, setCountriesName] = useState('')
 
     // Fetching All countries
@@ -55,22 +59,38 @@ const BasicInfo = () => {
 
     }
 
+    //Converting Image into String using image formator
+    const imageFormator = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onloadend = () => {
+                resolve(reader.result)
+            }
+        })
+    }
+
     //Geeting Basic Form Data
     const navigate = useNavigate();
 
-    const handleBasicInfo = (e) => {
+    const handleBasicInfo = async (e) => {
         e.preventDefault()
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
-        axios.post('http://localhost:3031/auth/getbasicinfo', data, {
+        const payload = { ...data, image1: await imageFormator(data.image1), image2: await imageFormator(data.image2), image3: await imageFormator(data.image3) }
+
+        axios.post('http://localhost:3031/auth/getbasicinfouser', payload, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')
             }
         }).then((res) => {
-            localStorage.setItem('datatoken', res.data.datatoken)
-            navigate('/familyinfo')
+            if (res.status === 200) {
+                localStorage.setItem('datatoken', res.data.datatoken)
+                authContext.dataDispatch({ type: 'changeState' })
+                navigate('/familyinfo')
+            }
         }).catch((err) => {
             console.log(err)
         })
@@ -248,7 +268,6 @@ const BasicInfo = () => {
                                 <div className="col-lg-4 mb-4">
                                     <select name="childrens_count" className="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- If Widow, Childrens --</option>
-                                        <option value="None">None</option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -269,6 +288,21 @@ const BasicInfo = () => {
                             </div>
 
                             <div className="row">
+                                <p className='mb-3'>Profile Photos :</p>
+                                <div className="col-lg-12 mb-4">
+                                    <input type="file" name="image1" className='form-control' required />
+                                </div>
+
+                                <div className="col-lg-12 mb-4">
+                                    <input type="file" name="image2" className='form-control' required />
+                                </div>
+
+                                <div className="col-lg-12 mb-4">
+                                    <input type="file" name="image3" className='form-control' required />
+                                </div>
+                            </div>
+
+                            <div className="row mb-5">
                                 <div className="col-lg-4 mb-4">
                                     <select name="country_name" className="form-select form-select" aria-label=".form-select-sm example" onChange={handleCountry}>
                                         <option selected>-- Country --</option>
@@ -308,12 +342,16 @@ const BasicInfo = () => {
                                     </select>
                                 </div>
 
-                                <div className="col-lg-6 mb-4">
+                                <div className="col-lg-4 mb-4">
                                     <input type="text" name="taluka" id="taluka" className='form-control' placeholder='Taluka' />
                                 </div>
 
-                                <div className="col-lg-6 mb-4">
+                                <div className="col-lg-4 mb-4">
                                     <input type="text" name="district" id="district" className='form-control' placeholder='District' />
+                                </div>
+
+                                <div className="col-lg-4 mb-4">
+                                    <input type="text" name="mother_tongue" className='form-control' placeholder='Mother Tongue' />
                                 </div>
 
                                 <div className="col-lg-12">
