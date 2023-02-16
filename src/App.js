@@ -14,7 +14,7 @@ import { Routes, Route } from 'react-router-dom'
 import AuthState from './ContextCreation/AuthContext/AuthState';
 import MyProfile from './Components/Details/MyProfile';
 import Contact from './Contact';
-import Singlepageprofile from './Components/Details/Singlepageprofile';
+// import Singlepageprofile from './Components/Details/Singlepageprofile';
 
 function App() {
   return (
@@ -34,6 +34,7 @@ function App() {
           <Route path="/myprofile" element={< MyProfile />} />
           <Route path="/contact" element={< Contact />} />
           {/* <Route path="/profile" element={< Singlepageprofile />} /> */}
+
         </Routes>
       </AuthState>
       <Footer />
