@@ -16,7 +16,7 @@ const Footer = () => {
                     <div className="container w-50">
                         <div className="row d-flex justify-content-center footer_links_div">
                             <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="/">Home</Link> </h5> </div>
-                            <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="#">About</Link> </h5> </div>
+                            <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="/about">About</Link> </h5> </div>
                             <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="#">Profiles</Link> </h5> </div>
                             <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="/plans">Plans</Link> </h5> </div>
                             <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="/contact">Contact</Link> </h5> </div>

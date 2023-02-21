@@ -14,6 +14,7 @@ import { Routes, Route } from 'react-router-dom'
 import AuthState from './ContextCreation/AuthContext/AuthState';
 import MyProfile from './Components/Details/MyProfile';
 import Contact from './Contact';
+import About from './About'
 // import Singlepageprofile from './Components/Details/Singlepageprofile';
 
 function App() {
@@ -33,8 +34,7 @@ function App() {
           <Route path="/plans" element={< Plans />} />
           <Route path="/myprofile" element={< MyProfile />} />
           <Route path="/contact" element={< Contact />} />
-          {/* <Route path="/profile" element={< Singlepageprofile />} /> */}
-
+          <Route path="/about" element={< About />} />
         </Routes>
       </AuthState>
       <Footer />
