@@ -9,20 +9,20 @@ import HiddenEyeIcon from '../../images/hidden_eye.png'
 import AuthContext from '../../ContextCreation/AuthContext/AuthContext';
 
 const Login = () => {
+    const authContext = useContext(AuthContext)
 
     const navigate = useNavigate()
     const [pass, setPass] = useState(false);
     const [error, setError] = useState(false);
-
-    const authContext = useContext(AuthContext)
-
+    const [forgot, setForgot] = useState(false)
+    const [forgottenMail, setForgottenMail] = useState('')
+    const [sendMsg, setSendMsg] = useState(false)
 
     const handleSubmit = (e) => {
 
         e.preventDefault()
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
-
 
         axios.post('http://localhost:3031/auth/login', data).then((res) => {
 
@@ -36,6 +36,21 @@ const Login = () => {
             setError(true)
         })
     }
+
+    const handleReset = () => {
+        if (forgottenMail !== "") {
+            axios.post('http://localhost:3031/auth/forgotpassword', { email: forgottenMail }).then((res) => {
+                // console.log(res.data)
+                setSendMsg(true)
+                setTimeout(() => {
+                    navigate(0)
+                }, 2000)
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
+    }
+
     return (
         <>
             <RedNav />
@@ -65,12 +80,34 @@ const Login = () => {
                             }
 
                             <span>
-                                <Link to="#" id="forgetBtn">Forgot Password?</Link>
+                                <span id="forgetBtn" onClick={() => { setForgot(true) }}>Forgot Password?</span>
                             </span>
 
-                            <div className="col-lg-12 mt-3 mb-2">
-                                <input type="submit" value="Login" className='loginBtn' />
-                            </div>
+                            {
+                                forgot ? (
+                                    <div className="col-lg-12 mt-3 mb-3">
+                                        <input type="email" name="forgot_email" onChange={(e) => { setForgottenMail(e.target.value) }} placeholder='Email Id' className="form-control" />
+                                    </div>
+                                ) : ('')
+                            }
+
+                            {
+                                forgot ? (
+                                    <div className="col-lg-12 mt-3 mb-2">
+                                        <span className='btn resetBtn' onClick={handleReset}>Reset Now</span>
+                                    </div>
+                                ) : (
+                                    <div className="col-lg-12 mt-3 mb-2">
+                                        <input type="submit" value="Login" className='loginBtn' />
+                                    </div>
+                                )
+                            }
+
+                            {
+                                sendMsg ? (
+                                    <p className='mt-3 mb-3' style={{ color: 'green', textAlign: 'center' }}>Password is sent to entered email address..!</p>
+                                ) : ('')
+                            }
                             <span id="registerBtn">Not A Member?&ensp;<Link to="/register">Register Now</Link></span>
                         </form>
                     </div>

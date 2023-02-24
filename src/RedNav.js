@@ -18,7 +18,7 @@ const RedNav = () => {
                     <button className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                         <div className="d-flex align-items-center justify-content-center">
                             {
-                                localStorage.getItem('datatoken') ? (<h4 className='text-white me-2 pt-1'>Hi, {authContext.dataState.firstname}</h4>) : ('')
+                                localStorage.getItem('datatoken') ? (<h4 className='text-white me-2 pt-1 text-capitalize'>Hi, {authContext.dataState.firstname}</h4>) : ('')
                             }
 
                             <span className="navbar-toggler-icon"></span>

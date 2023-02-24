@@ -1,21 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Components/Recent.css';
-import cardLadyImg from "../images/card_lady.png";
+import defaultImg from "../images/dummy_profile_image.jpg";
 import viewMoreIcon from "../images/vm_btn.png"
-
+import axios from 'axios'
 const Recent = () => {
+
+    const [profile, setProfile] = useState([])
+
+    useEffect(() => {
+        axios.get("http://localhost:3031/auth/getrecentprofiles")
+            .then((res) => {
+                // console.log(res.data)
+                setProfile(res.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [])
+
     return (
         <>
             <div className="container">
                 <div className="row">
-                    <h1 class="recent_title">Recently Created Profiles</h1>
+                    <h1 className="recent_title">Recently Created Profiles</h1>
                 </div>
 
                 <div className="row mt-4">
-                    <div className="col-lg-4 col-sm-6 col-xs-6 mt-3">
+
+                    {/* <div className="col-lg-4 col-sm-6 col-xs-6 mt-3">
                         <div className="recent_inside_div">
-                            <img src='https://res.cloudinary.com/dibwyka4z/image/upload/v1676694578/defaultuser_ewfkn7.jpg' alt="image" class="img-fluid" />
-                            <h4 class="recent_profile_name">Sample Name</h4>
+                            <img src={cardLadyImg} alt="image" className="img-fluid" />
+                            <h4 className="recent_profile_name">Sample Name</h4>
                             <br />
                             <p>Age : 34</p>
                             <p>Education : BE CSE</p>
@@ -30,8 +45,8 @@ const Recent = () => {
 
                     <div className="col-lg-4 col-sm-6 col-xs-6 mt-3">
                         <div className="recent_inside_div">
-                            <img src={cardLadyImg} alt="image" class="img-fluid" />
-                            <h4 class="recent_profile_name">Sample Name</h4>
+                            <img src={cardLadyImg} alt="image" className="img-fluid" />
+                            <h4 className="recent_profile_name">Sample Name</h4>
                             <br />
                             <p>Age : 34</p>
                             <p>Education : BE CSE</p>
@@ -42,23 +57,27 @@ const Recent = () => {
                             <img src={viewMoreIcon} alt="img" />
                         </div>
 
-                    </div>
+                    </div> */}
 
-                    <div className="col-lg-4 col-sm-6 col-xs-6 mt-3">
-                        <div className="recent_inside_div">
-                            <img src={cardLadyImg} alt="image" class="img-fluid" />
-                            <h4 class="recent_profile_name">Sample Name</h4>
-                            <br />
-                            <p>Age : 34</p>
-                            <p>Education : BE CSE</p>
-                            <br />
-                        </div>
+                    {
+                        profile?.map((val, id) => {
+                            return (
+                                <div className="col-lg-4 col-sm-6 col-xs-6 mt-3">
+                                    <div className="recent_inside_div">
+                                        <img src={val.image1 === "" ? (defaultImg) : (val.image1)} alt="image" className="img-fluid" />
+                                        <h4 className="recent_profile_name text-capitalize">{val.firstname}</h4>
+                                        <br />
+                                        <p>Education : {val.education}</p>
+                                        <br />
+                                    </div>
 
-                        <div className="click_btn_div">
-                            <img src={viewMoreIcon} alt="img" />
-                        </div>
-
-                    </div>
+                                    <div className="click_btn_div">
+                                        <img src={viewMoreIcon} alt="img" />
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </>

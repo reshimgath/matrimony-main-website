@@ -157,6 +157,174 @@ const AdvanceSearch = () => {
                         </div>
 
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
+                            <div className="dropdown">
+                                <label htmlFor="Cast">Cast</label>
+                                <button className="btn btn-secondary dropdown-toggle" type="button" id="Cast" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
+                                    -- Please Select --
+                                </button>
+                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
+                                    <li><a className="dropdown-item" href="#">Action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
+                            <div className="dropdown">
+                                <label htmlFor="Height">Height</label>
+                                <button className="btn btn-secondary dropdown-toggle" type="button" id="Height" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
+                                    -- Please Select --
+                                </button>
+                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
+                                    <li><a className="dropdown-item" href="#">Action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
+                            <div className="dropdown">
+                                <label htmlFor="Education">Education</label>
+                                <button className="btn btn-secondary dropdown-toggle" type="button" id="Education" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
+                                    -- Please Select --
+                                </button>
+                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
+                                    <li><a className="dropdown-item" href="#">Action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
+                            <div className="dropdown">
+                                <label htmlFor="Salary Package">Salary Package</label>
+                                <button className="btn btn-secondary dropdown-toggle" type="button" id="Salary Package" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
+                                    -- Please Select --
+                                </button>
+                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
+                                    <li><a className="dropdown-item" href="#">Action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
+                            <div className="dropdown">
+                                <label htmlFor="State">State</label>
+                                <button className="btn btn-secondary dropdown-toggle" type="button" id="State" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
+                                    -- Please Select --
+                                </button>
+                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
+                                    <li><a className="dropdown-item" href="#">Action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
+                            <div className="dropdown">
+                                <label htmlFor="Location">Location</label>
+                                <button className="btn btn-secondary dropdown-toggle" type="button" id="Location" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
+                                    -- Please Select --
+                                </button>
+                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
+                                    <li><a className="dropdown-item" href="#">Action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="search_btn_div mt-4 dropdown">
                                 <button className='search_btn'><i class="fa-solid fa-magnifying-glass"></i> Search</button>
                             </div>

@@ -41,11 +41,12 @@
 
 .success_card_div img {
     padding-top: 8px;
-    width: 95%;
+    object-fit: contain;
+    width: 100% !important;
+    height: 315px !important;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    object-fit: cover;
 }
 
 .success_card_div p {

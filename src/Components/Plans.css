@@ -1,8 +1,104 @@
-.card {
+/* .card {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 20px !important;
 }
 
 .recharge_title {
     font-size: 3vw;
+} */
+
+/* .card {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px !important;
+} */
+
+.recharge_title {
+    font-size: 3vw;
+}
+
+.recharge_user_mail {
+    background-color: #e12e56 !important;
+    color: #fff;
+    padding: 8px;
+}
+
+.includes_main_div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around !important;
+    row-gap: 20px;
+    position: relative;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    border: 1px solid black;
+    border-radius: 20px !important;
+    padding: 12px 12px 12px 17px;
+
+}
+
+#plan_includes {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0;
+    max-width: 0;
+
+}
+
+#plan_includes ul {
+    width: 400px;
+}
+
+#plan_includes li {
+    display: flex;
+    column-gap: 10px;
+    max-width: 100%;
+}
+
+.rechargeBtn {
+    border: none;
+    color: #fff;
+    background-color: #e12e56;
+    padding: 10px;
+    width: 95%;
+    margin: auto;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.rechargeBtn:hover {
+    background-color: #e12e55f0;
+    cursor: pointer;
+}
+
+.services_li {
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+#plan_includes {
+    max-width: 100%;
+}
+
+.main_plan {
+    width: 100%;
+}
+
+.container_main {
+    width: 100%;
+
+}
+
+.plan_btn {
+    text-decoration: none;
+}
+
+.recharge_div_btn {
+    position: absolute;
+    left: 25%;
+    width: 60%;
+    bottom: 0;
+    margin-bottom: 5px;
 }

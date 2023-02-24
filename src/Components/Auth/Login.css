@@ -43,6 +43,14 @@
     padding: 10px;
 }
 
+.resetBtn {
+    width: 100%;
+    background-color: #E12E56;
+    color: #fff;
+    border: none;
+    padding: 10px;
+}
+
 .loginBtn:hover {
     background-color: #e21e49;
 }
@@ -51,7 +59,10 @@
     text-decoration: none;
     margin-top: 5px;
     margin-left: 5px;
-    color: #5a5e61;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
 }
 
 #registerBtn {

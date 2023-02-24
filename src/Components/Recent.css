@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: detailsFont;
     src: url(../Fonts/CenturyGothic.ttf);
 }
@@ -36,6 +36,73 @@
     margin-right: auto;
     padding-top: 25px;
     border-radius: 30px;
+}
+
+.recent_profile_name {
+    text-align: center;
+    margin-top: 8px;
+    color: white;
+}
+
+.recent_inside_div p {
+    text-align: center;
+    color: #fff;
+    font-family: detailsFont;
+}
+
+.click_btn_div {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -37px;
+}
+
+.click_btn_div img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+
+@font-face {
+    font-family: detailsFont;
+    src: url(../Fonts/CenturyGothic.ttf);
+}
+
+.recent_title {
+    font-family: titleFont;
+    margin-top: 16vh;
+    color: #e12e56;
+    text-align: center;
+    font-size: 3.9vw;
+}
+
+@media(max-width:575px) {
+    .recent_title {
+        margin-top: 9vh;
+    }
+}
+
+@media(max-width:420px) {
+    .recent_title {
+        font-size: 6vw;
+    }
+}
+
+.recent_inside_div {
+    background-color: #e12e56;
+    border-radius: 30px;
+    padding: 25px 5px 25px 5px;
+}
+
+.recent_inside_div img {
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* border-radius: 30px !important; */
+    width: 100% !important;
+    height: 230px !important;
 }
 
 .recent_profile_name {

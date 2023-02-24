@@ -119,6 +119,11 @@
     width: 26%;
 }
 
+.aimBtn a {
+    text-decoration: none;
+    color: #fff;
+}
+
 @media(max-width:600px) {
     .aimBtn {
         padding: 3px;

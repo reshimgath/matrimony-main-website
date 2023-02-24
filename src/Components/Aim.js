@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "../Components/Aim.css";
 import aimImage from '../images/reshimgath_about.jpg'
+
 const Aim = () => {
     return (
         <>
@@ -12,11 +14,8 @@ const Aim = () => {
 
             <div className="aim_desc_div">
                 <div className="aim_left_div">
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil consequatur, minima at quibusdam dolor voluptatem eos molestiae, consequuntur tempore minus sed quo veritatis quod aspernatur delectus laborum? Porro, reprehenderit earum natus amet quisquam labore cupiditate, deleniti hic aut est nihil.
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita modi maxime delectus dignissimos minus similique rerum tempora ea, cupiditate omnis.
-                    </p>
-                    <button className='aimBtn'>Read More</button>
+                    <p style={{ textAlign: "justify" }}> <em> Our aim at <b>Reshimgath Vivah</b> is to assist individuals in finding their life partner by providing a flawless and personalized matchmaking experience. We seek to create a safe and trustworthy environment for our users to connect, communicate, and develop meaningful connections. Our ultimate objective is to guarantee that every member meets their right partner and has a happy married life.</em></p>
+                    <button className='aimBtn'> <Link to="/about"> Read More</Link></button>
 
                     <div className="extra"></div>
                 </div>

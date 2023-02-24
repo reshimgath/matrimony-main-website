@@ -24,6 +24,9 @@
 .profileImg_div img {
     border: 8px solid #E12E56;
     border-radius: 32px;
+    width: 100% !important;
+    height: 250px !important;
+    object-fit: contain;
 }
 
 .personal_details_div_title {
@@ -53,8 +56,10 @@
 .user_details_section img {
     width: 40%;
     border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #fff
+    border: 4px solid #fff;
+    height: 250px !important;
+    object-fit: contain;
+
 }
 
 .user_details_section h4 {
@@ -79,6 +84,16 @@
     background-color: #f94d72;
     display: flex;
     column-gap: 10px;
+}
+
+#mypassResetBtn {
+    width: 100%;
+    border: none;
+    background-color: #e1114c;
+    color: white;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 10px;
 }
 
 .main_profile_row {

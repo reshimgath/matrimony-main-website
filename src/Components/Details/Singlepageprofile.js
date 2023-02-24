@@ -1,35 +1,96 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Singlepageprofile.css'
 import ladyImg from '../../images/card_lady.png'
+import axios from 'axios'
 
 const Singlepageprofile = () => {
+    const [profileData, setProfileData] = useState({})
+    const [resetPass, setResetPass] = useState(false)
+    const [resetMsg, setResetMsg] = useState(false)
+    const [newPass, setNewPass] = useState('')
+    const handleReset = () => {
+        if (newPass !== "") {
+            axios.post('http://localhost:3031/auth/resetpassword', { password: newPass }, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": localStorage.getItem('accesstoken')
+                }
+            }).then((res) => {
+                // console.log(res.data)
+                setResetMsg(true)
+                setTimeout(() => {
+                    setResetMsg(false)
+                    setResetPass(false)
+                }, 2000)
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
+    }
+
+    // ****** Getting Profile Data *********
+    useEffect(() => {
+        axios.get('http://localhost:3031/auth/getsingleprofileofuser', {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem('accesstoken')
+            }
+        }).then((res) => {
+            // console.log(res.data)
+            setProfileData(res.data)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }, [])
     return (
         <>
 
             <div className="container-fluid">
                 <div className="row mt-3 main_profile_row">
                     <div className="col-lg-6 user_details_section">
-                        <img src={ladyImg} className='img-fluid' />
-                        <h4>Sample Name <br /> Kolhapur, Maharashtra</h4>
+                        <img src={profileData.image1} className='img-fluid' />
+                        <h4 className='text-capitalize'>{profileData.firstname} {profileData.lastname}<br /> {profileData.city_name}, {profileData.state_name}</h4>
                     </div>
 
                     <div className="col-lg-12 action_section">
                         <button>Delete</button>
                         <button>Update</button>
+                        <button onClick={() => { setResetPass(true) }}>Reset Password</button>
                     </div>
                 </div>
 
-                <div className="row ">
+                {/* ********** Reset Passowrd Patch start *************** */}
+                {
+                    resetPass ? (
+                        <div className="row mt-4 mb-4 justify-content-center">
+                            <div className="col-lg-9">
+                                <p><b>Reset Your Password Now:</b></p>
+                                <input type="text" className='form-control' placeholder='Password' onChange={(e) => { setNewPass(e.target.value) }} />
+                                <button id="mypassResetBtn" onClick={handleReset}>Reset Now</button>
+                            </div>
+                        </div>
+                    ) : ('')
+                }
+
+                {
+                    resetMsg ? (
+                        <p style={{ textAlign: 'center', color: 'greeen' }} className="mt-3 mb-4"> <b>New Password Added..!</b></p>
+                    ) : ('')
+                }
+
+                {/* ****************** Reset Passowrd Patch Ends ****************** */}
+
+                <div className="row">
                     <div className="col-lg-4 col-sm-6 d-flex justify-content-center profileImg_div">
-                        <img src={ladyImg} alt="image" className='img-fluid' />
+                        <img src={profileData.image1} alt="image" className='img-fluid' />
                     </div>
 
                     <div className="col-lg-4 col-sm-6 d-flex justify-content-center profileImg_div">
-                        <img src={ladyImg} alt="image" className='img-fluid' />
+                        <img src={profileData.image2} alt="image" className='img-fluid' />
                     </div>
 
                     <div className="col-lg-4 col-sm-6 d-flex justify-content-center profileImg_div">
-                        <img src={ladyImg} alt="image" className='img-fluid' />
+                        <img src={profileData.image3} alt="image" className='img-fluid' />
                     </div>
                 </div>
 
@@ -38,19 +99,19 @@ const Singlepageprofile = () => {
                     <h2 className="personal_details_div_title">Personal Details</h2>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Gender :</b> Male</p>
-                        <p className="fs-5 mt-2"><b>Date Of Birth :</b> 4th June 1996  </p>
-                        <p className="fs-5 mt-2"><b>Sub Caste :</b> Cast Name</p>
-                        <p className="fs-5 mt-2"><b>Marital Status :</b> Single</p>
-                        <p className="fs-5 mt-2"><b>Mother Tongue :</b> Marathi</p>
+                        <p className="fs-5 mt-2"><b>Gender :</b> {profileData.gender}</p>
+                        <p className="fs-5 mt-2"><b>Date Of Birth :</b> {profileData.dob}</p>
+                        <p className="fs-5 mt-2"><b>Religion :</b> {profileData.caste}</p>
+                        <p className="fs-5 mt-2"><b>Marital Status :</b> {profileData.maritalStatus}</p>
+                        <p className="fs-5 mt-2"><b>Mother Tongue :</b> {profileData.mother_tongue}</p>
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Height :</b> 5'9"</p>
-                        <p className="fs-5 mt-2"><b>Weight :</b> 55Kg</p>
-                        <p className="fs-5 mt-2"><b>Blood Group :</b> A+ Ve</p>
-                        <p className="fs-5 mt-2"><b>Complexion :</b> Fair</p>
-                        <p className="fs-5 mt-2"><b>Disabilities :</b> No</p>
+                        <p className="fs-5 mt-2"><b>Height :</b> {profileData.height}</p>
+                        <p className="fs-5 mt-2"><b>Weight :</b> {profileData.weight}</p>
+                        <p className="fs-5 mt-2"><b>Blood Group :</b> {profileData.bloodGroup}</p>
+                        <p className="fs-5 mt-2"><b>Complexion :</b> {profileData.complexion}</p>
+                        <p className="fs-5 mt-2"><b>Disabilities :</b> {profileData.disablity}</p>
                     </div>
                 </div>
 
@@ -59,13 +120,13 @@ const Singlepageprofile = () => {
                     <h2 className="personal_details_div_title">Contact Details</h2>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Name :</b> Sample Name</p>
-                        <p className="fs-5 mt-2"><b>Conact No. :</b> +91 1234567890</p>
+                        <p className="fs-5 mt-2"><b>Name :</b> {profileData.firstname} {profileData.lastname}</p>
+                        <p className="fs-5 mt-2"><b>Conact No. :</b> {profileData.mobile}</p>
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Email ID :</b> abc@gmail.com</p>
-                        <p className="fs-5 mt-2"><b>Address :</b> Abc Road, PQR City. 416216</p>
+                        <p className="fs-5 mt-2"><b>Email ID :</b> {profileData.email}</p>
+                        <p className="fs-5 mt-2"><b>Address :</b> {profileData.addressLine1}</p>
                     </div>
                 </div>
 
@@ -74,17 +135,17 @@ const Singlepageprofile = () => {
                     <h2 className="personal_details_div_title">Educational / Professional Details</h2>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Education :</b> BE</p>
-                        <p className="fs-5 mt-2"><b>Course Name :</b> Course</p>
+                        <p className="fs-5 mt-2"><b>Education :</b> {profileData.education}</p>
+                        <p className="fs-5 mt-2"><b>Income Per Annum :</b> {profileData.salaryPA}</p>
+                        {/* <p className="fs-5 mt-2"><b>Occupation :</b> Engineer</p>
                         <p className="fs-5 mt-2"><b>School Name :</b>  ABC High School</p>
-                        <p className="fs-5 mt-2"><b>College Name:</b> ABC College</p>
+                        <p className="fs-5 mt-2"><b>College Name:</b> ABC College</p> */}
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Occupation :</b> Engineer</p>
-                        <p className="fs-5 mt-2"><b>Company Name :</b> Muchmakr</p>
-                        <p className="fs-5 mt-2"><b>Work Location :</b> Location</p>
-                        <p className="fs-5 mt-2"><b>Income Per Annum :</b> 10 LPA</p>
+                        <p className="fs-5 mt-2"><b>Occupation :</b> {profileData.occupation}</p>
+                        {/* <p className="fs-5 mt-2"><b>Company Name :</b> Muchmakr</p>
+                        <p className="fs-5 mt-2"><b>Work Location :</b> Location</p> */}
 
                     </div>
                 </div>
@@ -94,17 +155,17 @@ const Singlepageprofile = () => {
                     <h2 className="personal_details_div_title">Horoscope Details</h2>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Rashi :</b> Male</p>
-                        <p className="fs-5 mt-2"><b>Nakshtra :</b> 4th June 1996  </p>
-                        <p className="fs-5 mt-2"><b>Charan :</b> Single</p>
-                        <p className="fs-5 mt-2"><b>Nadi :</b> Marathi</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Rashi :</b> {profileData.rashi}</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Nakshtra :</b> {profileData.nakshatra}  </p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Charan :</b> {profileData.charan}</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Nadi :</b> {profileData.nadi}</p>
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Gan :</b> 5'9"</p>
-                        <p className="fs-5 mt-2"><b>Mangal :</b> 55Kg</p>
-                        <p className="fs-5 mt-2"><b>Birth Time :</b> Fair</p>
-                        <p className="fs-5 mt-2"><b>Birth Place :</b> No</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Gan :</b>{profileData.gan}</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Mangal :</b> {profileData.mangal ? ('Yes') : ('No')}</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Birth Time :</b> {profileData.birth_time}</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Birth Place :</b> {profileData.birth_place}</p>
                     </div>
                 </div>
 
@@ -113,15 +174,18 @@ const Singlepageprofile = () => {
                     <h2 className="personal_details_div_title">Family Details</h2>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Father's Name :</b> Male</p>
-                        <p className="fs-5 mt-2"><b>Mother's Name :</b> 4th June 1996  </p>
-                        <p className="fs-5 mt-2"><b>Siblings :</b> Single</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Father's Name :</b> {profileData.fathers_name}</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Mother's Name :</b> {profileData.mothers_name}</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Brother(s) :</b> {profileData.bother_select}</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Sister(s) :</b> {profileData.sister_select}</p>
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Parent's Occupation :</b> 5'9"</p>
-                        <p className="fs-5 mt-2"><b>Relatives Surname :</b> 55Kg</p>
-                        <p className="fs-5 mt-2"><b>Mama's Name :</b> No</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Father's Occupation :</b> {profileData.fathers_occupation}</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Mother's Occupation :</b> {profileData.mothers_occupation}</p>
+                        <p className="fs-5 mt-2 text-capitalize"><b>Brother(s) Married? :</b> {profileData.bother_status}</p>
+
+                        <p className="fs-5 mt-2 text-capitalize"><b>Sister(s) Married? :</b> {profileData.sister_status}</p>
                     </div>
                 </div>
 
@@ -130,13 +194,23 @@ const Singlepageprofile = () => {
                     <h2 className="personal_details_div_title">Expectations</h2>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Age Difference :</b> Male</p>
-                        <p className="fs-5 mt-2"><b>Expected Height :</b> Single</p>
+                        <p className="fs-5 mt-2"><b>Education  :</b> {profileData.education_pref}</p>
+                        <p className="fs-5 mt-2"><b>Occupation :</b>  {profileData.occupation_pref}</p>
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Education :</b> 55Kg</p>
-                        <p className="fs-5 mt-2"><b>Income :</b> No</p>
+                        <p className="fs-5 mt-2"><b>Caste  :</b> {profileData.caste_pref}</p>
+                        <p className="fs-5 mt-2"><b>Complexion  :</b> {profileData.complexion_pref}</p>
+                    </div>
+
+                    <div className="col-lg-5">
+                        <p className="fs-5 mt-2"><b>Location  :</b> {profileData.location_pref}</p>
+                        <p className="fs-5 mt-2"><b>Height  :</b> {profileData.height_pref}</p>
+                    </div>
+
+                    <div className="col-lg-5">
+                        <p className="fs-5 mt-2"><b>Location  :</b> {profileData.location_pref}</p>
+                        <p className="fs-5 mt-2"><b>State  :</b> {profileData.state_pref}</p>
                     </div>
                 </div>
             </div>

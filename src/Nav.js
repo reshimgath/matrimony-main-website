@@ -18,7 +18,7 @@ const Nav = () => {
                             {
                                 localStorage.getItem('datatoken') ? (
                                     <>
-                                        <h4 className='text-white me-2 pt-1'>Hi, {authContext.dataState.firstname}</h4>
+                                        <h4 className='text-white me-2 pt-1 text-capitalize'>Hi, {authContext.dataState.firstname}</h4>
                                     </>
                                 ) : ('')
                             }
