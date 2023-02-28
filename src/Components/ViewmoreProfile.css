@@ -1,11 +1,11 @@
 @font-face {
     font-family: personal_details_title_font;
-    src: url('../../Fonts/CenturyGothic.ttf');
+    src: url('../Fonts/CenturyGothic.ttf');
 }
 
 @font-face {
     font-family: main_page_title_font;
-    src: url('../../Fonts/BerkshireSwash-Regular.ttf');
+    src: url('../Fonts/BerkshireSwash-Regular.ttf');
 }
 
 .main_page_title {
@@ -24,9 +24,9 @@
 .profileImg_div img {
     border: 8px solid #E12E56;
     border-radius: 32px;
-    width: 90% !important;
-    height: 250px !important;
-    object-fit: contain;
+    width: 87% !important;
+    height: 260px !important;
+    object-fit: fill;
 }
 
 .personal_details_div_title {
@@ -54,11 +54,11 @@
 }
 
 .user_details_section img {
-    width: 40%;
+    width: 37%;
     border-radius: 50%;
     border: 4px solid #fff;
     height: 250px !important;
-    object-fit: contain;
+    object-fit: fill;
 
 }
 
@@ -101,7 +101,20 @@
     margin-bottom: 40px;
 }
 
-.deleteProfileBtn a {
-    text-decoration: none;
+.contactBtn {
+    width: 100%;
+    border: none;
+    background-color: #e1114c;
+    color: white;
+    padding: 13px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+.contactBtn:hover {
     color: #fff;
+}
+
+.contactBtn h2 {
+    font-size: 18px;
 }

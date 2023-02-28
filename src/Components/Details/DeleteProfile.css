@@ -1,0 +1,40 @@
+.confirm_title {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 25px;
+    font-size: 1.8vw;
+}
+
+.delBtn {
+    width: 50%;
+    border: none;
+    background-color: #e1114c;
+    color: white;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 50px;
+}
+
+.confirmBtn {
+    width: 100%;
+    border: none;
+    background-color: #e1114c;
+    color: white;
+    padding: 10px;
+    margin: auto;
+}
+
+.delBtn:hover {
+    background-color: #e22158;
+}
+
+.sendMsg_div {
+    border: 1px solid rgb(181, 178, 178);
+    border-radius: 20px;
+    padding: 12px;
+}
+
+.sentNote {
+    text-align: center;
+    color: red;
+}

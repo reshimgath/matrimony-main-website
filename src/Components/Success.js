@@ -6,7 +6,7 @@ const Success = () => {
     const [storydata, setStorydata] = useState([])
     useEffect(() => {
         axios.get('http://localhost:3031/admincrud/getstories').then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             setStorydata(res.data)
         }).catch((err) => {
             console.log(err)

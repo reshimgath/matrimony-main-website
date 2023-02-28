@@ -1,0 +1,28 @@
+@font-face {
+    font-family: main_page_title_font;
+    src: url('../../Fonts/BerkshireSwash-Regular.ttf');
+}
+
+.verify_title {
+    font-family: main_page_title_font;
+    color: #E12E56;
+    text-align: center;
+    margin-top: 12vh;
+    margin-bottom: 8vh;
+    font-size: 3vw;
+}
+
+.verify_subTitle {
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+.getOTPBtn {
+    width: 40%;
+    border: none;
+    background-color: #e1114c;
+    color: white;
+    padding: 10px;
+    display: block;
+    margin: 20px auto 10px auto;
+}

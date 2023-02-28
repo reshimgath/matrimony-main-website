@@ -15,8 +15,10 @@ import AuthState from './ContextCreation/AuthContext/AuthState';
 import MyProfile from './Components/Details/MyProfile';
 import Contact from './Contact';
 import About from './About'
+import ViewmoreProfile from './Components/ViewmoreProfile';
+import DeleteProfile from './Components/Details/DeleteProfile';
 // import Singlepageprofile from './Components/Details/Singlepageprofile';
-
+import Updateuser from './Components/Details/Updateuser';
 function App() {
   return (
     <>
@@ -35,6 +37,9 @@ function App() {
           <Route path="/myprofile" element={< MyProfile />} />
           <Route path="/contact" element={< Contact />} />
           <Route path="/about" element={< About />} />
+          <Route path="/viewmore" element={< ViewmoreProfile />} />
+          <Route path="/deleteprofile" element={< DeleteProfile />} />
+          <Route path="/updateuser" element={< Updateuser />} />
         </Routes>
       </AuthState>
       <Footer />

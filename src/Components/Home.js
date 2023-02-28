@@ -12,10 +12,14 @@ import Recent from './Recent'
 import Success from './Success'
 import SearchResult from './SearchResult';
 import axios from 'axios';
+import religionData from '../Components/religion.json'
 // import 'react-toastify/dist/ReactToastify.css';
 // import { ToastContainer, toast } from 'react-toastify';
 
 const Home = () => {
+
+    //State for Not result found msg
+    const [msg, setMsg] = useState(false)
 
     // For loop for getting numbers 18-70
     const ageArr = [];
@@ -32,15 +36,14 @@ const Home = () => {
         const data = Object.fromEntries(formdata.entries());
         // console.log(data)
 
-        axios.post('http://localhost:3031/auth/normalsearch').then((res) => {
+        axios.post('http://localhost:3031/auth/normalsearch', data).then((res) => {
             setFilterData(res.data)
+            setMsg(true)
+            // console.log(res.data)
         }).catch((err) => {
             console.log(err)
         })
     }
-
-    const sampleArr = [1, 2, 3, 4, 5];
-    // console.log(sampleArr.length)
 
     return (
         <>
@@ -133,12 +136,14 @@ const Home = () => {
                                     <label htmlFor="Religion">Religion</label>
                                     <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Please Select --</option>
-                                        <option>Hindu</option>
-                                        <option>Islam</option>
-                                        <option>Sikh</option>
-                                        <option>Buddh</option>
-                                        <option>Christian</option>
-                                        <option>Jain</option>
+                                        {
+                                            religionData?.map((val, id) => {
+                                                return (
+                                                    <option value={val.religion}>{val.religion}</option>
+                                                )
+                                            })
+                                        }
+
                                     </select>
                                 </div>
                             </div>
@@ -156,7 +161,9 @@ const Home = () => {
             </div>
 
             {
-                sampleArr.length === 0 ? "" : (<SearchResult arrProp={sampleArr} />)
+                !msg ? (
+                    ''
+                ) : (<SearchResult arrProp={filterData} />)
             }
 
             <Aim />

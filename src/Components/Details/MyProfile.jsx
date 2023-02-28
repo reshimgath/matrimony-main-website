@@ -14,17 +14,17 @@ const MyProfile = () => {
     // console.log(authContext)
     const handleOTP = (e) => {
         setSendOtp(true)
-        // fetch('http://localhost:3031/auth/resendotp', {
-        //     method: 'POST',
-        //     headers: {
-        //         "Content-Type": "multipart/form-data",
-        //         "Authorization": localStorage.getItem('accesstoken')
-        //     },
+        fetch('http://localhost:3031/auth/resendotp', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "multipart/form-data",
+                "Authorization": localStorage.getItem('accesstoken')
+            },
 
-        // })
-        //     .then(response => response.text())
-        //     .then(response => console.log(response))
-        //     .catch(err => console.error(err));
+        })
+            .then(response => response.text())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
     }
 
     const handleOTPSubmit = (event) => {
@@ -43,7 +43,21 @@ const MyProfile = () => {
         //     })
         // }).then(response => response.json())
         //     .then((response) => { localStorage.setItem('datatoken', response.datatoken); authContext.dataDispatch({ type: 'changeState' }); navigate('/') })
-        //     .catch(err => setShowError(true));
+        //     .catch((err) => { setShowError(true); console.log(err) });
+
+        axios.post('http://localhost:3031/auth/verifyotp', data, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem('accesstoken')
+            }
+        }).then((res) => {
+            localStorage.setItem('datatoken', res.data.datatoken);
+            authContext.dataDispatch({ type: 'changeState' });
+            navigate('/')
+        }).catch((err) => {
+            setShowError(true);
+            console.log(err)
+        })
     }
     return (
         <>
@@ -51,21 +65,29 @@ const MyProfile = () => {
             <div className="container-fluid">
                 <div>
                     {
-                        authContext.dataState.verified ? (<div> <Singlepageprofile /> </div>) : (<div>
-                            <h4>Click Below to get OTP on your registered email...</h4>
-                            {
-                                sendOtp ? (<button disabled>OTP Sent!</button>) : (<button onClick={handleOTP}>Get OTP</button>)
-                            }
-                        </div>)
+                        // authContext.dataState.verified
+                        authContext.dataState.verified ? (<div> <Singlepageprofile /> </div>) :
+                            (
+                                <div>
+                                    <h2 className='verify_title'>Verify Your Email</h2>
+                                    <h4 className='verify_subTitle'>Click Below To Get OTP On Your Registered Email</h4>
+                                    {
+                                        sendOtp ? (<button disabled className='getOTPBtn'>OTP Sent!</button>) : (<button className='getOTPBtn' onClick={handleOTP}>Get OTP</button>)
+                                    }
+                                </div>)
                     }
 
                     {
                         sendOtp ? (
                             <>
-                                <div className="mt-3" style={{ color: 'red' }}>OTP Will Expire in 3 Minutes!</div>
+                                <div className="mt-4 mb-3" style={{ color: 'red', textAlign: 'center' }}>OTP Will Expire in 3 Minutes!</div>
                                 <form onSubmit={handleOTPSubmit}>
-                                    <input type="number" name="verifyOTP" />
-                                    <input type="submit" value="Submit Now" />
+                                    <div className="row justify-content-center">
+                                        <div className="col-lg-6">
+                                            <input type="number" name="otp" className='form-control' />
+                                            <input type="submit" value="Submit Now" className='getOTPBtn' />
+                                        </div>
+                                    </div>
                                 </form>
 
                             </>
@@ -73,7 +95,7 @@ const MyProfile = () => {
                     }
                     {
                         showError ? (
-                            <p className="mt-3" style={{ color: 'red' }}>Invalid OTP...!</p>
+                            <p className="mt-3" style={{ color: 'red', textAlign: 'center' }}>Invalid OTP...!</p>
                         ) : ('')
                     }
                 </div>

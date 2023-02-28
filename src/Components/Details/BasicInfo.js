@@ -108,8 +108,9 @@ const BasicInfo = () => {
                 {/* <h1>{basicinfo}</h1> */}
                 <div className="row d-flex justify-content-center">
                     <div className="col-lg-10">
-                        <form onSubmit={handleBasicInfo}>
+                        <form onSubmit={handleBasicInfo} autoComplete="off">
                             <div className="row">
+
                                 <div className="col-lg-4 mb-4">
                                     <select name="height" className="form-select form-select" aria-label=".form-select-sm example">
                                         <option selected>-- Height --</option>
@@ -278,6 +279,10 @@ const BasicInfo = () => {
                             </div>
 
                             <div className="row">
+                                <div className="col-lg-12 mb-4">
+                                    <input type="number" name="age" className='form-control' placeholder='Your Age' />
+                                </div>
+
                                 <div className="col-lg-12 mb-4">
                                     <input type="text" name="addressLine1" id="addressLine1" className='form-control' placeholder='Residential Address Line 1' />
                                 </div>
