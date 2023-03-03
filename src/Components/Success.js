@@ -35,7 +35,7 @@ const Success = () => {
                         {
                             storydata?.map((val, id) => {
                                 return (
-                                    <div className="col-lg-4 col-sm-6 col-xs-6">
+                                    <div className="col-lg-4 col-sm-6 col-xs-6 card">
                                         <div className="success_card_div">
                                             <img src={val.image} alt="image" />
 

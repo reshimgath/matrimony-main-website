@@ -72,101 +72,101 @@ const ViewmoreProfile = () => {
                     </div>
                 </div>
 
-                <div className="row justify-content-center mb-4">
+                <div className="row justify-content-center mb-4 property_div">
 
                     <h2 className="personal_details_div_title">Personal Details</h2>
 
-                    <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Gender :</b> {profileData.gender}</p>
-                        <p className="fs-5 mt-2"><b>Date Of Birth :</b> {profileData.dob}</p>
-                        <p className="fs-5 mt-2"><b>Religion :</b> {profileData.caste}</p>
-                        <p className="fs-5 mt-2"><b>Marital Status :</b> {profileData.maritalStatus}</p>
-                        <p className="fs-5 mt-2"><b>Mother Tongue :</b> {profileData.mother_tongue}</p>
+                    <div className="col-lg-5 ">
+                        <p className=" mt-2 details_p"><b>Gender :</b> {profileData.gender}</p>
+                        <p className=" mt-2"><b>Date Of Birth :</b> {profileData.dob}</p>
+                        <p className=" mt-2"><b>Religion :</b> {profileData.caste}</p>
+                        <p className=" mt-2"><b>Marital Status :</b> {profileData.maritalStatus}</p>
+                        <p className=" mt-2"><b>Mother Tongue :</b> {profileData.mother_tongue}</p>
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Height :</b> {profileData.height}</p>
-                        <p className="fs-5 mt-2"><b>Weight :</b> {profileData.weight}</p>
-                        <p className="fs-5 mt-2"><b>Blood Group :</b> {profileData.bloodGroup}</p>
-                        <p className="fs-5 mt-2"><b>Complexion :</b> {profileData.complexion}</p>
-                        <p className="fs-5 mt-2"><b>Disabilities :</b> {profileData.disablity}</p>
+                        <p className=" mt-2"><b>Height :</b> {profileData.height}</p>
+                        <p className=" mt-2"><b>Weight :</b> {profileData.weight}</p>
+                        <p className=" mt-2"><b>Blood Group :</b> {profileData.bloodGroup}</p>
+                        <p className=" mt-2"><b>Complexion :</b> {profileData.complexion}</p>
+                        <p className=" mt-2"><b>Disabilities :</b> {profileData.disablity}</p>
                     </div>
                 </div>
 
-                <div className="row justify-content-center mb-4">
+                <div className="row justify-content-center mb-4 property_div">
 
                     <h2 className="personal_details_div_title">Educational / Professional Details</h2>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Education :</b> {profileData.education}</p>
-                        <p className="fs-5 mt-2"><b>Income Per Annum :</b> {profileData.salaryPA}</p>
+                        <p className=" mt-2"><b>Education :</b> {profileData.education}</p>
+                        <p className=" mt-2"><b>Income Per Annum :</b> {profileData.salaryPA}</p>
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Occupation :</b> {profileData.occupation}</p>
+                        <p className=" mt-2"><b>Occupation :</b> {profileData.occupation}</p>
                     </div>
                 </div>
 
-                <div className="row justify-content-center mb-4">
+                <div className="row justify-content-center mb-4 property_div">
 
                     <h2 className="personal_details_div_title">Horoscope Details</h2>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2 text-capitalize"><b>Rashi :</b> {profileData.rashi}</p>
-                        <p className="fs-5 mt-2 text-capitalize"><b>Nakshtra :</b> {profileData.nakshatra}  </p>
-                        <p className="fs-5 mt-2 text-capitalize"><b>Charan :</b> {profileData.charan}</p>
-                        <p className="fs-5 mt-2 text-capitalize"><b>Nadi :</b> {profileData.nadi}</p>
+                        <p className=" mt-2 text-capitalize"><b>Rashi :</b> {profileData.rashi}</p>
+                        <p className=" mt-2 text-capitalize"><b>Nakshtra :</b> {profileData.nakshatra}  </p>
+                        <p className=" mt-2 text-capitalize"><b>Charan :</b> {profileData.charan}</p>
+                        <p className=" mt-2 text-capitalize"><b>Nadi :</b> {profileData.nadi}</p>
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2 text-capitalize"><b>Gan :</b>{profileData.gan}</p>
-                        <p className="fs-5 mt-2 text-capitalize"><b>Mangal :</b> {profileData.mangal ? ('Yes') : ('No')}</p>
-                        <p className="fs-5 mt-2 text-capitalize"><b>Birth Time :</b> {profileData.birth_time}</p>
-                        <p className="fs-5 mt-2 text-capitalize"><b>Birth Place :</b> {profileData.birth_place}</p>
+                        <p className=" mt-2 text-capitalize"><b>Gan :</b>{profileData.gan}</p>
+                        <p className=" mt-2 text-capitalize"><b>Mangal :</b> {profileData.mangal ? ('Yes') : ('No')}</p>
+                        <p className=" mt-2 text-capitalize"><b>Birth Time :</b> {profileData.birth_time}</p>
+                        <p className=" mt-2 text-capitalize"><b>Birth Place :</b> {profileData.birth_place}</p>
                     </div>
                 </div>
 
-                <div className="row justify-content-center mb-4">
+                <div className="row justify-content-center mb-4 property_div">
 
                     <h2 className="personal_details_div_title">Family Details</h2>
 
                     <div className="col-lg-5">
-                        {/* <p className="fs-5 mt-2 text-capitalize"><b>Father's Name :</b> {profileData.fathers_name}</p>
-                        <p className="fs-5 mt-2 text-capitalize"><b>Mother's Name :</b> {profileData.mothers_name}</p> */}
-                        <p className="fs-5 mt-2 text-capitalize"><b>Father's Occupation :</b> {profileData.fathers_occupation}</p>
-                        <p className="fs-5 mt-2 text-capitalize"><b>Brother(s) :</b> {profileData.bother_select}</p>
-                        <p className="fs-5 mt-2 text-capitalize"><b>Sister(s) :</b> {profileData.sister_select}</p>
+                        {/* <p className=" mt-2 text-capitalize"><b>Father's Name :</b> {profileData.fathers_name}</p>
+                        <p className=" mt-2 text-capitalize"><b>Mother's Name :</b> {profileData.mothers_name}</p> */}
+                        <p className=" mt-2 text-capitalize"><b>Father's Occupation :</b> {profileData.fathers_occupation}</p>
+                        <p className=" mt-2 text-capitalize"><b>Brother(s) :</b> {profileData.bother_select}</p>
+                        <p className=" mt-2 text-capitalize"><b>Sister(s) :</b> {profileData.sister_select}</p>
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2 text-capitalize"><b>Mother's Occupation :</b> {profileData.mothers_occupation}</p>
-                        <p className="fs-5 mt-2 text-capitalize"><b>Brother(s) Married? :</b> {profileData.bother_status}</p>
-                        <p className="fs-5 mt-2 text-capitalize"><b>Sister(s) Married? :</b> {profileData.sister_status}</p>
+                        <p className=" mt-2 text-capitalize"><b>Mother's Occupation :</b> {profileData.mothers_occupation}</p>
+                        <p className=" mt-2 text-capitalize"><b>Brother(s) Married? :</b> {profileData.bother_status}</p>
+                        <p className=" mt-2 text-capitalize"><b>Sister(s) Married? :</b> {profileData.sister_status}</p>
                     </div>
                 </div>
 
-                <div className="row justify-content-center mb-4">
+                <div className="row justify-content-center mb-4 property_div">
 
                     <h2 className="personal_details_div_title">Expectations</h2>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Education  :</b> {profileData.education_pref}</p>
-                        <p className="fs-5 mt-2"><b>Occupation :</b>  {profileData.occupation_pref}</p>
+                        <p className=" mt-2"><b>Education  :</b> {profileData.education_pref}</p>
+                        <p className=" mt-2"><b>Occupation :</b>  {profileData.occupation_pref}</p>
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Caste  :</b> {profileData.caste_pref}</p>
-                        <p className="fs-5 mt-2"><b>Complexion  :</b> {profileData.complexion_pref}</p>
+                        <p className=" mt-2"><b>Caste  :</b> {profileData.caste_pref}</p>
+                        <p className=" mt-2"><b>Complexion  :</b> {profileData.complexion_pref}</p>
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Location  :</b> {profileData.location_pref}</p>
-                        <p className="fs-5 mt-2"><b>Height  :</b> {profileData.height_pref}</p>
+                        <p className=" mt-2"><b>Location  :</b> {profileData.location_pref}</p>
+                        <p className=" mt-2"><b>Height  :</b> {profileData.height_pref}</p>
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Location  :</b> {profileData.location_pref}</p>
-                        <p className="fs-5 mt-2"><b>State  :</b> {profileData.state_pref}</p>
+                        <p className=" mt-2"><b>Location  :</b> {profileData.location_pref}</p>
+                        <p className=" mt-2"><b>State  :</b> {profileData.state_pref}</p>
                     </div>
                 </div>
 
@@ -177,15 +177,15 @@ const ViewmoreProfile = () => {
                             <h2 className="personal_details_div_title">Contact Details</h2>
 
                             <div className="col-lg-5">
-                                <p className="fs-5 mt-2 text-capitalize"><b>Name :</b> {profileData.firstname} {contactData.lastname}</p>
-                                <p className="fs-5 mt-2 text-capitalize"><b>Father's Name :</b> {profileData.fathers_name}  {contactData.lastname}</p>
-                                <p className="fs-5 mt-2 text-capitalize"><b>Mothers's Name :</b> {profileData.mothers_name} {contactData.lastname}</p>
+                                <p className=" mt-2 text-capitalize"><b>Name :</b> {profileData.firstname} {contactData.lastname}</p>
+                                <p className=" mt-2 text-capitalize"><b>Father's Name :</b> {profileData.fathers_name}  {contactData.lastname}</p>
+                                <p className=" mt-2 text-capitalize"><b>Mothers's Name :</b> {profileData.mothers_name} {contactData.lastname}</p>
                             </div>
 
                             <div className="col-lg-5">
-                                <p className="fs-5 mt-2"><b>Conact No. :</b> {contactData.mobile}</p>
-                                <p className="fs-5 mt-2"><b>Email ID :</b> {contactData.email}</p>
-                                <p className="fs-5 mt-2 text-capitalize"><b>Address :</b> {contactData.addressLine2}</p>
+                                <p className=" mt-2"><b>Conact No. :</b> {contactData.mobile}</p>
+                                <p className=" mt-2"><b>Email ID :</b> {contactData.email}</p>
+                                <p className=" mt-2 text-capitalize"><b>Address :</b> {contactData.addressLine2}</p>
                             </div>
                         </div>
                     )

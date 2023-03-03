@@ -32,18 +32,6 @@ const MyProfile = () => {
         const formdata = new FormData(event.target);
         const data = Object.fromEntries(formdata.entries());
 
-        // fetch('http://localhost:3031/auth/verifyotp', {
-        //     method: 'POST',
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         "Authorization": localStorage.getItem('accesstoken')
-        //     },
-        //     body: JSON.stringify({
-        //         otp: data.allOTP
-        //     })
-        // }).then(response => response.json())
-        //     .then((response) => { localStorage.setItem('datatoken', response.datatoken); authContext.dataDispatch({ type: 'changeState' }); navigate('/') })
-        //     .catch((err) => { setShowError(true); console.log(err) });
 
         axios.post('http://localhost:3031/auth/verifyotp', data, {
             headers: {

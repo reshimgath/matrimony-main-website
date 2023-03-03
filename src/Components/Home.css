@@ -4,7 +4,6 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-
 }
 
 @media(max-width:575px) {
@@ -53,12 +52,15 @@
     opacity: 0.75;
     width: 95%;
     margin: 12vh auto 5vh;
-    height: 130px;
+    /* height: 130px; */
+    height: 100%;
+    padding: 12px;
 }
 
 @media(max-width:575px) {
     .search_area_background {
-        height: 100vh;
+        /* height: 100vh; */
+        height: 100%;
     }
 
 }

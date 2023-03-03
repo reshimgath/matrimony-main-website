@@ -7,7 +7,6 @@ if (localStorage.getItem('datatoken')) {
     initialState = jwt_decode(localStorage.getItem('datatoken'));
 }
 
-
 const reducer = (state, action) => {
     switch (action.type) {
         case "changeState": return jwt_decode(localStorage.getItem('datatoken'));

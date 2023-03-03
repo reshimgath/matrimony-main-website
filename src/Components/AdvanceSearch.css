@@ -1,13 +1,78 @@
-@font-face {
-    font-family: advSearch_Title_Font;
-    src: url('../Fonts/BerkshireSwash-Regular.ttf');
+.search_icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 6vw;
 }
 
-.adv_search_title {
-    font-family: advSearch_Title_Font;
-    color: #e1114c;
-    text-align: center;
-    margin-top: 11vh;
-    margin-bottom: 9vh;
-    font-size: 3.2vw;
+.search_icons div img {
+    width: 2.5vw;
+}
+
+.search_Sub_icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    column-gap: 1vw;
+}
+
+.search_Sub_icons span {
+    font-size: 1.6vw;
+}
+
+.search_area_background {
+    background-color: #000;
+    opacity: 0.75;
+    width: 95%;
+    margin: 12vh auto 5vh;
+    height: 100%;
+    padding: 15px;
+}
+
+
+@media(max-width:575px) {
+    .search_area_background {
+        height: 100% !important;
+    }
+
+}
+
+.search_area_background {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+
+.blank_div {
+    height: 20px;
+}
+
+.dropdown-menu {
+    max-height: 100px !important;
+    overflow-y: scroll;
+}
+
+.search_btn {
+    background-color: #00ccff;
+    color: #fff !important;
+    opacity: 1;
+    padding: 7px 25px 7px;
+
+}
+
+label {
+    color: #fff;
+    margin-left: 4px;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dropdown-menu.show {
+    width: 100%;
 }

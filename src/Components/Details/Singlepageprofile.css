@@ -29,6 +29,13 @@
     object-fit: contain;
 }
 
+@media(max-width:575px) {
+    .profileImg_div img {
+        width: 50%;
+        height: 50%;
+    }
+}
+
 .personal_details_div_title {
     font-family: personal_details_title_font;
     color: #fff;

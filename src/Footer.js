@@ -17,7 +17,7 @@ const Footer = () => {
                         <div className="row d-flex justify-content-center footer_links_div">
                             <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="/">Home</Link> </h5> </div>
                             <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="/about">About</Link> </h5> </div>
-                            <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="/advancesearch">Search</Link> </h5> </div>
+                            {/* <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="/advancesearch">Search</Link> </h5> </div> */}
                             <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="/plans">Plans</Link> </h5> </div>
                             <div className="col-lg-2 mt-3 mb-4"> <h5 className="text-center"> <Link to="/contact">Contact</Link> </h5> </div>
                         </div>
@@ -28,7 +28,7 @@ const Footer = () => {
                     <h4 className='text-center text-white mb-2'>Follow Us At</h4>
 
                     <div className="container" style={{ width: "11%" }}>
-                        <div className="row">
+                        <div className="row social_row">
                             <div className="col-lg-4 text-center socia_link mt-3">
                                 <Link to="#">
                                     <img src={facebookIcon} alt="con" />

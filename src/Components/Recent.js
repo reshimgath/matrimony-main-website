@@ -62,7 +62,7 @@ const Recent = () => {
                     {
                         profile?.map((val, id) => {
                             return (
-                                <div className="col-lg-4 col-sm-6 col-xs-6 mt-3">
+                                <div className="col-lg-4 col-sm-6 col-xs-6 mt-3 recent_main_div">
                                     <div className="recent_inside_div">
                                         <img src={val.image1 === "" ? (defaultImg) : (val.image1)} alt="image" className="img-fluid" />
                                         <h4 className="recent_profile_name text-capitalize">{val.firstname}</h4>

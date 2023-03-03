@@ -34,18 +34,18 @@ const Contact = () => {
                     <h2 className='contact_form_title'>Contact Form</h2>
                     <p className='contact_form_tagline'>Looking forward to listening to you!</p>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} autoComplete="off">
                     <div className="row mt-3">
                         <div className="col-lg-6 mb-3">
-                            <input type="text" name="name" placeholder='Your Name' className='form-control' />
+                            <input type="text" name="name" placeholder='Your Name' className='form-control' required />
                         </div>
 
                         <div className="col-lg-6 mb-3">
-                            <input type="email" name="email" placeholder='Your Email' className='form-control' />
+                            <input type="email" name="email" placeholder='Your Email' className='form-control' required />
                         </div>
 
                         <div className="col-lg-12 mb-3">
-                            <input type="number" name="contact" placeholder='Your Contact Number' className='form-control' />
+                            <input type="number" name="contact" placeholder='Your Contact Number' className='form-control' required />
                         </div>
 
                         <div className="col-lg-12 mb-3">
@@ -53,7 +53,7 @@ const Contact = () => {
                         </div>
 
                         <div className="col-lg-12 mb-5">
-                            <input type="submit" value="Send Message" id="submitMsgBtn" />
+                            <input type="submit" value="Send Message" id="submitMsgBtn" required />
                         </div>
                     </div>
                 </form>

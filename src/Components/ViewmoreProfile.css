@@ -29,6 +29,13 @@
     object-fit: fill;
 }
 
+@media(max-width:575px) {
+    .profileImg_div img {
+        width: 65% !important;
+        height: 90% !important;
+    }
+}
+
 .personal_details_div_title {
     font-family: personal_details_title_font;
     color: #fff;
@@ -40,6 +47,12 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     width: 90%;
+}
+
+@media(max-width:575px) {
+    .personal_details_div_title {
+        font-size: 4vw;
+    }
 }
 
 .details_colm {
@@ -60,6 +73,15 @@
     height: 250px !important;
     object-fit: fill;
 
+}
+
+@media(max-width:575px) {
+    .user_details_section img {
+        width: 55% !important;
+        height: 100% !important;
+        /* display: block;
+        margin: auto; */
+    }
 }
 
 .user_details_section h4 {

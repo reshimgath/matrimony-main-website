@@ -18,7 +18,7 @@ const Nav = () => {
                             {
                                 localStorage.getItem('datatoken') ? (
                                     <>
-                                        <h4 className='text-white me-2 pt-1 text-capitalize'>Hi, {authContext.dataState.firstname}</h4>
+                                        <h4 className='text-white me-2 pt-1 text-capitalize top_name'>Hi, {authContext.dataState.firstname}</h4>
                                     </>
                                 ) : ('')
                             }
@@ -45,7 +45,7 @@ const Nav = () => {
                                 <ul className="nav_menus d-flex justify-content-center align-items-center flex-column" >
                                     <li className='text-white'><img src={coinIcon} alt="Img" /> <span className='fs-5'>{authContext.dataState.coins}</span></li>
                                     <li><Link to="/myprofile">My Profile ( Completed : {authContext.dataState.profile_completed}% )</Link></li>
-                                    <li><Link to="#">Buy / Update Plan</Link></li>
+                                    {/* <li><Link to="#">Buy / Update Plan</Link></li> */}
                                     <li>
                                         <Link to="/logout">
                                             Logout

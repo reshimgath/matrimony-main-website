@@ -53,3 +53,15 @@
     text-decoration: none;
     color: white;
 }
+
+@media(max-width:575px) {
+    .top_name {
+        font-size: 3vw;
+    }
+}
+
+@media(max-width:575px) {
+    .navbar-light .navbar-toggler-icon {
+        font-size: 2.8vw;
+    }
+}

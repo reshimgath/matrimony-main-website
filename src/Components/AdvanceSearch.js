@@ -1,339 +1,203 @@
-import React from 'react'
+import React, { useState } from 'react'
 import RedNav from '../RedNav'
-import './AdvanceSearch.css'
-
+import '../Components/AdvanceSearch.css'
+import religionData from '../Components/religion.json'
+import heightData from '../Components/height.json'
+import educationData from '../Components/education.json'
+import SearchResult from './SearchResult'
 const AdvanceSearch = () => {
+    //State for Not result found msg
+    const [msg, setMsg] = useState(false)
+
+    //Main Search Bar Form Submission
+    const [filterData, setFilterData] = useState([])
+
+    // For loop for getting numbers 18-70
+    const ageArr = [];
+    for (var i = 18; i <= 70; i++) {
+        ageArr.push(i)
+    }
+
+    const handleSubmit = () => { }
     return (
         <>
             <RedNav />
-            <div className="container">
-                <div className="row">
-                    <h1 className="adv_search_title">Advance Search</h1>
-                </div>
-            </div>
-
-            <div className='AdvSearch_Div'>
-
-                <div className="container-fluid w-100">
+            <div className="container-fluid w-100">
+                <form onSubmit={handleSubmit}>
                     <div className="row search_area_background">
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="lookingFor">Looking For</label>
-                                <button className="btn btn-secondary dropdown-toggle" type="button" id="lookingFor" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
-                                    -- Please Select --
-                                </button>
-                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                <select name="lookingFor" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <option selected>-- Please Select --</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
                             </div>
                         </div>
 
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <label htmlFor="fromAge">From Age</label>
                             <div className="dropdown">
-                                <button className="btn btn-secondary dropdown-toggle" type="button" id="fromAge" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
-                                    -- Please Select --
-                                </button>
-                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                <select name="fromAge" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <option selected>-- Please Select --</option>
+                                    {
+                                        ageArr?.map((val, id) => {
+                                            return (
+                                                <option>{val}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
                             </div>
                         </div>
 
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="toAge">To Age</label>
-                                <button className="btn btn-secondary dropdown-toggle" type="button" id="toAge" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
-                                    -- Please Select --
-                                </button>
-                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                <select name="toAge" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <option selected>-- Please Select --</option>
+                                    {
+                                        ageArr?.map((val, id) => {
+                                            return (
+                                                <option>{val}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
                             </div>
                         </div>
 
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="maritalStatus">Marital Status</label>
-                                <button className="btn btn-secondary dropdown-toggle" type="button" id="maritalStatus" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
-                                    -- Please Select --
-                                </button>
-                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                <select name="maritalStatus" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <option selected>-- Please Select --</option>
+                                    <option>Single</option>
+                                    <option>Divorced</option>
+                                    <option>Widowed</option>
+                                    <option>Separated</option>
+                                    <option>Widower</option>
+                                </select>
                             </div>
                         </div>
 
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="Religion">Religion</label>
-                                <button className="btn btn-secondary dropdown-toggle" type="button" id="Religion" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
-                                    -- Please Select --
-                                </button>
-                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <option selected>-- Please Select --</option>
+                                    {
+                                        religionData?.map((val, id) => {
+                                            return (
+                                                <option value={val.religion}>{val.religion}</option>
+                                            )
+                                        })
+                                    }
+
+                                </select>
                             </div>
                         </div>
 
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
-                                <label htmlFor="Cast">Cast</label>
-                                <button className="btn btn-secondary dropdown-toggle" type="button" id="Cast" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
-                                    -- Please Select --
-                                </button>
-                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                <label htmlFor="Religion">Caste</label>
+                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <option selected>-- Please Select --</option>
+                                    {/* {
+                                        religionData?.map((val, id) => {
+                                            return (
+                                                <option value={val.religion}>{val.religion}</option>
+                                            )
+                                        })
+                                    } */}
+
+                                </select>
                             </div>
                         </div>
 
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
-                                <label htmlFor="Height">Height</label>
-                                <button className="btn btn-secondary dropdown-toggle" type="button" id="Height" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
-                                    -- Please Select --
-                                </button>
-                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                <label htmlFor="Religion">Height</label>
+                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <option selected>-- Please Select --</option>
+                                    {
+                                        heightData?.map((val, index) => {
+                                            return (
+                                                <option value={val.height}>{val.height.split(".").map((value, indx) => {
+                                                    return (
+                                                        <h1>{value + `${indx === 0 ? "'" : '"'}`}</h1>
+                                                    )
+                                                })}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
                             </div>
                         </div>
 
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
-                                <label htmlFor="Education">Education</label>
-                                <button className="btn btn-secondary dropdown-toggle" type="button" id="Education" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
-                                    -- Please Select --
-                                </button>
-                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                <label htmlFor="Religion">Education</label>
+                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <option selected>-- Please Select --</option>
+                                    {
+                                        educationData?.map((val, id) => {
+                                            return (
+                                                <option value={val.education}>{val.education}</option>
+                                            )
+                                        })
+                                    }
+
+                                </select>
                             </div>
                         </div>
 
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
-                                <label htmlFor="Salary Package">Salary Package</label>
-                                <button className="btn btn-secondary dropdown-toggle" type="button" id="Salary Package" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
-                                    -- Please Select --
-                                </button>
-                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                <label htmlFor="Religion">Salary Package</label>
+                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <option selected>-- Please Select --</option>
+
+                                </select>
                             </div>
                         </div>
 
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
-                                <label htmlFor="State">State</label>
-                                <button className="btn btn-secondary dropdown-toggle" type="button" id="State" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
-                                    -- Please Select --
-                                </button>
-                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                <label htmlFor="Religion">State</label>
+                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <option selected>-- Please Select --</option>
+
+                                </select>
                             </div>
                         </div>
 
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
-                                <label htmlFor="Location">Location</label>
-                                <button className="btn btn-secondary dropdown-toggle" type="button" id="Location" data-bs-toggle="dropdown" aria-expanded="false" style={{ backgroundColor: '#ffffff', color: '#000000' }}>
-                                    -- Please Select --
-                                </button>
-                                <ul className="dropdown-menu  text-white" aria-labelledby="dropdownMenuButton1">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
+                                <label htmlFor="Religion">City</label>
+                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                    <option selected>-- Please Select --</option>
+
+                                </select>
                             </div>
                         </div>
-
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="search_btn_div mt-4 dropdown">
                                 <button className='search_btn'><i class="fa-solid fa-magnifying-glass"></i> Search</button>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div className="blank_div"></div>
+                </form>
             </div>
+
+            <div className="blank_div"></div>
+
+            {
+                !msg ? (
+                    ''
+                ) : (<SearchResult arrProp={filterData} />)
+            }
         </>
     )
 }

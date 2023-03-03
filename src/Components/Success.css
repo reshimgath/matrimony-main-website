@@ -21,6 +21,7 @@
 @media(max-width:575px) {
     .success_title {
         font-size: 5vw;
+        margin-top: 2.5vh;
     }
 }
 
@@ -43,10 +44,15 @@
     padding-top: 8px;
     object-fit: contain;
     width: 100% !important;
-    height: 315px !important;
+    /* height: 315px !important; */
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+}
+
+@media(max-width:340px) {
+    .success_card_div img {
+        height: 230px !important;
+    }
 }
 
 .success_card_div p {

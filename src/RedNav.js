@@ -18,7 +18,7 @@ const RedNav = () => {
                     <button className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                         <div className="d-flex align-items-center justify-content-center">
                             {
-                                localStorage.getItem('datatoken') ? (<h4 className='text-white me-2 pt-1 text-capitalize'>Hi, {authContext.dataState.firstname}</h4>) : ('')
+                                localStorage.getItem('datatoken') ? (<h4 className='text-white me-2 pt-1 text-capitalize top_name'>Hi, {authContext.dataState.firstname}</h4>) : ('')
                             }
 
                             <span className="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@ const RedNav = () => {
                                 <ul className="redNav_menus" >
                                     <li><img src={coinIcon} alt="Img" /> <span className='fs-5'>{authContext.dataState.coins}</span></li>
                                     <li><Link to="/myprofile">My Profile ( Completed : {authContext.dataState.profile_completed}% )</Link></li>
-                                    <li>Buy / Update Plan</li>
+                                    {/* <li>Buy / Update Plan</li> */}
                                     <li><Link to="/logout">Logout </Link> </li>
                                 </ul>)
                             :
