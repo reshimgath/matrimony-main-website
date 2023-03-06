@@ -5,7 +5,7 @@ import axios from 'axios'
 const Success = () => {
     const [storydata, setStorydata] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:3031/admincrud/getstories').then((res) => {
+        axios.get('https://reshimgathadminpanel.netlify.app/admincrud/getstories').then((res) => {
             setStorydata(res.data)
         }).catch((err) => {
 

@@ -24,7 +24,7 @@ const Login = () => {
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
-        axios.post('http://localhost:3031/auth/login', data).then((res) => {
+        axios.post('https://reshimgathadminpanel.netlify.app/auth/login', data).then((res) => {
 
             //setting tokens in localstorage
             localStorage.setItem('accesstoken', res.data.accesstoken)
@@ -39,7 +39,7 @@ const Login = () => {
 
     const handleReset = () => {
         if (forgottenMail !== "") {
-            axios.post('http://localhost:3031/auth/forgotpassword', { email: forgottenMail }).then((res) => {
+            axios.post('https://reshimgathadminpanel.netlify.app/auth/forgotpassword', { email: forgottenMail }).then((res) => {
                 // console.log(res.data)
                 setSendMsg(true)
                 setTimeout(() => {

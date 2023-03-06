@@ -16,7 +16,7 @@ const MyProfile = () => {
     const [showError, setShowError] = useState(false)
     const handleOTP = (e) => {
         setSendOtp(true)
-        fetch('http://localhost:3031/auth/resendotp', {
+        fetch('https://reshimgathadminpanel.netlify.app//auth/resendotp', {
             method: 'POST',
             headers: {
                 "Content-Type": "multipart/form-data",
@@ -33,7 +33,7 @@ const MyProfile = () => {
         const formdata = new FormData(event.target);
         const data = Object.fromEntries(formdata.entries());
 
-        axios.post('http://localhost:3031/auth/verifyotp', data, {
+        axios.post('https://reshimgathadminpanel.netlify.app/auth/verifyotp', data, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

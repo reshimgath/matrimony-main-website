@@ -17,7 +17,7 @@ const DeleteProfile = () => {
 
     const handleDelProfile = () => {
         setLoading(true)
-        axios.post('http://localhost:3031/auth/senddeletepreviewemale', { firstname: context.dataState.firstname }, {
+        axios.post('https://reshimgathadminpanel.netlify.app/auth/senddeletepreviewemale', { firstname: context.dataState.firstname }, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')
@@ -35,7 +35,7 @@ const DeleteProfile = () => {
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
-        axios.post('http://localhost:3031/auth/deleteprofile', data, {
+        axios.post('https://reshimgathadminpanel.netlify.app/auth/deleteprofile', data, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

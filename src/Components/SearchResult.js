@@ -9,7 +9,7 @@ const SearchResult = ({ arrProp }) => {
         <>
             <div className="container">
                 <div className="row">
-                    <h1 class="recent_title">Search Result</h1>
+                    <h1 className="recent_title">Search Result</h1>
                     <p className='result_title'>{arrProp.length} Results Found</p>
                 </div>
 
@@ -19,8 +19,8 @@ const SearchResult = ({ arrProp }) => {
                             return (
                                 <div className="col-lg-3 col-sm-6 col-xs-6 mt-3">
                                     <div className="recent_inside_div">
-                                        <img src={val.image1} alt="image" class="img-fluid" />
-                                        <h4 class="recent_profile_name">{val.firstname}</h4>
+                                        <img src={val.image1} alt="image" className="img-fluid" />
+                                        <h4 className="recent_profile_name">{val.firstname}</h4>
                                         <br />
                                         <p>Age : {val.age}</p>
                                         <p>Education : {val.education}</p>

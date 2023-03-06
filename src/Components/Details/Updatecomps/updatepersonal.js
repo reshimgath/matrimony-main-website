@@ -13,7 +13,7 @@ const Updatepersonal = ({ email }) => {
     const [prevImg2, setPrevImg2] = useState("")
     const [prevImg3, setPrevImg3] = useState("")
     useEffect(() => {
-        axios.post('http://localhost:3031/admincrud/getpersonaldetailsupdate', { email }, {
+        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/getpersonaldetailsupdate', { email }, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')
@@ -53,7 +53,7 @@ const Updatepersonal = ({ email }) => {
         data.image3.name === "" ? (newImg3 = prevImg3) : (newImg3 = await imageFormator(data.image3))
         const payLoad = { ...data, email, image1: newImg1, image2: newImg2, image3: newImg3, }
 
-        axios.post('http://localhost:3031/admincrud/updatebasicdetails', payLoad, {
+        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/updatebasicdetails', payLoad, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

@@ -12,7 +12,7 @@ const Updatehoroscope = ({ email }) => {
     const nadiArr = ['Aadi Nadi', 'Madhya Nadi', 'Antya Nadi']
     const [horoscope, setHoroscope] = useState({})
     useEffect(() => {
-        axios.post('http://localhost:3031/admincrud/gethoroscopedetailsupdate', { email }, {
+        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/gethoroscopedetailsupdate', { email }, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')
@@ -31,7 +31,7 @@ const Updatehoroscope = ({ email }) => {
 
         const payLoad = { ...data, email }
 
-        axios.post('http://localhost:3031/admincrud/updatehoroscopedetails', payLoad, {
+        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/updatehoroscopedetails', payLoad, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

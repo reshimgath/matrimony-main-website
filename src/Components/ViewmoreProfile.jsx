@@ -17,7 +17,7 @@ const ViewmoreProfile = () => {
     const location = useLocation()
 
     useEffect(() => {
-        axios.post('http://localhost:3031/auth/getalluserdetails', { id: location.state.id }, {
+        axios.post('https://reshimgathadminpanel.netlify.app/auth/getalluserdetails', { id: location.state.id }, {
 
         }).then((res) => {
             setProfileData(res.data)
@@ -28,7 +28,7 @@ const ViewmoreProfile = () => {
     }, [])
 
     const handleContact = () => {
-        axios.post('http://localhost:3031/auth/getusercontactdetails', { profileid: location.state.id }, {
+        axios.post('https://reshimgathadminpanel.netlify.app/auth/getusercontactdetails', { profileid: location.state.id }, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

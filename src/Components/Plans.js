@@ -15,7 +15,7 @@ const Plans = () => {
 
     useEffect(() => {
 
-        axios.get("http://localhost:3031/admincrud/getallplans")
+        axios.get("https://reshimgathadminpanel.netlify.app/admincrud/getallplans")
             .then((res) => {
                 setPlan(res.data);
             })

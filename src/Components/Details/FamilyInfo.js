@@ -16,7 +16,7 @@ const FamilyInfo = () => {
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
-        axios.post("http://localhost:3031/auth/getfamilydetails", data, {
+        axios.post("https://reshimgathadminpanel.netlify.app/auth/getfamilydetails", data, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

@@ -9,7 +9,7 @@ const Recent = () => {
     const [profile, setProfile] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:3031/auth/getrecentprofiles")
+        axios.get("https://reshimgathadminpanel.netlify.app/auth/getrecentprofiles")
             .then((res) => {
                 // console.log(res.data)
                 setProfile(res.data)

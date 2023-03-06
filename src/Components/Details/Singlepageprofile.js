@@ -15,7 +15,7 @@ const Singlepageprofile = () => {
 
     const handleReset = () => {
         if (newPass !== "") {
-            axios.post('http://localhost:3031/auth/resetpassword', { password: newPass }, {
+            axios.post('https://reshimgathadminpanel.netlify.app/auth/resetpassword', { password: newPass }, {
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": localStorage.getItem('accesstoken')
@@ -34,7 +34,7 @@ const Singlepageprofile = () => {
 
     // ************** Getting Profile Data *************
     useEffect(() => {
-        axios.get('http://localhost:3031/auth/getsingleprofileofuser', {
+        axios.get('https://reshimgathadminpanel.netlify.app/auth/getsingleprofileofuser', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

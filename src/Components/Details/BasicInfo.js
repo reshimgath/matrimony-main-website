@@ -81,7 +81,7 @@ const BasicInfo = () => {
 
         const payload = { ...data, image1: await imageFormator(data.image1), image2: await imageFormator(data.image2), image3: await imageFormator(data.image3) }
 
-        axios.post('http://localhost:3031/auth/getbasicinfouser', payload, {
+        axios.post('https://reshimgathadminpanel.netlify.app/getbasicinfouser', payload, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

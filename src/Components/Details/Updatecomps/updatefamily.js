@@ -8,7 +8,7 @@ const Updatefamily = ({ email }) => {
     const [family, setFamily] = useState({})
 
     useEffect(() => {
-        axios.post('http://localhost:3031/admincrud/getfamilydetailsupdate', { email }, {
+        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/getfamilydetailsupdate', { email }, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')
@@ -27,7 +27,7 @@ const Updatefamily = ({ email }) => {
         const data = Object.fromEntries(formdata.entries());
 
         const payLoad = { ...data, email }
-        axios.post('http://localhost:3031/admincrud/updatefamilydetails', payLoad, {
+        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/updatefamilydetails', payLoad, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')
