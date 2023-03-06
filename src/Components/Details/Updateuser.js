@@ -8,7 +8,6 @@ import UpdateRegister from "../Details/Updatecomps/updateregister"
 import RedNav from "../../RedNav"
 const Updateuser = () => {
     const mycontext = useContext(AuthContext)
-    console.log(mycontext)
     return (
         <>
             < RedNav />

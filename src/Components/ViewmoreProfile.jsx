@@ -15,15 +15,15 @@ const ViewmoreProfile = () => {
     const [contactData, setContactData] = useState([])
     const [showContact, setShowContact] = useState(false)
     const location = useLocation()
-    // console.log(location.state.id)
+
     useEffect(() => {
         axios.post('http://localhost:3031/auth/getalluserdetails', { id: location.state.id }, {
 
         }).then((res) => {
             setProfileData(res.data)
-            // console.log(res.data)
+
         }).catch((err) => {
-            console.log(err)
+            notify(0, "Something went wrong..!")
         })
     }, [])
 
@@ -36,12 +36,10 @@ const ViewmoreProfile = () => {
         }).then((res) => {
             localStorage.setItem('datatoken', res.data.datatoken)
             authContext.dataDispatch({ type: 'changeState' })
-            console.log(res.data)
             setContactData(res.data.profiledata)
             setShowContact(true)
         }).catch((err) => {
             notify(0, "Plan Expired or You don't have enough coins...!")
-            // console.log(err)
         })
     }
 

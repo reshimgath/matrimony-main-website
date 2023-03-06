@@ -5,13 +5,15 @@ import AuthContext from '../../ContextCreation/AuthContext/AuthContext'
 import RedNav from '../../RedNav'
 import './MyProfile.css'
 import Singlepageprofile from './Singlepageprofile'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyProfile = () => {
+    const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
     const navigate = useNavigate()
     const authContext = useContext(AuthContext)
     const [sendOtp, setSendOtp] = useState(false)
     const [showError, setShowError] = useState(false)
-    // console.log(authContext)
     const handleOTP = (e) => {
         setSendOtp(true)
         fetch('http://localhost:3031/auth/resendotp', {
@@ -23,15 +25,13 @@ const MyProfile = () => {
 
         })
             .then(response => response.text())
-            .then(response => console.log(response))
-            .catch(err => console.error(err));
+            .catch(err => notify(0, "Something went wrong..!"));
     }
 
     const handleOTPSubmit = (event) => {
         event.preventDefault()
         const formdata = new FormData(event.target);
         const data = Object.fromEntries(formdata.entries());
-
 
         axios.post('http://localhost:3031/auth/verifyotp', data, {
             headers: {
@@ -44,13 +44,14 @@ const MyProfile = () => {
             navigate('/')
         }).catch((err) => {
             setShowError(true);
-            console.log(err)
+            notify(0, "Something went wrong..!")
         })
     }
     return (
         <>
             <RedNav />
             <div className="container-fluid">
+                <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
                 <div>
                     {
                         // authContext.dataState.verified

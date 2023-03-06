@@ -8,11 +8,12 @@ import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
 import AuthContext from '../../ContextCreation/AuthContext/AuthContext'
 import { useNavigate } from 'react-router-dom'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BasicInfo = () => {
+    const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
     const authContext = useContext(AuthContext)
-
     const [countriesName, setCountriesName] = useState('')
 
     // Fetching All countries
@@ -92,7 +93,7 @@ const BasicInfo = () => {
                 navigate('/familyinfo')
             }
         }).catch((err) => {
-            console.log(err)
+            notify(0, "Something went wrong..!")
         })
 
 
@@ -105,6 +106,7 @@ const BasicInfo = () => {
                 <div className="row">
                     <h1 className="basic_info_title">Basic Information</h1>
                 </div>
+                <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
                 {/* <h1>{basicinfo}</h1> */}
                 <div className="row d-flex justify-content-center">
                     <div className="col-lg-10">

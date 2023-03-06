@@ -163,7 +163,7 @@ const Register = () => {
                             </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" name="tc_check" id="tc_check" />
-                                <label class="form-check-label" htmlFor="tc_check" style={{ color: 'black' }}>I have read and agree to the <a href="#" style={{ color: '#E12E56', textDecoration: 'none' }}>terms & conditions</a> and privacy policy.</label>
+                                <label class="form-check-label" htmlFor="tc_check" style={{ color: 'black' }}>I have read and agree to the <Link to="/terms" style={{ color: '#E12E56', textDecoration: 'none' }}>terms & conditions</Link> and privacy policy.</label>
                             </div>
                             {
                                 error ? (

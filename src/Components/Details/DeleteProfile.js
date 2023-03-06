@@ -6,14 +6,17 @@ import AuthContext from '../../ContextCreation/AuthContext/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReactLoading from 'react-loading';
 
 const DeleteProfile = () => {
     const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
     const context = useContext(AuthContext)
     const navigate = useNavigate()
     const [delOtp, setDelOtp] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const handleDelProfile = () => {
+        setLoading(true)
         axios.post('http://localhost:3031/auth/senddeletepreviewemale', { firstname: context.dataState.firstname }, {
             headers: {
                 "Content-Type": "application/json",
@@ -21,9 +24,9 @@ const DeleteProfile = () => {
             }
         }).then((res) => {
             setDelOtp(true)
-            console.log(res.data)
+            setLoading(false)
         }).catch((err) => {
-            console.log(err)
+            notify(0, "Something went wrong...!")
         })
     }
 
@@ -31,7 +34,6 @@ const DeleteProfile = () => {
         e.preventDefault()
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
-        console.log(data)
 
         axios.post('http://localhost:3031/auth/deleteprofile', data, {
             headers: {
@@ -39,13 +41,12 @@ const DeleteProfile = () => {
                 "Authorization": localStorage.getItem('accesstoken')
             }
         }).then((res) => {
-            console.log(res.data)
             notify(1, "Profile Deleted Successfully..!")
             setTimeout(() => {
                 navigate('/logout')
             }, 2000)
         }).catch((e) => {
-            console.log(e)
+            notify(0, "Something went wrong..!")
         })
     }
     return (
@@ -106,9 +107,18 @@ const DeleteProfile = () => {
                         )
                 }
 
-
-
-
+                {
+                    loading ?
+                        (
+                            <div className='mt-10'>
+                                <center>
+                                    <ReactLoading type={'spinningBubbles'} color={'#12e56'} height={'40px'} width={'40px'} />
+                                </center>
+                            </div>
+                        )
+                        :
+                        ('')
+                }
             </div>
         </>
     )

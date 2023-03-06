@@ -3,6 +3,7 @@ import '../Components/Recent.css';
 import defaultImg from "../images/dummy_profile_image.jpg";
 import viewMoreIcon from "../images/vm_btn.png"
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 const Recent = () => {
 
     const [profile, setProfile] = useState([])
@@ -72,7 +73,9 @@ const Recent = () => {
                                     </div>
 
                                     <div className="click_btn_div">
-                                        <img src={viewMoreIcon} alt="img" />
+                                        <Link to='/viewmore' state={{ id: val._id }}>
+                                            <img src={viewMoreIcon} alt="img" />
+                                        </Link>
                                     </div>
                                 </div>
                             )

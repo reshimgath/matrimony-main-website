@@ -40,13 +40,13 @@ const SearchResult = ({ arrProp }) => {
                 </div>
             </div>
 
-            <div className="container-fluid">
+            {/* <div className="container-fluid">
                 <div className="row mt-5">
                     <div className="col-lg-12 col-sm-12 advance_search_div">
                         <h5 className='advance_search_option'>Can't find the match? <Link to='/advancesearch' id='advance_search_btn'>Go to Advance Search</Link></h5>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }

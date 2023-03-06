@@ -17,12 +17,10 @@ const Plans = () => {
 
         axios.get("http://localhost:3031/admincrud/getallplans")
             .then((res) => {
-                // console.log(res.data);
-                // console.log(typeof (res.data));
                 setPlan(res.data);
             })
             .catch((err) => {
-                console.log(err);
+
             })
     }, [])
 

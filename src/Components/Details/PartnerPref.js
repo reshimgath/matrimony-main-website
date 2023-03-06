@@ -4,8 +4,11 @@ import RedNav from '../../RedNav'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import AuthContext from '../../ContextCreation/AuthContext/AuthContext'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PartnerPref = () => {
+    const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
     const authContext = useContext(AuthContext)
     const navigate = useNavigate();
     const handlePartnerPref = (e) => {
@@ -24,15 +27,15 @@ const PartnerPref = () => {
                 authContext.dataDispatch({ type: 'changeState' })
                 navigate('/horoscopeinfo')
             }
-            console.log(res.data)
         }).catch((err) => {
-            console.log(err)
+            notify(0, "Something went wrong..!")
         })
     }
     return (
         <>
             <RedNav />
             <div className="container">
+                <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
                 <div className="row">
                     <h1 className="partner_title">Partner Preference</h1>
                 </div>

@@ -2,14 +2,15 @@ import axios from 'axios'
 import React from 'react'
 import RedNav from '../../RedNav'
 import "../Details/HoroscopInfo.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HoroscopInfo = () => {
-
+    const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
     const handleHororscope = (e) => {
         e.preventDefault();
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
-        console.log(data)
 
         axios.post('http://localhost:3031/auth/gethoroscopedetails', data, {
             headers: {
@@ -19,7 +20,7 @@ const HoroscopInfo = () => {
         }).then((res) => {
             localStorage.setItem('datatoken', res.data.datatoken)
         }).catch((err) => {
-            console.log(err)
+            notify(0, "Something went wrong..!")
         })
     }
     return (
@@ -29,7 +30,7 @@ const HoroscopInfo = () => {
                 <div className="row">
                     <h1 className="horoscope_info_title">Horoscope Information</h1>
                 </div>
-
+                <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
                 <div className="row d-flex justify-content-center">
                     <div className="col-lg-10">
                         <form onSubmit={handleHororscope}>

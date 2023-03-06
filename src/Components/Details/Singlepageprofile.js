@@ -3,8 +3,11 @@ import './Singlepageprofile.css'
 import axios from 'axios'
 import ladyImg from '../../images/dummy_profile_image.jpg'
 import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Singlepageprofile = () => {
+    const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
     const [profileData, setProfileData] = useState({})
     const [resetPass, setResetPass] = useState(false)
     const [resetMsg, setResetMsg] = useState(false)
@@ -18,14 +21,13 @@ const Singlepageprofile = () => {
                     "Authorization": localStorage.getItem('accesstoken')
                 }
             }).then((res) => {
-                // console.log(res.data)
                 setResetMsg(true)
                 setTimeout(() => {
                     setResetMsg(false)
                     setResetPass(false)
                 }, 2000)
             }).catch((err) => {
-                console.log(err)
+                notify(0, "Something went wrong..!")
             })
         }
     }
@@ -40,16 +42,17 @@ const Singlepageprofile = () => {
         }).then((res) => {
             setProfileData(res.data)
         }).catch((err) => {
-            // console.log(err)
+            notify(0, "Something went wrong..!")
         })
     }, [])
 
     return (
         <>
             <div className="container-fluid">
+                <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
                 <div className="row mt-3 main_profile_row">
                     <div className="col-lg-6 user_details_section">
-                        <img src={profileData.image1 ? ('') : (ladyImg)} className='img-fluid' />
+                        <img src={profileData.image1 ? (profileData.image1) : (ladyImg)} className='img-fluid' />
                         <h4 className='text-capitalize'>{profileData.firstname} {profileData.lastname}<br /> {profileData.city_name} {profileData.state_name}</h4>
                     </div>
 
@@ -83,15 +86,15 @@ const Singlepageprofile = () => {
 
                 <div className="row">
                     <div className="col-lg-4 col-sm-6 d-flex justify-content-center profileImg_div">
-                        <img src={profileData.image1 ? ('') : (ladyImg)} alt="image" className='img-fluid' />
+                        <img src={profileData.image1 ? (profileData.image1) : (ladyImg)} alt="image" className='img-fluid' />
                     </div>
 
                     <div className="col-lg-4 col-sm-6 d-flex justify-content-center profileImg_div">
-                        <img src={profileData.image2 ? ('') : (ladyImg)} alt="image" className='img-fluid' />
+                        <img src={profileData.image2 ? (profileData.image2) : (ladyImg)} alt="image" className='img-fluid' />
                     </div>
 
                     <div className="col-lg-4 col-sm-6 d-flex justify-content-center profileImg_div">
-                        <img src={profileData.image3 ? ('') : (ladyImg)} alt="image" className='img-fluid' />
+                        <img src={profileData.image3 ? (profileData.image3) : (ladyImg)} alt="image" className='img-fluid' />
                     </div>
                 </div>
 

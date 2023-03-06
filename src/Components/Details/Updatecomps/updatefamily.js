@@ -1,16 +1,22 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Updatefamily = ({ email }) => {
     const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
-
     const [family, setFamily] = useState({})
+
     useEffect(() => {
-        axios.post('http://localhost:3031/admincrud/getfamilydetailsupdate', { email }).then((res) => {
+        axios.post('http://localhost:3031/admincrud/getfamilydetailsupdate', { email }, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem('accesstoken')
+            }
+        }).then((res) => {
             setFamily(res.data)
         }).catch((err) => {
-            console.log(err)
+            notify(0, "Something went wrong..!")
         })
 
     }, [])
@@ -21,16 +27,22 @@ const Updatefamily = ({ email }) => {
         const data = Object.fromEntries(formdata.entries());
 
         const payLoad = { ...data, email }
-        axios.post('http://localhost:3031/admincrud/updatefamilydetails', payLoad).then((res) => {
-            notify(1, "User family details updated succesfully")
-            //   notify(1, "User Details Updated")
+        axios.post('http://localhost:3031/admincrud/updatefamilydetails', payLoad, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem('accesstoken')
+            }
+        }).then((res) => {
+            notify(1, "Family Details Updated Succesfully..!")
         }).catch((err) => {
-            notify(0, "User family details not updated succesfully")
+            notify(0, "Something went wrong..!")
         })
 
     }
     return (
-        <div>{/* FamilyInfo From */}
+        <div>
+            {/* FamilyInfo From */}
+            <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
             <div className="row d-flex justify-content-center family_details_row mt-5">
                 <div className="col-lg-10">
                     <h4 className='d-flex mb-4'>3. Update Family Information: </h4>

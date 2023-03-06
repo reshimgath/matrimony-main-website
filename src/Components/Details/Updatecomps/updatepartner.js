@@ -3,18 +3,23 @@ import React, { useEffect, useState } from 'react'
 import educational from "../../education.json"
 import heightdata from "../../height.json"
 import religion from "../../religion.json"
-
-import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Updatepartner = ({ email }) => {
     const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
 
     const [partner, setPartner] = useState({})
     useEffect(() => {
-        axios.post('http://localhost:3031/admincrud/getpartnerdetailsupdate', { email }).then((res) => {
+        axios.post('http://localhost:3031/admincrud/getpartnerdetailsupdate', { email }, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem('accesstoken')
+            }
+        }).then((res) => {
             setPartner(res.data)
         }).catch((err) => {
-            console.log(err)
+            notify(0, "Something went wrong..!")
         })
 
     }, [])
@@ -25,15 +30,21 @@ const Updatepartner = ({ email }) => {
         const data = Object.fromEntries(formdata.entries());
         const payLoad = { ...data, email }
 
-        axios.post('http://localhost:3031/admincrud/updatepartnerdetails', payLoad).then((res) => {
-            notify(1, "User partner prefrence details updated succesfully")
+        axios.post('http://localhost:3031/admincrud/updatepartnerdetails', payLoad, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem('accesstoken')
+            }
+        }).then((res) => {
+            notify(1, "Partner Prefrence details Updated..!")
         }).catch((err) => {
-            console.log(err)
+            notify(0, "Something went wrong..!")
         })
 
     }
     return (
         <div>
+            <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
             {/* 4. Partner Preference */}
             <div className="row d-flex justify-content-center mt-4">
                 <div className="col-lg-10">

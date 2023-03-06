@@ -1,0 +1,20 @@
+@font-face {
+    font-family: titleFont;
+    src: url('./Fonts/BerkshireSwash-Regular.ttf');
+}
+
+.terms_title {
+    font-family: titleFont;
+    margin-top: 12vh;
+    margin-bottom: 7vh;
+    color: #E12E56;
+    text-align: center;
+    font-size: 3.9vw;
+}
+
+@media(max-width:530px) {
+    .terms_title {
+        font-size: 4.9vw;
+        margin-top: 12vh;
+    }
+}

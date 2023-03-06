@@ -19,6 +19,8 @@ import ViewmoreProfile from './Components/ViewmoreProfile';
 import DeleteProfile from './Components/Details/DeleteProfile';
 // import Singlepageprofile from './Components/Details/Singlepageprofile';
 import Updateuser from './Components/Details/Updateuser';
+import Terms from './Terms';
+
 function App() {
   return (
     <>
@@ -40,6 +42,7 @@ function App() {
           <Route path="/viewmore" element={< ViewmoreProfile />} />
           <Route path="/deleteprofile" element={< DeleteProfile />} />
           <Route path="/updateuser" element={< Updateuser />} />
+          <Route path="/terms" element={< Terms />} />
         </Routes>
       </AuthState>
       <Footer />

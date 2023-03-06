@@ -4,16 +4,17 @@ import RedNav from '../../RedNav'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import AuthContext from '../../ContextCreation/AuthContext/AuthContext'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FamilyInfo = () => {
     const authContext = useContext(AuthContext)
     const navigate = useNavigate();
-
+    const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
     const handleFamilyInfo = (e) => {
         e.preventDefault();
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
-        // console.log(data)
 
         axios.post("http://localhost:3031/auth/getfamilydetails", data, {
             headers: {
@@ -29,7 +30,7 @@ const FamilyInfo = () => {
                 }
             })
             .catch((err) => {
-                console.log(err)
+                notify(0, "Something Went wrong..!")
             })
 
     }
@@ -41,7 +42,7 @@ const FamilyInfo = () => {
                 <div className="row">
                     <h1 className="family_info_title">Family Details</h1>
                 </div>
-
+                <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
                 <div className="row d-flex justify-content-center family_details_row mb-5 pt-4 pb-4">
                     <div className="col-lg-10">
                         <form onSubmit={handleFamilyInfo}>

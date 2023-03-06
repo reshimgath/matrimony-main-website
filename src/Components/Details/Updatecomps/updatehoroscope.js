@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Updatehoroscope = ({ email }) => {
     const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
 
@@ -11,10 +12,15 @@ const Updatehoroscope = ({ email }) => {
     const nadiArr = ['Aadi Nadi', 'Madhya Nadi', 'Antya Nadi']
     const [horoscope, setHoroscope] = useState({})
     useEffect(() => {
-        axios.post('http://localhost:3031/admincrud/gethoroscopedetailsupdate', { email }).then((res) => {
+        axios.post('http://localhost:3031/admincrud/gethoroscopedetailsupdate', { email }, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem('accesstoken')
+            }
+        }).then((res) => {
             setHoroscope(res.data)
         }).catch((err) => {
-            console.log(err)
+            notify(0, "Something went wrong..!")
         })
 
     }, [])
@@ -25,16 +31,22 @@ const Updatehoroscope = ({ email }) => {
 
         const payLoad = { ...data, email }
 
-        axios.post('http://localhost:3031/admincrud/updatehoroscopedetails', payLoad).then((res) => {
-            notify(1, "User horoscope details updated succesfully")
+        axios.post('http://localhost:3031/admincrud/updatehoroscopedetails', payLoad, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem('accesstoken')
+            }
+        }).then((res) => {
+            notify(1, "Horoscope Details Updated..!")
 
         }).catch((err) => {
-            console.log(err)
+            notify(0, "Something went wrong..!")
         })
     }
     return (
         <div>
             {/* 5. HoroscopalInfo Form */}
+            <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
             <div className="row d-flex justify-content-center mt-4 mb-5">
                 <div className="col-lg-10">
                     <h4 className='d-flex mb-4'>5. Update Horoscopic Details (Optional): </h4>
