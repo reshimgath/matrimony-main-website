@@ -49,7 +49,12 @@
     color: white;
     column-gap: 1vw;
 }
-
+@media(max-width:575px) {
+    .search_Sub_icons {
+        column-gap: 3vw;
+    }
+}
+    
 .search_Sub_icons span {
     font-size: 1.6vw;
 }
