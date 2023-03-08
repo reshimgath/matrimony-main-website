@@ -4,11 +4,12 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    height:100vh;
 }
 
 @media(max-width:575px) {
     .homeDiv {
-        height: 160vh !important;
+        height: 100% !important;
     }
 }
 
@@ -33,6 +34,12 @@
 
 .search_icons div img {
     width: 2.5vw;
+}
+
+@media(max-width:575px) {
+    .search_icons {
+        column-gap: 7px;
+    }
 }
 
 .search_Sub_icons {
