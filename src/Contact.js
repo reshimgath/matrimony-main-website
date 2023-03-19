@@ -5,17 +5,28 @@ import callIcon from './images/Contact Icons/phone.png';
 import mailIcon from './images/Contact Icons/email.png';
 import addressIcon from './images/Contact Icons/address.png'
 import axios from 'axios'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+
 const Contact = () => {
+      const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
     const handleSubmit = (e) => {
         e.preventDefault()
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
         axios.post('https://reshimgathadminpanel.netlify.app/admincrud/getqueries', data).then((res) => {
-            console.log(res.data)
+//             console.log(res.data)
+            notify(1,"Your Query Sent..! Our Team will get in touch with your shortly..!")
         }).catch((err) => {
-            console.log(err)
+//             console.log(err)
+            notify(0,"Oops..Something went wronng..!");
         })
+        
+        e.target.name.value="";
+        e.target.contact.value="";
+        e.target.email.value="";
+        e.target.message.value=""
     }
 
     return (
@@ -24,7 +35,7 @@ const Contact = () => {
             <div className="container-fluid banner_container">
                 <h2 className='banner_title'>Contact Us</h2>
             </div>
-
+            <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
             <div className="container-fluid ">
                 <iframe width="100%" height="400" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=kolhapur%20Railway%20station%20+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href='https://maps-generator.com/'>.</a>
             </div>
