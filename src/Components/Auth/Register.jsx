@@ -29,7 +29,7 @@ const Register = () => {
         if (registered) {
             setButtonDisable(true);
             setTmeData(180);
-            fetch('https://reshimgathadminpanel.netlify.app/auth/resendotp', {
+            fetch('https://reshimgath-backend-qgcr.vercel.app/auth/resendotp', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -49,7 +49,7 @@ const Register = () => {
             const formdata = new FormData(event.target);
             const data = Object.fromEntries(formdata.entries());
 
-            axios.post('https://reshimgathadminpanel.netlify.app/auth/register', data).then((res) => {
+            axios.post('https://reshimgath-backend-qgcr.vercel.app/auth/register', data).then((res) => {
 
                 localStorage.setItem('accesstoken', res.data.accesstoken)
                 localStorage.setItem('datatoken', res.data.datatoken)
@@ -73,7 +73,7 @@ const Register = () => {
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
-        fetch('https://reshimgathadminpanel.netlify.app/auth/verifyotp', {
+        fetch('https://reshimgath-backend-qgcr.vercel.app/auth/verifyotp', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
