@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React from 'react';
 import '../Auth/Register.css'
 import RedNav from '../../RedNav'
@@ -29,7 +30,7 @@ const Register = () => {
         if (registered) {
             setButtonDisable(true);
             setTmeData(180);
-            fetch('https://reshimgath-backend-qgcr.vercel.app/auth/resendotp', {
+            fetch(`${process.env.REACT_APP_BASEURL}/auth/resendotp`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -49,13 +50,14 @@ const Register = () => {
             const formdata = new FormData(event.target);
             const data = Object.fromEntries(formdata.entries());
 
-            axios.post('https://reshimgath-backend-qgcr.vercel.app/auth/register', data).then((res) => {
-
+            axios.post(`${process.env.REACT_APP_BASEURL}/auth/register`, data).then((res) => {
+                console.log(res.data)
                 localStorage.setItem('accesstoken', res.data.accesstoken)
                 localStorage.setItem('datatoken', res.data.datatoken)
                 authContext.dataDispatch({ type: 'changeState' })
 
             }).catch((err) => {
+                console.log(err)
                 setError(true)
                 setRegistered(false)
                 setButtonDisable(false);
@@ -73,7 +75,7 @@ const Register = () => {
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
-        fetch('https://reshimgath-backend-qgcr.vercel.app/auth/verifyotp', {
+        fetch(`${process.env.REACT_APP_BASEURL}/auth/verifyotp`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",

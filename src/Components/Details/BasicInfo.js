@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React from 'react'
 import '../Details/BasicInfo.css'
 import heightData from '../height.json'
@@ -81,7 +82,7 @@ const BasicInfo = () => {
 
         const payload = { ...data, image1: await imageFormator(data.image1), image2: await imageFormator(data.image2), image3: await imageFormator(data.image3) }
 
-        axios.post('https://reshimgathadminpanel.netlify.app/getbasicinfouser', payload, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/auth/getbasicinfouser`, payload, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

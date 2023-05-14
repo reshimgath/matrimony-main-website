@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React from 'react'
 import './About.css'
 import RedNav from './RedNav'

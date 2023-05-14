@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React, { useContext, useState } from 'react'
 import '.././Details/DeleteProfile.css'
 import RedNav from '../../RedNav'
@@ -17,7 +18,7 @@ const DeleteProfile = () => {
 
     const handleDelProfile = () => {
         setLoading(true)
-        axios.post('https://reshimgathadminpanel.netlify.app/auth/senddeletepreviewemale', { firstname: context.dataState.firstname }, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/auth/senddeletepreviewemale`, { firstname: context.dataState.firstname }, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')
@@ -35,7 +36,7 @@ const DeleteProfile = () => {
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
-        axios.post('https://reshimgathadminpanel.netlify.app/auth/deleteprofile', data, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/auth/deleteprofile`, data, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

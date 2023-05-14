@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import educational from "../../education.json"
@@ -11,7 +12,7 @@ const Updatepartner = ({ email }) => {
 
     const [partner, setPartner] = useState({})
     useEffect(() => {
-        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/getpartnerdetailsupdate', { email }, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/admincrud/getpartnerdetailsupdate`, { email }, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')
@@ -30,7 +31,7 @@ const Updatepartner = ({ email }) => {
         const data = Object.fromEntries(formdata.entries());
         const payLoad = { ...data, email }
 
-        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/updatepartnerdetails', payLoad, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/admincrud/updatepartnerdetails`, payLoad, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

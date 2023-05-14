@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React from 'react'
 import RedNav from './RedNav'
 import './Contact.css'
@@ -15,7 +16,7 @@ const Contact = () => {
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
-        axios.post('https://reshimgath-backend-qgcr.vercel.app/admincrud/getqueries', data).then((res) => {
+        axios.post(`${process.env.REACT_APP_BASEURL}/admincrud/getqueries`, data).then((res) => {
 //             console.log(res.data)
             notify(1,"Your Query Sent..! Our Team will get in touch with your shortly..!")
         }).catch((err) => {

@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,7 +9,7 @@ const Updateregister = ({ email }) => {
     const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
     const [registerdata, setRegisterdata] = useState({})
     useEffect(() => {
-        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/getregisterdetailsupdate', { email }, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/admincrud/getregisterdetailsupdate`, { email }, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')
@@ -25,7 +26,7 @@ const Updateregister = ({ email }) => {
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
         const payLoad = { ...data, email }
-        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/updateregisterdetails', payLoad, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/admincrud/updateregisterdetails`, payLoad, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React, { useState } from 'react'
 import RedNav from '../RedNav'
 import '../Components/AdvanceSearch.css'
@@ -28,7 +29,7 @@ const AdvanceSearch = () => {
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="lookingFor">Looking For</label>
-                                <select name="lookingFor" class="form-select form-select" aria-label=".form-select-sm example">
+                                <select name="lookingFor" className="form-select form-select" aria-label=".form-select-sm example">
                                     <option selected>-- Please Select --</option>
                                     <option>Male</option>
                                     <option>Female</option>
@@ -39,7 +40,7 @@ const AdvanceSearch = () => {
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <label htmlFor="fromAge">From Age</label>
                             <div className="dropdown">
-                                <select name="fromAge" class="form-select form-select" aria-label=".form-select-sm example">
+                                <select name="fromAge" className="form-select form-select" aria-label=".form-select-sm example">
                                     <option selected>-- Please Select --</option>
                                     {
                                         ageArr?.map((val, id) => {
@@ -55,7 +56,7 @@ const AdvanceSearch = () => {
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="toAge">To Age</label>
-                                <select name="toAge" class="form-select form-select" aria-label=".form-select-sm example">
+                                <select name="toAge" className="form-select form-select" aria-label=".form-select-sm example">
                                     <option selected>-- Please Select --</option>
                                     {
                                         ageArr?.map((val, id) => {
@@ -71,7 +72,7 @@ const AdvanceSearch = () => {
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="maritalStatus">Marital Status</label>
-                                <select name="maritalStatus" class="form-select form-select" aria-label=".form-select-sm example">
+                                <select name="maritalStatus" className="form-select form-select" aria-label=".form-select-sm example">
                                     <option selected>-- Please Select --</option>
                                     <option>Single</option>
                                     <option>Divorced</option>
@@ -85,7 +86,7 @@ const AdvanceSearch = () => {
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="Religion">Religion</label>
-                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                <select name="Religion" className="form-select form-select" aria-label=".form-select-sm example">
                                     <option selected>-- Please Select --</option>
                                     {
                                         religionData?.map((val, id) => {
@@ -102,7 +103,7 @@ const AdvanceSearch = () => {
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="Religion">Caste</label>
-                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                <select name="Religion" className="form-select form-select" aria-label=".form-select-sm example">
                                     <option selected>-- Please Select --</option>
                                     {/* {
                                         religionData?.map((val, id) => {
@@ -119,7 +120,7 @@ const AdvanceSearch = () => {
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="Religion">Height</label>
-                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                <select name="Religion" className="form-select form-select" aria-label=".form-select-sm example">
                                     <option selected>-- Please Select --</option>
                                     {
                                         heightData?.map((val, index) => {
@@ -139,7 +140,7 @@ const AdvanceSearch = () => {
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="Religion">Education</label>
-                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                <select name="Religion" className="form-select form-select" aria-label=".form-select-sm example">
                                     <option selected>-- Please Select --</option>
                                     {
                                         educationData?.map((val, id) => {
@@ -156,7 +157,7 @@ const AdvanceSearch = () => {
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="Religion">Salary Package</label>
-                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                <select name="Religion" className="form-select form-select" aria-label=".form-select-sm example">
                                     <option selected>-- Please Select --</option>
 
                                 </select>
@@ -166,7 +167,7 @@ const AdvanceSearch = () => {
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="Religion">State</label>
-                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                <select name="Religion" className="form-select form-select" aria-label=".form-select-sm example">
                                     <option selected>-- Please Select --</option>
 
                                 </select>
@@ -176,7 +177,7 @@ const AdvanceSearch = () => {
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="dropdown">
                                 <label htmlFor="Religion">City</label>
-                                <select name="Religion" class="form-select form-select" aria-label=".form-select-sm example">
+                                <select name="Religion" className="form-select form-select" aria-label=".form-select-sm example">
                                     <option selected>-- Please Select --</option>
 
                                 </select>
@@ -184,7 +185,7 @@ const AdvanceSearch = () => {
                         </div>
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                             <div className="search_btn_div mt-4 dropdown">
-                                <button className='search_btn'><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                                <button className='search_btn'><i className="fa-solid fa-magnifying-glass"></i> Search</button>
                             </div>
                         </div>
                     </div>

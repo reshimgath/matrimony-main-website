@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React, { useEffect, useState } from 'react'
 import '../Components/ViewmoreProfile.css'
 import RedNav from '../RedNav'
@@ -17,9 +18,10 @@ const ViewmoreProfile = () => {
     const location = useLocation()
 
     useEffect(() => {
-        axios.post('https://reshimgathadminpanel.netlify.app/auth/getalluserdetails', { id: location.state.id }, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/auth/getalluserdetails`, { id: location.state.id }, {
 
         }).then((res) => {
+            console.log(res.data)
             setProfileData(res.data)
 
         }).catch((err) => {
@@ -28,7 +30,7 @@ const ViewmoreProfile = () => {
     }, [])
 
     const handleContact = () => {
-        axios.post('https://reshimgathadminpanel.netlify.app/auth/getusercontactdetails', { profileid: location.state.id }, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/auth/getusercontactdetails`, { profileid: location.state.id }, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

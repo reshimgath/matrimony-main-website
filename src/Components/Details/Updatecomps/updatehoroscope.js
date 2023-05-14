@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
@@ -12,7 +13,7 @@ const Updatehoroscope = ({ email }) => {
     const nadiArr = ['Aadi Nadi', 'Madhya Nadi', 'Antya Nadi']
     const [horoscope, setHoroscope] = useState({})
     useEffect(() => {
-        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/gethoroscopedetailsupdate', { email }, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/admincrud/gethoroscopedetailsupdate`, { email }, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')
@@ -31,7 +32,7 @@ const Updatehoroscope = ({ email }) => {
 
         const payLoad = { ...data, email }
 
-        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/updatehoroscopedetails', payLoad, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/admincrud/updatehoroscopedetails`, payLoad, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

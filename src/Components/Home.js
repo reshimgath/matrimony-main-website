@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React, { useContext, useEffect, useState } from 'react';
 import Nav from '../Nav';
 import '../Components/Home.css';
@@ -36,10 +37,10 @@ const Home = () => {
         const data = Object.fromEntries(formdata.entries());
         // console.log(data)
 
-        axios.post('http://localhost:3031/auth/normalsearch', data).then((res) => {
+        axios.post(`${process.env.REACT_APP_BASEURL}/auth/normalsearch`, data).then((res) => {
             setFilterData(res.data)
             setMsg(true)
-            // console.log(res.data)
+            console.log(res.data)
         }).catch((err) => {
             console.log(err)
         })

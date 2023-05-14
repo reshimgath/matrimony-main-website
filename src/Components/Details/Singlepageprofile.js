@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React, { useEffect, useState } from 'react'
 import './Singlepageprofile.css'
 import axios from 'axios'
@@ -15,7 +16,7 @@ const Singlepageprofile = () => {
 
     const handleReset = () => {
         if (newPass !== "") {
-            axios.post('https://reshimgathadminpanel.netlify.app/auth/resetpassword', { password: newPass }, {
+            axios.post(`${process.env.REACT_APP_BASEURL}/auth/resetpassword`, { password: newPass }, {
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": localStorage.getItem('accesstoken')
@@ -25,6 +26,7 @@ const Singlepageprofile = () => {
                 setTimeout(() => {
                     setResetMsg(false)
                     setResetPass(false)
+                    notify(1,"password reset succesfully...")
                 }, 2000)
             }).catch((err) => {
                 notify(0, "Something went wrong..!")
@@ -34,7 +36,7 @@ const Singlepageprofile = () => {
 
     // ************** Getting Profile Data *************
     useEffect(() => {
-        axios.get('https://reshimgathadminpanel.netlify.app/auth/getsingleprofileofuser', {
+        axios.get(`${process.env.REACT_APP_BASEURL}/auth/getsingleprofileofuser`, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

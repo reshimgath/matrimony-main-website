@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React from 'react'
 import "../Components/MatchHome.css"
 import signinIcon from '../images/signin.png';

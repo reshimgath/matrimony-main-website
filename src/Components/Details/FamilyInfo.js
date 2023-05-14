@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React, { useContext } from 'react'
 import '../Details/FamilyInfo.css'
 import RedNav from '../../RedNav'
@@ -16,7 +17,7 @@ const FamilyInfo = () => {
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
-        axios.post("https://reshimgathadminpanel.netlify.app/auth/getfamilydetails", data, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/auth/getfamilydetails`, data, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

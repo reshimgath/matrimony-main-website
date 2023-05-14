@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React, { useEffect, useState } from 'react';
 import "../Components/Success.css"
 import successStoryImge from "../images/success_story_img1.jpg"
@@ -5,7 +6,7 @@ import axios from 'axios'
 const Success = () => {
     const [storydata, setStorydata] = useState([])
     useEffect(() => {
-        axios.get('https://reshimgathadminpanel.netlify.app/admincrud/getstories').then((res) => {
+        axios.get(`${process.env.REACT_APP_BASEURL}.app/admincrud/getstories`).then((res) => {
             setStorydata(res.data)
         }).catch((err) => {
 

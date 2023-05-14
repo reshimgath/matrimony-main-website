@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React, { useEffect, useState } from 'react'
 import RedNav from '../RedNav'
 import '../Components/Plans.css'
@@ -15,7 +16,7 @@ const Plans = () => {
 
     useEffect(() => {
 
-        axios.get("https://reshimgathadminpanel.netlify.app/admincrud/getallplans")
+        axios.get(`${process.env.REACT_APP_BASEURL}/admincrud/getallplans`)
             .then((res) => {
                 setPlan(res.data);
             })
@@ -23,9 +24,7 @@ const Plans = () => {
 
             })
     }, [])
-
-    console.log(plan)
-    return (
+return (
         <>
             <RedNav />
             {/* <div className="container-fluid mt-5">

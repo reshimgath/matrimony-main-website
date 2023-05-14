@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React, { useContext } from 'react'
 import '../Details/PartnerPref.css'
 import RedNav from '../../RedNav'
@@ -16,7 +17,7 @@ const PartnerPref = () => {
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
-        axios.post('https://reshimgathadminpanel.netlify.app/auth/getpartnerprefrence', data, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/auth/getpartnerprefrence`, data, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

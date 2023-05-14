@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,12 +9,13 @@ const Updatefamily = ({ email }) => {
     const [family, setFamily] = useState({})
 
     useEffect(() => {
-        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/getfamilydetailsupdate', { email }, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/admincrud/getfamilydetailsupdate`, { email }, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')
             }
         }).then((res) => {
+          
             setFamily(res.data)
         }).catch((err) => {
             notify(0, "Something went wrong..!")
@@ -27,7 +29,7 @@ const Updatefamily = ({ email }) => {
         const data = Object.fromEntries(formdata.entries());
 
         const payLoad = { ...data, email }
-        axios.post('https://reshimgathadminpanel.netlify.app/admincrud/updatefamilydetails', payLoad, {
+        axios.post(`${process.env.REACT_APP_BASEURL}/admincrud/updatefamilydetails`, payLoad, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": localStorage.getItem('accesstoken')

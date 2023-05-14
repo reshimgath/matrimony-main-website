@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React, { useEffect, useState } from 'react'
 import '../Components/Recent.css';
 import defaultImg from "../images/dummy_profile_image.jpg";
@@ -9,7 +10,7 @@ const Recent = () => {
     const [profile, setProfile] = useState([])
 
     useEffect(() => {
-        axios.get("https://reshimgathadminpanel.netlify.app/auth/getrecentprofiles")
+        axios.get(`${process.env.REACT_APP_BASEURL}/auth/getrecentprofiles`)
             .then((res) => {
                 // console.log(res.data)
                 setProfile(res.data)

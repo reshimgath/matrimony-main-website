@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import axios from 'axios'
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -16,7 +17,7 @@ const MyProfile = () => {
     const [showError, setShowError] = useState(false)
     const handleOTP = (e) => {
         setSendOtp(true)
-        fetch('https://reshimgathadminpanel.netlify.app//auth/resendotp', {
+        fetch(`${process.env.REACT_APP_BASEURL}/auth/resendotp`, {
             method: 'POST',
             headers: {
                 "Content-Type": "multipart/form-data",

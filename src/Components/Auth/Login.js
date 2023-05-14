@@ -1,3 +1,4 @@
+// @ts-nocheck 
 import React from 'react';
 import axios from 'axios';
 import '../Auth/Login.css'
@@ -7,7 +8,8 @@ import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import HiddenEyeIcon from '../../images/hidden_eye.png'
 import AuthContext from '../../ContextCreation/AuthContext/AuthContext';
-
+//require('dotenv').config();
+console.log(process.env.REACT_APP_BASEURL)
 const Login = () => {
     const authContext = useContext(AuthContext)
 
@@ -24,7 +26,7 @@ const Login = () => {
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
-        axios.post('https://reshimgath-backend-qgcr.vercel.app/auth/login', data).then((res) => {
+        axios.post(`${process.env.REACT_APP_BASEURL}/auth/login`, data).then((res) => {
 
             //setting tokens in localstorage
             localStorage.setItem('accesstoken', res.data.accesstoken)
@@ -33,13 +35,14 @@ const Login = () => {
             navigate('/')
 
         }).catch((err) => {
+            console.log(err)
             setError(true)
         })
     }
 
     const handleReset = () => {
         if (forgottenMail !== "") {
-            axios.post('https://reshimgath-backend-qgcr.vercel.app/auth/forgotpassword', { email: forgottenMail }).then((res) => {
+            axios.post(`${process.env.REACT_APP_BASEURL}/auth/forgotpassword`, { email: forgottenMail }).then((res) => {
                 // console.log(res.data)
                 setSendMsg(true)
                 setTimeout(() => {

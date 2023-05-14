@@ -4,7 +4,7 @@ import '../Components/SearchResult.css';
 import viewMoreIcon from "../images/vm_btn.png"
 import { Link } from 'react-router-dom'
 const SearchResult = ({ arrProp }) => {
-    console.log(arrProp)
+   
     return (
         <>
             <div className="container">
