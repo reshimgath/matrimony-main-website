@@ -67,11 +67,11 @@ const Login = () => {
                     <div className="col-lg-8 outer_form_div">
                         <form onSubmit={handleSubmit} autoComplete={'off'}>
                             <div className="col-lg-12 mb-3">
-                                <input type="text" className="form-control" name="email" placeholder='Email Id' />
+                                <input type="text" className="form-control" name="email" placeholder='Email Id' required />
                             </div>
 
                             <div className="col-lg-12 input-group mb-3">
-                                <input type={pass ? "text" : "password"} className="form-control" name="password" id="password" placeholder='Enter Password' autoComplete="off" />
+                                <input type={pass ? "text" : "password"} className="form-control" name="password" id="password" placeholder='Enter Password' autoComplete="off" required />
                                 <span className="input-group-text" onClick={() => { setPass(!pass) }}> {pass ? <img src={HiddenEyeIcon} alt="Image" /> : <img src={eyeIcon} alt="Image" />}</span>
                             </div>
 

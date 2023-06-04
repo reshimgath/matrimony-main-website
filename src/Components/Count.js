@@ -13,7 +13,7 @@ const Count = () => {
                 <div className="row count_data_row">
                     <div className="col-lg-3 col-sm-6 col-xs-6 text-center mt-3">
                         <div className="achievement_count">
-                            <h2>100</h2>
+                            <h2>500+</h2>
                         </div>
 
                         <div className="achievement_desc">
@@ -23,7 +23,7 @@ const Count = () => {
 
                     <div className="col-lg-3 col-sm-6 col-xs-6 text-center mt-3">
                         <div className="achievement_count">
-                            <h2>100</h2>
+                            <h2>500+</h2>
                         </div>
 
                         <div className="achievement_desc">
@@ -33,7 +33,7 @@ const Count = () => {
 
                     <div className="col-lg-3 col-sm-6 col-xs-6 text-center mt-3">
                         <div className="achievement_count">
-                            <h2>100</h2>
+                            <h2>500+</h2>
                         </div>
 
                         <div className="achievement_desc">
@@ -43,7 +43,7 @@ const Count = () => {
 
                     <div className="col-lg-3 col-sm-6 col-xs-6 text-center mt-3">
                         <div className="achievement_count">
-                            <h2>100</h2>
+                            <h2>500+</h2>
                         </div>
 
                         <div className="achievement_desc">

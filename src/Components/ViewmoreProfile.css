@@ -17,16 +17,19 @@
     font-size: 3vw;
 }
 
-.profileImg_div {
-    margin-bottom: 12vh;
+@media(min-width:937px) {
+    .profileImg_div {
+        margin-bottom: -430px !important;
+    }
 }
+
 
 .profileImg_div img {
     border: 8px solid #E12E56;
     border-radius: 32px;
-    width: 87% !important;
-    height: 260px !important;
-    object-fit: fill;
+    width: 100% !important;
+    height: 50% !important;
+    object-fit: contain;
 }
 
 @media(max-width:575px) {
@@ -70,7 +73,7 @@
     width: 37%;
     border-radius: 50%;
     border: 4px solid #fff;
-    height: 250px !important;
+    height: 65% !important;
     object-fit: fill;
 
 }
@@ -78,7 +81,7 @@
 @media(max-width:575px) {
     .user_details_section img {
         width: 55% !important;
-        height: 100% !important;
+        height: 70% !important;
         /* display: block;
         margin: auto; */
     }

@@ -25,17 +25,17 @@ const About = () => {
                         <div className='about_description container mb-5'>
                             <p style={{ textAlign: 'justify' }}>
                                 <em>
-                                    <b>Reshimgath Vivah</b>, the leading matrimonial website that assists individuals in finding their right life partners, began its journey in <b>year</b> by <b>Jishan Shaikh</b>, with the goal of creating a platform that provides a secure and trustworthy space for people to meet their soulmates.
+                                    <b>Reshimgath Matrimony</b>, the leading matrimonial website that assists individuals in finding their right life partners, began its journey in <b>2018</b> by <b>Mr. Jishan Shaikh</b>, with the goal of creating a platform that provides a secure and trustworthy space for people to meet their soulmates.
                                 </em>
                             </p>
                             <p style={{ textAlign: 'justify' }}>
                                 <em>
-                                    <b>Reshimgath</b> provides a range of features that allow our users to filter and search for potential partners based on their preferences, such as age, religion, location, and more. We also offer personalized matchmaking services for those who require additional assistance in finding their perfect match.
+                                    <b>Reshimgath Matrimony</b> provides a range of features that allow our users to filter and search for potential partners based on their preferences, such as age, religion, location, and more. We also offer personalized matchmaking services for those who require additional assistance in finding their perfect match.
                                 </em>
                             </p>
                             <p style={{ textAlign: 'justify' }}>
                                 <em>
-                                    At <b>Reshimgath</b>, we are committed to providing exceptional customer service to our users. Our dedicated team is available 24/7 to assist users with any queries or concerns they may have.
+                                    At <b>Reshimgath Matrimony</b>, we are committed to providing exceptional customer service to our users. Our dedicated team is available 24/7 to assist users with any queries or concerns they may have.
                                 </em>
                             </p>
                             <p style={{ textAlign: 'justify' }}>

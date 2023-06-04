@@ -26,7 +26,7 @@ const Singlepageprofile = () => {
                 setTimeout(() => {
                     setResetMsg(false)
                     setResetPass(false)
-                    notify(1,"password reset succesfully...")
+                    notify(1, "password reset succesfully...")
                 }, 2000)
             }).catch((err) => {
                 notify(0, "Something went wrong..!")
@@ -128,9 +128,6 @@ const Singlepageprofile = () => {
                     <div className="col-lg-5">
                         <p className="fs-5 mt-2"><b>Education :</b> {profileData.education}</p>
                         <p className="fs-5 mt-2"><b>Income Per Annum :</b> {profileData.salaryPA}</p>
-                        {/* <p className="fs-5 mt-2"><b>Occupation :</b> Engineer</p>
-                        <p className="fs-5 mt-2"><b>School Name :</b>  ABC High School</p>
-                        <p className="fs-5 mt-2"><b>College Name:</b> ABC College</p> */}
                     </div>
 
                     <div className="col-lg-5">
@@ -195,7 +192,6 @@ const Singlepageprofile = () => {
                     </div>
 
                     <div className="col-lg-5">
-                        <p className="fs-5 mt-2"><b>Location  :</b> {profileData.location_pref}</p>
                         <p className="fs-5 mt-2"><b>Height  :</b> {profileData.height_pref}</p>
                     </div>
 

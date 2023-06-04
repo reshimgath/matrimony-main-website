@@ -10,24 +10,22 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Contact = () => {
-      const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
+    const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
     const handleSubmit = (e) => {
         e.preventDefault()
         const formdata = new FormData(e.target);
         const data = Object.fromEntries(formdata.entries());
 
         axios.post(`${process.env.REACT_APP_BASEURL}/admincrud/getqueries`, data).then((res) => {
-//             console.log(res.data)
-            notify(1,"Your Query Sent..! Our Team will get in touch with your shortly..!")
+            notify(1, "Your Query Sent..! Our Team will get in touch with your shortly..!")
         }).catch((err) => {
-//             console.log(err)
-            notify(0,"Oops..Something went wronng..!");
+            notify(0, "Oops..Something went wronng..!");
         })
-        
-        e.target.name.value="";
-        e.target.contact.value="";
-        e.target.email.value="";
-        e.target.message.value=""
+
+        e.target.name.value = "";
+        e.target.contact.value = "";
+        e.target.email.value = "";
+        e.target.message.value = ""
     }
 
     return (
@@ -65,7 +63,7 @@ const Contact = () => {
                         </div>
 
                         <div className="col-lg-12 mb-5">
-                            <input type="submit" value="Send Message" id="submitMsgBtn" required />
+                            <input type="submit" value="Send Message" id="submitMsgBtn" />
                         </div>
                     </div>
                 </form>
@@ -74,13 +72,13 @@ const Contact = () => {
             <div className="container contact_details_container mb-5">
                 <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-6 col-xs-6 mt-2 d-flex justify-content-center">
-                        <img src={mailIcon} alt="" className='img-fluid' />&emsp;mail@gmail.com
+                        <b>Email:</b> &nbsp;reshimgathmatrimony141@gmail.com
                     </div>
                     <div className="col-lg-4 col-md-6 col-sm-6 col-xs-6 mt-2 d-flex justify-content-center">
-                        <img src={callIcon} alt="" className='img-fluid' />&emsp;+91 1234567890
+                        <b>Contact:</b>&nbsp;+91 8080579640 | +91 9209298685
                     </div>
                     <div className="col-lg-4 col-md-6 col-sm-6 col-xs-6 mt-2 d-flex justify-content-center">
-                        <img src={addressIcon} alt="" className='img-fluid' />&emsp;Station Road, Kolhapur. 416001
+                        <b>Address:</b>&nbsp;315 E Ward, Station  Raod, Opposite Gokul Hotel, Bharat Bakery, Kolhapur.
                     </div>
                 </div>
             </div>

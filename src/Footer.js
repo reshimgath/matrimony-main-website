@@ -24,7 +24,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="row social_media_row pb-2">
+                <div className="row social_media_row pb-3">
                     <h4 className='text-center text-white mb-2'>Follow Us At</h4>
 
                     <div className="container" style={{ width: "11%" }}>
@@ -48,11 +48,11 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="container-fluid">
+                    {/* <div className="container-fluid">
                         <div className="row mt-5">
                             <p className='text-white text-center'>© Copyright <b> Isha Business Solution.</b> All Rights Reserved <br /> Designed & Developed By <Link to="https://ishadigital.com" target="_blank" style={{ textDecoration: 'none', color: 'white' }}><b>Isha Business Solution</b></Link></p>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

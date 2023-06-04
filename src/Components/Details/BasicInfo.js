@@ -115,7 +115,7 @@ const BasicInfo = () => {
                             <div className="row">
 
                                 <div className="col-lg-4 mb-4">
-                                    <select name="height" className="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="height" className="form-select form-select" aria-label=".form-select-sm example" required>
                                         <option selected>-- Height --</option>
                                         {
                                             heightData?.map((val, index) => {
@@ -133,7 +133,7 @@ const BasicInfo = () => {
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select name="weight" className="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="weight" className="form-select form-select" aria-label=".form-select-sm example" required>
                                         <option selected>-- Weight --</option>
                                         <option value="35Kg To 45Kg">35Kg To 45Kg</option>
                                         <option value="45Kg To 55Kg">45Kg To 55Kg</option>
@@ -145,7 +145,7 @@ const BasicInfo = () => {
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select name="bloodGroup" className="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="bloodGroup" className="form-select form-select" aria-label=".form-select-sm example" required>
                                         <option selected>-- Blood group --</option>
                                         <option value="A+">A+ </option>
                                         <option value="A-">A-</option>
@@ -161,7 +161,7 @@ const BasicInfo = () => {
 
                             <div className="row">
                                 <div className="col-lg-4 mb-4">
-                                    <select name="education" className="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="education" className="form-select form-select" aria-label=".form-select-sm example" required>
                                         <option selected>-- Education --</option>
                                         {
                                             educationData?.map((val, id) => {
@@ -185,12 +185,13 @@ const BasicInfo = () => {
                                         <option value="Teacher">Teacher</option>
                                         <option value="CA/Accountant">CA/Accountant</option>
                                         <option value="Other">Other</option>
+                                        <option value="Not Working">Not Working</option>
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
                                     <select name="salaryPA" className="form-select form-select" aria-label=".form-select-sm example">
-                                        <option selected>-- Salary Per Annum --</option>
+                                        <option selected value="">-- Salary Per Annum --</option>
                                         <option value="Below 1 Lack">Below 1 Lack</option>
                                         <option value="1 to 3 Lack">1 to 3 Lack</option>
                                         <option value="3 to 6 Lack">3 to 6 Lack</option>
@@ -218,7 +219,7 @@ const BasicInfo = () => {
 
                             <div className="row">
                                 <div className="col-lg-4 mb-4">
-                                    <select name="caste" className="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="caste" className="form-select form-select" aria-label=".form-select-sm example" required>
                                         <option selected>-- Caste --</option>
                                         {
                                             religionData?.map((val, id) => {
@@ -237,7 +238,7 @@ const BasicInfo = () => {
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select name="complexion" className="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="complexion" className="form-select form-select" aria-label=".form-select-sm example" required>
                                         <option selected>-- Complexion --</option>
                                         <option value="Extremely fair skin">Extremely Fair Skin</option>
                                         <option value="Fair Skin">Fair Skin</option>
@@ -250,7 +251,7 @@ const BasicInfo = () => {
 
                             <div className="row">
                                 <div className="col-lg-4 mb-4">
-                                    <select name="disablity" className="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="disablity" className="form-select form-select" aria-label=".form-select-sm example" required>
                                         <option selected>-- Disability --</option>
                                         <option value="None">None</option>
                                         <option value="Blind">Blind</option>
@@ -260,7 +261,7 @@ const BasicInfo = () => {
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select name="maritalStatus" className="form-select form-select" aria-label=".form-select-sm example">
+                                    <select name="maritalStatus" className="form-select form-select" aria-label=".form-select-sm example" required>
                                         <option selected>-- Marital Status --</option>
                                         <option value="Single">Single</option>
                                         <option value="Widow">Widow</option>
@@ -283,11 +284,11 @@ const BasicInfo = () => {
 
                             <div className="row">
                                 <div className="col-lg-12 mb-4">
-                                    <input type="number" name="age" className='form-control' placeholder='Your Age' />
+                                    <input type="number" name="age" className='form-control' placeholder='Your Age' required />
                                 </div>
 
                                 <div className="col-lg-12 mb-4">
-                                    <input type="text" name="addressLine1" id="addressLine1" className='form-control' placeholder='Residential Address Line 1' />
+                                    <input type="text" name="addressLine1" id="addressLine1" className='form-control' placeholder='Residential Address Line 1' required />
                                 </div>
 
                                 <div className="col-lg-12 mb-4">
@@ -302,11 +303,11 @@ const BasicInfo = () => {
                                 </div>
 
                                 <div className="col-lg-12 mb-4">
-                                    <input type="file" name="image2" className='form-control' required />
+                                    <input type="file" name="image2" className='form-control' />
                                 </div>
 
                                 <div className="col-lg-12 mb-4">
-                                    <input type="file" name="image3" className='form-control' required />
+                                    <input type="file" name="image3" className='form-control' />
                                 </div>
                             </div>
 
@@ -351,7 +352,7 @@ const BasicInfo = () => {
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <input type="text" name="taluka" id="taluka" className='form-control' placeholder='Taluka' />
+                                    <input type="text" name="taluka" id="taluka" className='form-control' placeholder='Taluka' required />
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
