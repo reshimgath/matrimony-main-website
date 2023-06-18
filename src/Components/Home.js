@@ -50,9 +50,6 @@ const Home = () => {
         <>
             <div className='homeDiv'>
                 <Nav />
-
-                {/* <button onClick={() => { authContext.dataDispatch({ type: 'changeState' }) }}>Change State Now</button> */}
-
                 <h1 className='homeTitle'>Reshimgath</h1>
 
                 <div className="search_icons">
@@ -72,6 +69,7 @@ const Home = () => {
                     </div>
                 </div>
 
+                {/* FILTERS */}
                 <div className="container-fluid w-100">
                     <form onSubmit={handleSubmit}>
                         <div className="row search_area_background">

@@ -2,9 +2,6 @@
 import React from 'react'
 import RedNav from './RedNav'
 import './Contact.css'
-import callIcon from './images/Contact Icons/phone.png';
-import mailIcon from './images/Contact Icons/email.png';
-import addressIcon from './images/Contact Icons/address.png'
 import axios from 'axios'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';

@@ -101,7 +101,7 @@ const FamilyInfo = () => {
                                 <div className="col-lg-3 d-flex mb-4">
                                     <label htmlFor="sister_select" style={{ color: "black" }}>Sisters&emsp;</label>
                                     <select className="form-select form-select" name="sister_select" aria-label=".form-select-sm example">
-                                        <option value="null">-- Please Select --</option>
+                                        <option value="">-- Please Select --</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="More than 2">More than 2</option>

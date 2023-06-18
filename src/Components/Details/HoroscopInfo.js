@@ -7,6 +7,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const HoroscopInfo = () => {
+
+    const rashiArr = ['Mesh', 'Vrishabh', 'Mithun', 'Kark', 'Sinh', 'Kanya', 'Tula', 'Vrishchik'];
+    const nakshtraArr = ['Ashwini', 'Bharani', 'Krittika', 'Rohini', 'Mrigashira', 'Ardra', 'Punarvasu', 'Pushya', 'Ashlesha', 'Magha', 'Purva Phalguni', 'Uttara', 'Phalguni', 'Hasta', 'Chitra', 'Swati', 'Vishaka', 'Anurada', 'Jyeshta', 'Mula', 'Purva Ashadha', 'Uttara Ashadha', 'Shravana', 'Dhanishta', 'Shatabhishak', 'Purva Bhadrapada', 'Uttara Bhadrapada', 'Revati']
+    const ganArr = ['manav gan', 'dev gan', 'rakshas gan'];
+    const nadiArr = ['Aadi Nadi', 'Madhya Nadi', 'Antya Nadi']
+
     const notify = (p, msg) => p ? toast.success(msg) : toast.error(msg);
     const handleHororscope = (e) => {
         e.preventDefault();
@@ -39,44 +45,42 @@ const HoroscopInfo = () => {
                                 <div className="col-lg-4 mb-4">
                                     <select name="rashi" className="form-select form-select" aria-label=".form-select-sm example">
                                         <option value="" selected>-- Rashi --</option>
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">4</option>
-                                        <option value="1">5</option>
+                                        {
+                                            rashiArr?.map((val, id) => {
+                                                return (
+                                                    <option value={val}>{val}</option>
+                                                )
+                                            })
+                                        }
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
                                     <select name="nakshatra" className="form-select form-select" aria-label=".form-select-sm example">
                                         <option value="" selected>-- Nakshatra --</option>
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">4</option>
-                                        <option value="1">5</option>
-
+                                        {
+                                            nakshtraArr?.map((val, id) => {
+                                                return (
+                                                    <option value={val}>{val}</option>
+                                                )
+                                            })
+                                        }
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
                                     <select name="mangal" className="form-select form-select" aria-label=".form-select-sm example">
                                         <option value="" selected>-- Mangal --</option>
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">4</option>
-                                        <option value="1">5</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                        <option value="N/A">N/A</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="col-lg-4 mb-4">
-                                    <select name="charan" className="form-select form-select" aria-label=".form-select-sm example">
-                                        <option value="" selected>-- Charan --</option>
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">4</option>
-                                        <option value="1">5</option>
-                                    </select>
+                                    <input type="text" name="charan" className='form-control' placeholder='Charan' />
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
@@ -94,30 +98,30 @@ const HoroscopInfo = () => {
                                 <div className="col-lg-4 mb-4">
                                     <select name="nadi" className="form-select form-select" aria-label="form-select-sm example">
                                         <option value="" selected>-- Nadi --</option>
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">4</option>
-                                        <option value="1">5</option>
+                                        {
+                                            nadiArr?.map((val, id) => {
+                                                return (
+                                                    <option value={val}>{val}</option>
+                                                )
+                                            })
+                                        }
                                     </select>
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
-                                    <select name="devak" className="form-select form-select" aria-label=".form-select-sm example">
-                                        <option value="" selected>-- Devak --</option>
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">4</option>
-                                        <option value="1">5</option>
-                                    </select>
+                                    <input type="text" name="devak" className='form-control' placeholder='Devak' />
                                 </div>
 
                                 <div className="col-lg-4 mb-4">
                                     <select name="gan" className="form-select form-select" aria-label=".form-select-sm example">
                                         <option valule="" selected>-- Gan --</option>
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">4</option>
-                                        <option value="1">5</option>
+                                        {
+                                            ganArr?.map((val, id) => {
+                                                return (
+                                                    <option value={val}>{val}</option>
+                                                )
+                                            })
+                                        }
                                     </select>
                                 </div>
                             </div>

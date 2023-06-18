@@ -82,7 +82,8 @@ const Updatehoroscope = ({ email }) => {
 
                             <div className="col-lg-4 mb-4">
                                 <select name="mangal" value={horoscope.mangal} onChange={(e) => { setHoroscope({ ...horoscope, mangal: e.target.value }) }} className="form-select form-select" aria-label=".form-select-sm example">
-                                    <option selected>-- Mangal --</option>
+                                    <option value="" selected>-- Mangal --</option>
+                                    <option value="NA">N/A</option>
                                     <option value="true">Yes</option>
                                     <option value="false">No</option>
                                 </select>
@@ -107,7 +108,7 @@ const Updatehoroscope = ({ email }) => {
                         <div className="row">
                             <div className="col-lg-4 mb-4">
                                 <select name="nadi" value={horoscope.nadi} onChange={(e) => { setHoroscope({ ...horoscope, nadi: e.target.value }) }} className="form-select form-select" aria-label="form-select-sm example">
-                                    <option selected>-- Nadi --</option>
+                                    <option value="" selected>-- Nadi --</option>
                                     {
                                         nadiArr?.map((val, id) => {
                                             return (
@@ -126,7 +127,7 @@ const Updatehoroscope = ({ email }) => {
 
                             <div className="col-lg-4 mb-4">
                                 <select name="gan" value={horoscope.gan} onChange={(e) => { setHoroscope({ ...horoscope, gan: e.target.value }) }} className="form-select form-select" aria-label=".form-select-sm example">
-                                    <option selected>-- Gan --</option>
+                                    <option value="" selected>-- Gan --</option>
                                     {
                                         ganArr?.map((val, id) => {
                                             return (
