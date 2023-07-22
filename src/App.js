@@ -21,6 +21,7 @@ import DeleteProfile from './Components/Details/DeleteProfile';
 // import Singlepageprofile from './Components/Details/Singlepageprofile';
 import Updateuser from './Components/Details/Updateuser';
 import Terms from './Terms';
+import NewProfile from './Components/Details/NewProfile';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/deleteprofile" element={< DeleteProfile />} />
           <Route path="/updateuser" element={< Updateuser />} />
           <Route path="/terms" element={< Terms />} />
+          <Route path="/newProfile" element={< NewProfile />} />
         </Routes>
       </AuthState>
       <Footer />
