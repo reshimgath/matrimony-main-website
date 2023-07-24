@@ -204,7 +204,15 @@ hr {
 }
 
 /* Button */
-.button {
+
+/* .contact-btn :hover {
+  background-color: white;
+  color: #e12e56;
+  border: 1px solid #e12e56;
+  transition: ease-out 0.2s;
+}
+
+.contact-btn a {
   background-color: #e12e56;
   padding: 5px 20px;
   font-size: 20px;
@@ -216,15 +224,11 @@ hr {
   text-align: center;
   color: white;
   border-radius: 5px;
-}
-
-.button:hover {
+} */
+.btn-danger:hover {
   background-color: white;
   color: #e12e56;
-  border: 1px solid #e12e56;
-  transition: ease-out 0.2s;
 }
-
 @media (max-width: 768px) {
   .button {
     font-size: 10px;
