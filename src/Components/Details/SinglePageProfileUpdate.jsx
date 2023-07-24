@@ -5,7 +5,6 @@ import { Link } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import ImageSlider from "./ImageSlider"
-import RedNav from "../../RedNav"
 import "./SinglePageProfileUpdate.css"
 export default function SinglePageProfileUpdate() {
   const notify = (p, msg) => (p ? toast.success(msg) : toast.error(msg))
@@ -60,7 +59,6 @@ export default function SinglePageProfileUpdate() {
 
   return (
     <>
-      <RedNav />
       <ToastContainer
         position="bottom-left"
         autoClose={5000}

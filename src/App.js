@@ -16,13 +16,12 @@ import AuthState from "./ContextCreation/AuthContext/AuthState"
 import MyProfile from "./Components/Details/MyProfile"
 import Contact from "./Contact"
 import About from "./About"
-import ViewmoreProfile from "./Components/ViewmoreProfile"
+// import ViewmoreProfile from "./Components/ViewmoreProfile"
 import DeleteProfile from "./Components/Details/DeleteProfile"
 // import Singlepageprofile from './Components/Details/Singlepageprofile';
 import Updateuser from "./Components/Details/Updateuser"
 import Terms from "./Terms"
 import NewProfile from "./Components/Details/NewProfile"
-import SinglePageProfileUpdate from "./Components/Details/SinglePageProfileUpdate"
 
 function App() {
   return (
@@ -51,11 +50,12 @@ function App() {
           <Route path="/myprofile" element={<MyProfile />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
-          <Route path="/viewmore" element={<ViewmoreProfile />} />
+          {/* <Route path="/viewmore" element={<ViewmoreProfile />} /> */}
+          <Route path="/viewmore" element={<NewProfile />} />
           <Route path="/deleteprofile" element={<DeleteProfile />} />
           <Route path="/updateuser" element={<Updateuser />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/newProfile" element={<NewProfile />} />
+          {/* <Route path="/newProfile" element={<NewProfile />} /> */}
         </Routes>
       </AuthState>
       <Footer />
