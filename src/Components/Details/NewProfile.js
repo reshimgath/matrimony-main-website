@@ -10,7 +10,7 @@ import dummyImage from "../../images/dummy_profile_image.jpg"
 import AuthContext from "../../ContextCreation/AuthContext/AuthContext"
 import { useContext } from "react"
 import { useLocation } from "react-router-dom"
-import RedNav from "../RedNav"
+import RedNav from "../../RedNav"
 
 const NewProfile = () => {
   const [profileData, setProfileData] = useState({})
