@@ -1,35 +1,34 @@
-// @ts-nocheck 
-import React, { useEffect, useState } from 'react'
-import '../Components/Recent.css';
-import defaultImg from "../images/dummy_profile_image.jpg";
+// @ts-nocheck
+import React, { useEffect, useState } from "react"
+import "../Components/Recent.css"
+import defaultImg from "../images/dummy_profile_image.jpg"
 import viewMoreIcon from "../images/vm_btn.png"
-import axios from 'axios'
-import { Link } from 'react-router-dom'
+import axios from "axios"
+import { Link } from "react-router-dom"
 const Recent = () => {
+  const [profile, setProfile] = useState([])
 
-    const [profile, setProfile] = useState([])
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_BASEURL}/auth/getrecentprofiles`)
+      .then((res) => {
+        // console.log(res.data)
+        setProfile(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [])
 
-    useEffect(() => {
-        axios.get(`${process.env.REACT_APP_BASEURL}/auth/getrecentprofiles`)
-            .then((res) => {
-                // console.log(res.data)
-                setProfile(res.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }, [])
+  return (
+    <>
+      <div className="container">
+        <div className="row">
+          <h1 className="recent_title">Recently Created Profiles</h1>
+        </div>
 
-    return (
-        <>
-            <div className="container">
-                <div className="row">
-                    <h1 className="recent_title">Recently Created Profiles</h1>
-                </div>
-
-                <div className="row mt-4">
-
-                    {/* <div className="col-lg-4 col-sm-6 col-xs-6 mt-3">
+        <div className="row mt-4">
+          {/* <div className="col-lg-4 col-sm-6 col-xs-6 mt-3">
                         <div className="recent_inside_div">
                             <img src={cardLadyImg} alt="image" className="img-fluid" />
                             <h4 className="recent_profile_name">Sample Name</h4>
@@ -61,31 +60,38 @@ const Recent = () => {
 
                     </div> */}
 
-                    {
-                        profile?.map((val, id) => {
-                            return (
-                                <div className="col-lg-4 col-sm-6 col-xs-6 mt-3 recent_main_div">
-                                    <div className="recent_inside_div">
-                                        <img src={val.image1 === "" ? (defaultImg) : (val.image1)} alt="image" className="img-fluid" />
-                                        <h4 className="recent_profile_name text-capitalize">{val.firstname}</h4>
-                                        <br />
-                                        <p>Education : {val.education}</p>
-                                        <br />
-                                    </div>
-
-                                    <div className="click_btn_div">
-                                        <Link to='/viewmore' state={{ id: val._id }}>
-                                            <img src={viewMoreIcon} alt="img" />
-                                        </Link>
-                                    </div>
-                                </div>
-                            )
-                        })
-                    }
+          {profile?.map((val, id) => {
+            return (
+              <div className="col-lg-4 col-sm-6 col-xs-6 mt-3 recent_main_div">
+                <div className="recent_inside_div">
+                  <img
+                    src={val.image1 === "" ? defaultImg : val.image1}
+                    alt="image"
+                    className="img-fluid"
+                  />
+                  <h4 className="recent_profile_name text-capitalize">
+                    {val.firstname}
+                  </h4>
+                  <br />
+                  <p>Education : {val.education}</p>
+                  <br />
                 </div>
-            </div>
-        </>
-    )
+
+                <div className="click_btn_div">
+                  {/* <Link to='/viewmore' state={{ id: val._id }}>
+                                            <img src={viewMoreIcon} alt="img" />
+                                        </Link> */}
+                  <Link to="/newProfile" state={{ id: val._id }}>
+                    <img src={viewMoreIcon} alt="img" />
+                  </Link>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default Recent

@@ -1,30 +1,54 @@
-//@ts-nocheck
 import React, { useEffect, useState } from "react"
-import "./NewProfile.css"
-
 import axios from "axios"
-import { ToastContainer, toast } from "react-toastify"
 import ladyImg from "../../images/dummy_profile_image.jpg"
+import { Link } from "react-router-dom"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import ImageSlider from "./ImageSlider"
-import dummyImage from "../../images/dummy_profile_image.jpg"
-import AuthContext from "../../ContextCreation/AuthContext/AuthContext"
-import { useContext } from "react"
-import { useLocation } from "react-router-dom"
-
-const NewProfile = () => {
-  const [profileData, setProfileData] = useState({})
+import "./SinglePageProfileUpdate.css"
+export default function SinglePageProfileUpdate() {
   const notify = (p, msg) => (p ? toast.success(msg) : toast.error(msg))
-  const authContext = useContext(AuthContext)
-  const [contactData, setContactData] = useState([])
-  const [showContact, setShowContact] = useState(false)
-  const location = useLocation()
+  const [profileData, setProfileData] = useState({})
+  const [resetPass, setResetPass] = useState(false)
+  const [resetMsg, setResetMsg] = useState(false)
+  const [newPass, setNewPass] = useState("")
+
+  const handleReset = () => {
+    if (newPass !== "") {
+      axios
+        .post(
+          `${process.env.REACT_APP_BASEURL}/auth/resetpassword`,
+          { password: newPass },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: localStorage.getItem("accesstoken"),
+            },
+          }
+        )
+        .then((res) => {
+          setResetMsg(true)
+          setTimeout(() => {
+            setResetMsg(false)
+            setResetPass(false)
+            notify(1, "password reset succesfully...")
+          }, 2000)
+        })
+        .catch((err) => {
+          notify(0, "Something went wrong..!")
+        })
+    }
+  }
+
+  // ************** Getting Profile Data *************
   useEffect(() => {
     axios
-      .post(
-        `${process.env.REACT_APP_BASEURL}/auth/getalluserdetails`,
-        { id: location.state.id },
-        {}
-      )
+      .get(`${process.env.REACT_APP_BASEURL}/auth/getsingleprofileofuser`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("accesstoken"),
+        },
+      })
       .then((res) => {
         setProfileData(res.data)
       })
@@ -32,29 +56,6 @@ const NewProfile = () => {
         notify(0, "Something went wrong..!")
       })
   }, [])
-
-  const handleContact = () => {
-    axios
-      .post(
-        `${process.env.REACT_APP_BASEURL}/auth/getusercontactdetails`,
-        { profileid: location.state.id },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: localStorage.getItem("accesstoken"),
-          },
-        }
-      )
-      .then((res) => {
-        localStorage.setItem("datatoken", res.data.datatoken)
-        authContext.dataDispatch({ type: "changeState" })
-        setContactData(res.data.profiledata)
-        setShowContact(true)
-      })
-      .catch((err) => {
-        notify(0, "Plan Expired or You don't have enough coins...!")
-      })
-  }
 
   return (
     <>
@@ -73,18 +74,75 @@ const NewProfile = () => {
 
       {/* <!-- Profile Picture Section--> */}
       <div className="container-fluid">
-        <div className="picture_box animate__animated animate__fadeInLeft">
+        <div className="picture_box animate__animated animate__fadeInLeft d-flex flex-column">
           <h3 className="name">{profileData.firstname}</h3>
+
           <img
-            className="profile_img"
+            className="profile mt-2 "
             src={profileData.image1 ? profileData.image1 : ladyImg}
             alt="Profile"
           />
+          <div>
+            <div className="action">
+              <button className="deleteProfileBtn">
+                {" "}
+                <Link to="/deleteprofile">Delete</Link>
+              </button>
+              <button className="deleteProfileBtn">
+                <Link to="/updateuser">Update</Link>
+              </button>
+              <button
+                onClick={() => {
+                  setResetPass(true)
+                }}
+              >
+                Reset Password
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
+      {/* ********** Reset Passowrd Patch start *************** */}
+      {resetPass ? (
+        <div className="row mt-4 mb-4 justify-content-center">
+          <div className="col-lg-9">
+            <p>
+              <b>Reset Your Password Now:</b>
+            </p>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Password"
+              onChange={(e) => {
+                setNewPass(e.target.value)
+              }}
+            />
+            <button id="mypassResetBtn" onClick={handleReset}>
+              Reset Now
+            </button>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+
+      {resetMsg ? (
+        <p
+          style={{ textAlign: "center", color: "greeen" }}
+          className="mt-3 mb-4"
+        >
+          {" "}
+          <b>New Password Added..!</b>
+        </p>
+      ) : (
+        ""
+      )}
+
+      {/* ****************** Reset Passowrd Patch Ends ****************** */}
+
       {/* <!-- Personal Details Section--> */}
-      <div className="container-fluid">
+      <div className="container-fluid mt-5">
         <div className="personal_details_box animate__animated animate__fadeInRight">
           <h3>Personal Details</h3>
           <hr />
@@ -243,24 +301,24 @@ const NewProfile = () => {
           </div>
           <div className="col-lg-4 col-md-4   d-flex justify-content-center">
             <a
-              href={profileData?.image2 ? profileData.image2 : dummyImage}
+              href={profileData?.image2 ? profileData.image2 : ladyImg}
               className="d-block mb-4 h-100"
             >
               <img
                 className="img-fluid img-thumbnail gallery"
-                src={profileData?.image2 ? profileData.image2 : dummyImage}
+                src={profileData?.image2 ? profileData.image2 : ladyImg}
                 alt=""
               />
             </a>
           </div>
           <div className="col-lg-4 col-md-4  d-flex justify-content-center">
             <a
-              href={profileData?.image3 ? profileData.image3 : dummyImage}
+              href={profileData?.image3 ? profileData.image3 : ladyImg}
               className="d-block mb-4 h-100"
             >
               <img
                 className="img-fluid img-thumbnail gallery"
-                src={profileData?.image3 ? profileData.image3 : dummyImage}
+                src={profileData?.image3 ? profileData.image3 : ladyImg}
                 alt=""
               />
             </a>
@@ -272,61 +330,47 @@ const NewProfile = () => {
 
         <ImageSlider
           img1={profileData.image1}
-          img2={profileData?.image2 ? profileData.image2 : dummyImage}
-          img3={profileData?.image3 ? profileData.image3 : dummyImage}
+          img2={profileData?.image2 ? profileData.image2 : ladyImg}
+          img3={profileData?.image3 ? profileData.image3 : ladyImg}
         />
       </div>
 
-      {showContact ? (
-        <div className="container-fluid ">
-          <div className="row other_details justify-content-center">
-            <div
-              className="col-lg-12 other_details_box animate__animated animate__slideInLeft mb-4"
-              style={{ height: "auto" }}
-            >
-              <h3 id="details">Contact Details</h3>
-              <hr />
-              <div className="row">
-                <div class="col-lg-6">
-                  <p className="fs-5 mt-2 text-capitalize">
-                    <b>Name :</b> {profileData.firstname} {profileData.lastname}
-                  </p>
-                  <p className="fs-5 mt-2">
-                    <b>Conact No. :</b> {profileData.mobile}
-                  </p>
-                  <p className="fs-5 mt-2">
-                    <b>Email ID :</b> {profileData.email}
-                  </p>
-                </div>
+      <div className="container-fluid ">
+        <div className="row other_details justify-content-center">
+          <div
+            className="col-lg-12 other_details_box animate__animated animate__slideInLeft mb-4"
+            style={{ height: "auto" }}
+          >
+            <h3 id="details">Contact Details</h3>
+            <hr />
+            <div className="row">
+              <div class="col-lg-6">
+                <p className="fs-5 mt-2 text-capitalize">
+                  <b>Name :</b> {profileData.firstname} {profileData.lastname}
+                </p>
+                <p className="fs-5 mt-2">
+                  <b>Conact No. :</b> {profileData.mobile}
+                </p>
+                <p className="fs-5 mt-2">
+                  <b>Email ID :</b> {profileData.email}
+                </p>
+              </div>
 
-                <div className="col-lg-6">
-                  <p className="fs-5 mt-2">
-                    <b>Father's Name :</b> {profileData.fathers_name}
-                  </p>
-                  <p className="fs-5 mt-2 text-capitalize">
-                    <b>Mother's Name :</b> {profileData.mothers_name}
-                  </p>
-                  <p className="fs-5 mt-2 text-capitalize">
-                    <b>Address :</b> {profileData.addressLine1}
-                  </p>
-                </div>
+              <div className="col-lg-6">
+                <p className="fs-5 mt-2">
+                  <b>Father's Name :</b> {profileData.fathers_name}
+                </p>
+                <p className="fs-5 mt-2 text-capitalize">
+                  <b>Mother's Name :</b> {profileData.mothers_name}
+                </p>
+                <p className="fs-5 mt-2 text-capitalize">
+                  <b>Address :</b> {profileData.addressLine1}
+                </p>
               </div>
             </div>
           </div>
         </div>
-      ) : (
-        <div className="text-center mb-5 animate__animated animate__bounceIn mt-5">
-          <button
-            type="button"
-            onClick={handleContact}
-            class="btn btn btn-danger px-5"
-          >
-            Get Contact Details
-          </button>{" "}
-        </div>
-      )}
+      </div>
     </>
   )
 }
-
-export default NewProfile
