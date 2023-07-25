@@ -78,10 +78,7 @@ const Recent = () => {
                 </div>
 
                 <div className="click_btn_div">
-                  {/* <Link to='/viewmore' state={{ id: val._id }}>
-                                            <img src={viewMoreIcon} alt="img" />
-                                        </Link> */}
-                  <Link to="/newProfile" state={{ id: val._id }}>
+                  <Link to='/viewmore' state={{ id: val._id }}>
                     <img src={viewMoreIcon} alt="img" />
                   </Link>
                 </div>
