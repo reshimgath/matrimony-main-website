@@ -10,6 +10,7 @@ import dummyImage from "../../images/dummy_profile_image.jpg"
 import AuthContext from "../../ContextCreation/AuthContext/AuthContext"
 import { useContext } from "react"
 import { useLocation } from "react-router-dom"
+import RedNav from "../RedNav"
 
 const NewProfile = () => {
   const [profileData, setProfileData] = useState({})
@@ -72,6 +73,7 @@ const NewProfile = () => {
       />
 
       {/* <!-- Profile Picture Section--> */}
+      <RedNav/>
       <div className="container-fluid">
         <div className="picture_box animate__animated animate__fadeInLeft">
           <h3 className="name">{profileData.firstname}</h3>
