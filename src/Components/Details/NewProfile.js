@@ -73,7 +73,7 @@ const NewProfile = () => {
       />
 
       {/* <!-- Profile Picture Section--> */}
-      <RedNav/>
+      <RedNav />
       <div className="container-fluid">
         <div className="picture_box animate__animated animate__fadeInLeft">
           <h3 className="name">{profileData.firstname}</h3>

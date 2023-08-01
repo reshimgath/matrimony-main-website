@@ -50,9 +50,11 @@ export default function SinglePageProfileUpdate() {
         },
       })
       .then((res) => {
+        console.log("Hello consoling fetch data" + res.data)
         setProfileData(res.data)
       })
       .catch((err) => {
+        console.log("Error occured", err)
         notify(0, "Something went wrong..!")
       })
   }, [])
@@ -266,9 +268,7 @@ export default function SinglePageProfileUpdate() {
               <p>
                 <b>Education:</b> {profileData.education_pref}
               </p>
-              <p>
-                <b>Caste:</b> {profileData.caste}
-              </p>
+
               <p>
                 <b>Occupation:</b> {profileData.occupation_pref}
               </p>
