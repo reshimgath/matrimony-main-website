@@ -9,7 +9,7 @@ const Footer = () => {
         <>
             <div className="container-fluid footer_main_container">
                 <div className="row">
-                    <h2 className="footer_title text-center mt-2"><Link to='/'>Reshimgath</Link></h2>
+                    <h2 className="footer_title text-center mt-2"><Link to='/'>Logo</Link></h2>
                 </div>
 
                 <div className="row footer_links_row mt-3">
