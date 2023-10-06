@@ -69,13 +69,13 @@ const Contact = () => {
             <div className="container contact_details_container mb-5">
                 <div className="row">
                     <div className="col-lg-4 col-md-6 col-sm-6 col-xs-6 mt-2 d-flex justify-content-center">
-                        <b>Email:</b> &nbsp;reshimgathmatrimony141@gmail.com
+                        <b>Email:</b> &nbsp;test@gmail.com
                     </div>
                     <div className="col-lg-4 col-md-6 col-sm-6 col-xs-6 mt-2 d-flex justify-content-center">
-                        <b>Contact:</b>&nbsp;+91 8080579640 | +91 9209298685
+                        <b>Contact:</b>&nbsp;+91 8080579640 | +91 1234567890
                     </div>
                     <div className="col-lg-4 col-md-6 col-sm-6 col-xs-6 mt-2 d-flex justify-content-center">
-                        <b>Address:</b>&nbsp;315 E Ward, Station  Raod, Opposite Gokul Hotel, Bharat Bakery, Kolhapur.
+                        <b>Address:</b>&nbsp; Kolhapur.
                     </div>
                 </div>
             </div>
