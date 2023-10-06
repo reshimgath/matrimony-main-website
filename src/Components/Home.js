@@ -50,7 +50,7 @@ const Home = () => {
         <>
             <div className='homeDiv'>
                 <Nav />
-                <h1 className='homeTitle'>Reshimgath</h1>
+                <h1 className='homeTitle'>Matrimony</h1>
 
                 <div className="search_icons">
                     <div className="search_Sub_icons">
