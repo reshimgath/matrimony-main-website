@@ -14,7 +14,7 @@ const RedNav = () => {
         <>
             <nav className="navbar redNav navbar-light bg-transperent p-4">
                 <div className="container-fluid">
-                    <h1 className="main_nav_title"><Link to="/">Reshimgath</Link></h1>
+                    <h1 className="main_nav_title"><Link to="/">Logo</Link></h1>
                     <button className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                         <div className="d-flex align-items-center justify-content-center">
                             {
